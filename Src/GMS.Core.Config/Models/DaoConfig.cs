@@ -20,6 +20,7 @@ namespace GMS.Core.Config
         public String Cms { get; set; }
         public String Crm { get; set; }
         public String OA { get; set; }
+        public String ToolManage { get; set; }
         #endregion
     }
 }

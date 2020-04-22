@@ -1,0 +1,6 @@
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.ToolManage.DAL\obj\Debug\GMS.ToolManage.DAL.csprojAssemblyReference.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.ToolManage.DAL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.ToolManage.DAL.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.ToolManage.DAL\obj\Debug\GMS.ToolManage.DAL.csproj.CopyComplete
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.ToolManage.DAL\obj\Debug\GMS.ToolManage.DAL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.ToolManage.DAL\obj\Debug\GMS.ToolManage.DAL.pdb

@@ -110,6 +110,9 @@
     <Compile Include="Areas\OA\Controllers\OrgController.cs" />
     <Compile Include="Areas\OA\Controllers\StaffController.cs" />
     <Compile Include="Areas\OA\OAAreaRegistration.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\ApplyController.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\ManagerController.cs" />
+    <Compile Include="Areas\ToolManage\ToolManageAreaRegistration.cs" />
     <Compile Include="Common\AdminCookieContext.cs" />
     <Compile Include="Common\AdminUserContext.cs" />
     <Compile Include="Common\AdminControllerBase.cs" />
@@ -1315,6 +1318,15 @@
     <Content Include="Areas\OA\Views\Staff\Edit.cshtml" />
     <Content Include="Areas\OA\Views\Staff\Index.cshtml" />
     <Content Include="Areas\OA\Views\Org\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Apply\Out.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Apply\In.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Apply\Repair.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Out.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\In.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Repair.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Information.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Web.config" />
+    <Content Include="Areas\ToolManage\Views\Apply\Create.cshtml" />
     <None Include="Assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="Assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="Assets\bootstrap-daterangepicker\README.md" />
@@ -1564,6 +1576,10 @@
     <ProjectReference Include="..\GMS.OA.Contract\GMS.OA.Contract.csproj">
       <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
       <Name>GMS.OA.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMS.ToolManage.Contract\GMS.ToolManage.Contract.csproj">
+      <Project>{a5bb2a4f-fead-4bf7-979d-0b47703dbcaa}</Project>
+      <Name>GMS.ToolManage.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\GMS.Web\GMS.Web.csproj">
       <Project>{E905FFE6-A1D5-48B2-81B7-8E8D4BC5F895}</Project>

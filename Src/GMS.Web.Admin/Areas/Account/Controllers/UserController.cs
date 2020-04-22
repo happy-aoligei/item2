@@ -31,7 +31,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             this.ViewBag.RoleIds = new SelectList(roles, "ID", "Name");
             
             var model = new User();
-            model.Password = "111111";
+            //model.Password = "111111";
             return View("Edit", model);
         }
 
@@ -43,7 +43,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         {
             var model = new User();
             this.TryUpdateModel<User>(model);
-            model.Password = "111111";
+            //model.Password = "111111";
             model.Password = Encrypt.MD5(model.Password);
 
             try

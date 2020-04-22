@@ -97,6 +97,10 @@
       <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
       <Name>GMS.OA.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GMS.ToolManage.Contract\GMS.ToolManage.Contract.csproj">
+      <Project>{a5bb2a4f-fead-4bf7-979d-0b47703dbcaa}</Project>
+      <Name>GMS.ToolManage.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

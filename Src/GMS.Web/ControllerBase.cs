@@ -9,6 +9,7 @@ using GMS.Core.Log;
 using GMS.Cms.Contract;
 using GMS.Crm.Contract;
 using GMS.OA.Contract;
+using GMS.ToolManage.Contract;
 
 namespace GMS.Web
 {
@@ -46,6 +47,13 @@ namespace GMS.Web
             }
         }
 
+        public virtual IToolManageService ToolManageService
+        {
+            get
+            {
+                return ServiceContext.Current.ToolManageService;
+            }
+        }
         protected override void LogException(Exception exception, 
             WebExceptionContext exceptionContext = null)
         {

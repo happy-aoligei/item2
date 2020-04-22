@@ -6,6 +6,7 @@ using GMS.Core.Service;
 using GMS.Cms.Contract;
 using GMS.Crm.Contract;
 using GMS.OA.Contract;
+using GMS.ToolManage.Contract;
 
 namespace GMS.Web
 {
@@ -48,6 +49,13 @@ namespace GMS.Web
             get
             {
                 return ServiceHelper.CreateService<IOAService>();
+            }
+        }
+        public IToolManageService ToolManageService
+        {
+            get
+            {
+                return ServiceHelper.CreateService<IToolManageService>();
             }
         }
     }

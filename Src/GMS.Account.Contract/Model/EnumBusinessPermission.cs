@@ -52,5 +52,15 @@ namespace GMS.Account.Contract
 
         [EnumTitle("组织结构管理")]
         OAManage_Org = 403,
+
+        [EnumTitle("出入库申请")]
+        ToolManage_Apply = 501,
+
+        [EnumTitle("出入库管理")]
+        ToolManage_Manager = 502,
+
+        [EnumTitle("信息查询")]
+        ToolManage_Information = 503,
+
     }
 }
