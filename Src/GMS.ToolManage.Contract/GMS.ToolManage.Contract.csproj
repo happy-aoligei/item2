@@ -41,6 +41,7 @@
     <Compile Include="Model\InManage.cs" />
     <Compile Include="Model\InTable.cs" />
     <Compile Include="Model\Requests.cs" />
+    <Compile Include="Model\TongsEntity.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

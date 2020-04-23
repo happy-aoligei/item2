@@ -73,5 +73,22 @@ namespace GMS.ToolManage.BLL
                 return dbContext.Find<InTable>(id);
             }
         }
+
+        public IEnumerable<TongsEntity> GetTongsEntityList(TongsEntityRequest request = null)
+        {
+            request = request ?? new TongsEntityRequest();
+            using (var dbContext = new ToolManageDbContext())
+            {
+                IQueryable<TongsEntity> TongsEntitys = dbContext.TongsEntitys;
+
+                if (!string.IsNullOrEmpty(request.Code))
+                    TongsEntitys = TongsEntitys.Where(u => u.Code.Contains(request.Code));
+                if (request.SeqID!=0)
+                    TongsEntitys = TongsEntitys.Where(u => u.SeqID==request.SeqID);
+                if (!string.IsNullOrEmpty(request.State))
+                    TongsEntitys = TongsEntitys.Where(u => u.State.Contains(request.State));
+                return TongsEntitys.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+            }
+        }
     }
 }

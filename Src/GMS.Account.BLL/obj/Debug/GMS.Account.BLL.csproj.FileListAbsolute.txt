@@ -15,3 +15,10 @@ D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛�
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.csproj.CopyComplete
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.dll
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Account.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Account.BLL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Account.BLL\obj\Debug\GMS.Account.BLL.csproj.CoreCompileInputs.cache

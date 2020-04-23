@@ -15,3 +15,10 @@ D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛�
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.csproj.CopyComplete
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.dll
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Core.Upload.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Core.Upload.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Core.Upload\obj\Debug\GMS.Core.Upload.csproj.CoreCompileInputs.cache

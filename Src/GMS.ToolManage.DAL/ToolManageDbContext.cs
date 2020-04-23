@@ -23,5 +23,6 @@ namespace GMS.ToolManage.DAL
 
         public DbSet<InTable> InTables { get; set; }
         public DbSet<InManage> InManages { get; set; }
+        public DbSet<TongsEntity> TongsEntitys { get; set; }
     }
 }

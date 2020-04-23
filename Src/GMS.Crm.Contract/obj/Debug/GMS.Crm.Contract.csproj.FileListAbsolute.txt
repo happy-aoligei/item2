@@ -14,3 +14,9 @@ D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛�
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.csproj.CopyComplete
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.dll
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Crm.Contract.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\bin\GMS.Crm.Contract.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Crm.Contract\obj\Debug\GMS.Crm.Contract.csproj.CoreCompileInputs.cache

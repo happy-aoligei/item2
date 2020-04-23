@@ -29,10 +29,10 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
         {
             return View();
         }
-        public ActionResult Information()//信息
+        public ActionResult Information(TongsEntityRequest request)//入库
         {
-            return View();
+            var result = this.ToolManageService.GetTongsEntityList(request);
+            return View(result);
         }
-
     }
 }

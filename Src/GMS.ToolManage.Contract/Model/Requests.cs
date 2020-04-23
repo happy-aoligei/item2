@@ -28,4 +28,20 @@ namespace GMS.ToolManage.Contract
             Checker = "";
         }
     }
+
+    public class TongsEntityRequest : Request
+    {
+        public string Code { get; set; }
+        public int SeqID { get; set; }
+        public string Model { get; set; }
+        public string PartNo { get; set; }
+        public string BillNo { get; set; }
+        public DateTime RegDate { get; set; }
+        public string Location { get; set; }
+        public int Bin { get; set; }
+        public string State { get; set; }
+        public string Photo { get; set; }
+        public int UsedCount { get; set; }
+        public string ErrProbability { get; set; }
+    }
 }
