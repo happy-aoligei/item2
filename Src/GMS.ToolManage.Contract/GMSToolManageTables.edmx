@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GMSToolManageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="attachments">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+          <Property Name="Content" Type="nvarchar" MaxLength="650" />
+          <Property Name="ESRID" Type="int" />
+        </EntityType>
+        <EntityType Name="authorization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="EmailID" />
+          </Key>
+          <Property Name="EmailID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="45" />
+          <Property Name="Content" Type="nvarchar" MaxLength="245" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="45" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="Birthday" Type="date" />
+        </EntityType>
+        <EntityType Name="InManage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Proposer" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Checker" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime2" Precision="0" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="Location" />
+            <PropertyRef Name="Bin" />
+          </Key>
+          <Property Name="Location" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Bin" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" />
+        </EntityType>
+        <EntityType Name="maintenance_record">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="ErrDescription" Type="nvarchar" MaxLength="45" />
+          <Property Name="ErrPhoto" Type="nvarchar" MaxLength="45" />
+          <Property Name="ApplicantID" Type="int" />
+          <Property Name="Operator2ID" Type="int" />
+          <Property Name="MaintainState" Type="nvarchar" MaxLength="45" />
+          <Property Name="MaintainDate" Type="date" />
+          <Property Name="SupervisorID" Type="int" />
+        </EntityType>
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="operator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="operator1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="operator2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="outstorage">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="45" />
+          <Property Name="Bin" Type="int" />
+          <Property Name="GoWhere" Type="nvarchar" MaxLength="45" />
+          <Property Name="LineID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="OutstorageDate" Type="datetime2" Precision="0" />
+          <Property Name="HandlerID" Type="int" />
+          <Property Name="RecorderID" Type="int" />
+          <Property Name="ShiftTime" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="production_line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="purchase_warehousing_application">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="buyoff" Type="nvarchar" MaxLength="45" />
+          <Property Name="jbuyoff" Type="date" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="45" />
+          <Property Name="Family" Type="nvarchar" MaxLength="45" />
+          <Property Name="Model" Type="nvarchar" MaxLength="45" />
+          <Property Name="AuditState" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark1" Type="nvarchar" MaxLength="45" />
+          <Property Name="Remark2" Type="nvarchar" MaxLength="45" />
+          <Property Name="Operator2" Type="int" />
+          <Property Name="Supervisor" Type="int" />
+          <Property Name="Manager" Type="int" />
+          <Property Name="Location" Type="nvarchar" MaxLength="45" />
+          <Property Name="bin" Type="int" />
+        </EntityType>
+        <EntityType Name="send_emails">
+          <Key>
+            <PropertyRef Name="ESRID" />
+            <PropertyRef Name="ReceiveTime" />
+          </Key>
+          <Property Name="ESRID" Type="int" Nullable="false" />
+          <Property Name="ReceiveTime" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="IsReaded" Type="nvarchar" MaxLength="2" />
+          <Property Name="EmailID" Type="int" />
+          <Property Name="sender" Type="int" />
+          <Property Name="recipient" Type="int" />
+        </EntityType>
+        <EntityType Name="supervisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="system_email_account">
+          <Key>
+            <PropertyRef Name="SystemID" />
+          </Key>
+          <Property Name="SystemID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="tongs_definition">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="WorkcellID" Type="int" />
+          <Property Name="Workcell" Type="nvarchar" MaxLength="45" />
+          <Property Name="FamilyID" Type="int" />
+          <Property Name="Family" Type="nvarchar" MaxLength="45" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+          <Property Name="Model" Type="nvarchar" MaxLength="45" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="45" />
+          <Property Name="Type" Type="nvarchar" MaxLength="45" />
+          <Property Name="UsedFor" Type="nvarchar" MaxLength="150" />
+          <Property Name="UPL" Type="int" />
+          <Property Name="Owner" Type="int" />
+          <Property Name="OwnerName" Type="nvarchar" MaxLength="45" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+          <Property Name="PMPeriod" Type="nvarchar" MaxLength="45" />
+          <Property Name="PMType" Type="nvarchar" MaxLength="45" />
+          <Property Name="RecOn" Type="datetime2" Precision="0" />
+          <Property Name="RecBy" Type="int" />
+          <Property Name="RecByName" Type="nvarchar" MaxLength="45" />
+          <Property Name="EditOn" Type="datetime2" Precision="0" />
+          <Property Name="EditBy" Type="int" />
+          <Property Name="EditByName" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="tongs_entity">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="45" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="45" />
+          <Property Name="BillNo" Type="nvarchar" MaxLength="45" />
+          <Property Name="RegDate" Type="datetime2" Precision="0" />
+          <Property Name="Location" Type="nvarchar" MaxLength="45" />
+          <Property Name="Bin" Type="int" />
+          <Property Name="State" Type="nvarchar" MaxLength="45" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="45" />
+          <Property Name="UsedCount" Type="int" />
+          <Property Name="ErrProbability" Type="nvarchar" MaxLength="3" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tongs_scrapping">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="Servicelife" Type="float" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="45" />
+          <Property Name="AuditState" Type="nvarchar" MaxLength="45" />
+          <Property Name="ApplicantID" Type="int" />
+          <Property Name="Auditor1" Type="int" />
+          <Property Name="Auditor2" Type="int" />
+        </EntityType>
+        <EntityType Name="upkeep_check">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="LastMaintainTime" Type="datetime2" Precision="0" />
+          <Property Name="MaintainCount" Type="int" />
+          <Property Name="EmpID" Type="int" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="EmpID" Type="int" />
+          <Property Name="Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warehousing">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="LineID" Type="int" />
+          <Property Name="ShiftTime" Type="int" />
+          <Property Name="WarehousingDate" Type="datetime2" Precision="0" />
+          <Property Name="BufferZone" Type="nvarchar" MaxLength="2" />
+          <Property Name="BufferZDate" Type="datetime2" Precision="0" />
+          <Property Name="Location" Type="nvarchar" MaxLength="45" />
+          <Property Name="Bin" Type="int" />
+          <Property Name="Handler1ID" Type="int" />
+          <Property Name="Recorder1ID" Type="int" />
+          <Property Name="Handler2ID" Type="int" />
+          <Property Name="Recorder2ID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="GMSToolManageModelStoreContainer">
+          <EntitySet Name="attachments" EntityType="Self.attachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="authorization" EntityType="Self.authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InManage" EntityType="Self.InManage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InTable" EntityType="Self.InTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager" EntityType="Self.manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operator" EntityType="Self.operator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operator1" EntityType="Self.operator1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operator2" EntityType="Self.operator2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="outstorage" EntityType="Self.outstorage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="production_line" EntityType="Self.production_line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchase_warehousing_application" EntityType="Self.purchase_warehousing_application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="send_emails" EntityType="Self.send_emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supervisor" EntityType="Self.supervisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="system_email_account" EntityType="Self.system_email_account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tongs_entity" EntityType="Self.tongs_entity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tongs_scrapping" EntityType="Self.tongs_scrapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="warehousing" EntityType="Self.warehousing" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GMSToolManageModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="attachments">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="ESRID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="authorization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="EmailID" />
+          </Key>
+          <Property Name="EmailID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="245" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="EmpID" />
+          </Key>
+          <Property Name="EmpID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="InManage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Proposer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Checker" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="DateTime" Precision="0" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="Location1" />
+            <PropertyRef Name="Bin" />
+          </Key>
+          <Property Name="Location1" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bin" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" />
+        </EntityType>
+        <EntityType Name="maintenance_record">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="ErrDescription" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ErrPhoto" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicantID" Type="Int32" />
+          <Property Name="Operator2ID" Type="Int32" />
+          <Property Name="MaintainState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="MaintainDate" Type="DateTime" Precision="0" />
+          <Property Name="SupervisorID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="operator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="operator1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="operator2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="outstorage">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Bin" Type="Int32" />
+          <Property Name="GoWhere" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="LineID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="OutstorageDate" Type="DateTime" Precision="0" />
+          <Property Name="HandlerID" Type="Int32" />
+          <Property Name="RecorderID" Type="Int32" />
+          <Property Name="ShiftTime" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="production_line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="purchase_warehousing_application">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="buyoff" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="jbuyoff" Type="DateTime" Precision="0" />
+          <Property Name="Owner" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="AuditState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark1" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Remark2" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2" Type="Int32" />
+          <Property Name="Supervisor" Type="Int32" />
+          <Property Name="Manager" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="bin" Type="Int32" />
+        </EntityType>
+        <EntityType Name="send_emails">
+          <Key>
+            <PropertyRef Name="ESRID" />
+            <PropertyRef Name="ReceiveTime" />
+          </Key>
+          <Property Name="ESRID" Type="Int32" Nullable="false" />
+          <Property Name="ReceiveTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsReaded" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="Int32" />
+          <Property Name="sender" Type="Int32" />
+          <Property Name="recipient" Type="Int32" />
+        </EntityType>
+        <EntityType Name="supervisor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="system_email_account">
+          <Key>
+            <PropertyRef Name="SystemID" />
+          </Key>
+          <Property Name="SystemID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tongs_definition">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkcellID" Type="Int32" />
+          <Property Name="Workcell" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyID" Type="Int32" />
+          <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="PartNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="UsedFor" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UPL" Type="Int32" />
+          <Property Name="Owner" Type="Int32" />
+          <Property Name="OwnerName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PMPeriod" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="PMType" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="RecOn" Type="DateTime" Precision="0" />
+          <Property Name="RecBy" Type="Int32" />
+          <Property Name="RecByName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="EditOn" Type="DateTime" Precision="0" />
+          <Property Name="EditBy" Type="Int32" />
+          <Property Name="EditByName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tongs_entity">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="PartNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="BillNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="RegDate" Type="DateTime" Precision="0" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Bin" Type="Int32" />
+          <Property Name="State" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="UsedCount" Type="Int32" />
+          <Property Name="ErrProbability" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="tongs_scrapping">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="Servicelife" Type="Double" />
+          <Property Name="Reason" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="AuditState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicantID" Type="Int32" />
+          <Property Name="Auditor1" Type="Int32" />
+          <Property Name="Auditor2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="upkeep_check">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="LastMaintainTime" Type="DateTime" Precision="0" />
+          <Property Name="MaintainCount" Type="Int32" />
+          <Property Name="EmpID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpID" Type="Int32" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warehousing">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="LineID" Type="Int32" />
+          <Property Name="ShiftTime" Type="Int32" />
+          <Property Name="WarehousingDate" Type="DateTime" Precision="0" />
+          <Property Name="BufferZone" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="BufferZDate" Type="DateTime" Precision="0" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Bin" Type="Int32" />
+          <Property Name="Handler1ID" Type="Int32" />
+          <Property Name="Recorder1ID" Type="Int32" />
+          <Property Name="Handler2ID" Type="Int32" />
+          <Property Name="Recorder2ID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="GMSToolManageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="attachments" EntityType="Self.attachments" />
+          <EntitySet Name="authorization" EntityType="Self.authorization" />
+          <EntitySet Name="emails" EntityType="Self.emails" />
+          <EntitySet Name="employees" EntityType="Self.employees" />
+          <EntitySet Name="InManage" EntityType="Self.InManage" />
+          <EntitySet Name="InTable" EntityType="Self.InTable" />
+          <EntitySet Name="location" EntityType="Self.location" />
+          <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" />
+          <EntitySet Name="manager" EntityType="Self.manager" />
+          <EntitySet Name="operator" EntityType="Self.operator" />
+          <EntitySet Name="operator1" EntityType="Self.operator1" />
+          <EntitySet Name="operator2" EntityType="Self.operator2" />
+          <EntitySet Name="outstorage" EntityType="Self.outstorage" />
+          <EntitySet Name="production_line" EntityType="Self.production_line" />
+          <EntitySet Name="purchase_warehousing_application" EntityType="Self.purchase_warehousing_application" />
+          <EntitySet Name="send_emails" EntityType="Self.send_emails" />
+          <EntitySet Name="supervisor" EntityType="Self.supervisor" />
+          <EntitySet Name="system_email_account" EntityType="Self.system_email_account" />
+          <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" />
+          <EntitySet Name="tongs_entity" EntityType="Self.tongs_entity" />
+          <EntitySet Name="tongs_scrapping" EntityType="Self.tongs_scrapping" />
+          <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="warehousing" EntityType="Self.warehousing" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GMSToolManageModelStoreContainer" CdmEntityContainer="GMSToolManageEntities">
+          <EntitySetMapping Name="attachments">
+            <EntityTypeMapping TypeName="GMSToolManageModel.attachments">
+              <MappingFragment StoreEntitySet="attachments">
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ESRID" ColumnName="ESRID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="authorization">
+            <EntityTypeMapping TypeName="GMSToolManageModel.authorization">
+              <MappingFragment StoreEntitySet="authorization">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="GMSToolManageModel.emails">
+              <MappingFragment StoreEntitySet="emails">
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="GMSToolManageModel.employees">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InManage">
+            <EntityTypeMapping TypeName="GMSToolManageModel.InManage">
+              <MappingFragment StoreEntitySet="InManage">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Proposer" ColumnName="Proposer" />
+                <ScalarProperty Name="Checker" ColumnName="Checker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InTable">
+            <EntityTypeMapping TypeName="GMSToolManageModel.InTable">
+              <MappingFragment StoreEntitySet="InTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location">
+            <EntityTypeMapping TypeName="GMSToolManageModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="Location1" ColumnName="Location" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="maintenance_record">
+            <EntityTypeMapping TypeName="GMSToolManageModel.maintenance_record">
+              <MappingFragment StoreEntitySet="maintenance_record">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="ErrDescription" ColumnName="ErrDescription" />
+                <ScalarProperty Name="ErrPhoto" ColumnName="ErrPhoto" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="Operator2ID" ColumnName="Operator2ID" />
+                <ScalarProperty Name="MaintainState" ColumnName="MaintainState" />
+                <ScalarProperty Name="MaintainDate" ColumnName="MaintainDate" />
+                <ScalarProperty Name="SupervisorID" ColumnName="SupervisorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager">
+            <EntityTypeMapping TypeName="GMSToolManageModel.manager">
+              <MappingFragment StoreEntitySet="manager">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operator">
+            <EntityTypeMapping TypeName="GMSToolManageModel.operator">
+              <MappingFragment StoreEntitySet="operator">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operator1">
+            <EntityTypeMapping TypeName="GMSToolManageModel.operator1">
+              <MappingFragment StoreEntitySet="operator1">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operator2">
+            <EntityTypeMapping TypeName="GMSToolManageModel.operator2">
+              <MappingFragment StoreEntitySet="operator2">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="outstorage">
+            <EntityTypeMapping TypeName="GMSToolManageModel.outstorage">
+              <MappingFragment StoreEntitySet="outstorage">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="GoWhere" ColumnName="GoWhere" />
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OutstorageDate" ColumnName="OutstorageDate" />
+                <ScalarProperty Name="HandlerID" ColumnName="HandlerID" />
+                <ScalarProperty Name="RecorderID" ColumnName="RecorderID" />
+                <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="production_line">
+            <EntityTypeMapping TypeName="GMSToolManageModel.production_line">
+              <MappingFragment StoreEntitySet="production_line">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchase_warehousing_application">
+            <EntityTypeMapping TypeName="GMSToolManageModel.purchase_warehousing_application">
+              <MappingFragment StoreEntitySet="purchase_warehousing_application">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="buyoff" ColumnName="buyoff" />
+                <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="AuditState" ColumnName="AuditState" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+                <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+                <ScalarProperty Name="Operator2" ColumnName="Operator2" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="bin" ColumnName="bin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="send_emails">
+            <EntityTypeMapping TypeName="GMSToolManageModel.send_emails">
+              <MappingFragment StoreEntitySet="send_emails">
+                <ScalarProperty Name="ESRID" ColumnName="ESRID" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supervisor">
+            <EntityTypeMapping TypeName="GMSToolManageModel.supervisor">
+              <MappingFragment StoreEntitySet="supervisor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="system_email_account">
+            <EntityTypeMapping TypeName="GMSToolManageModel.system_email_account">
+              <MappingFragment StoreEntitySet="system_email_account">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tongs_definition">
+            <EntityTypeMapping TypeName="GMSToolManageModel.tongs_definition">
+              <MappingFragment StoreEntitySet="tongs_definition">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="WorkcellID" ColumnName="WorkcellID" />
+                <ScalarProperty Name="Workcell" ColumnName="Workcell" />
+                <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UsedFor" ColumnName="UsedFor" />
+                <ScalarProperty Name="UPL" ColumnName="UPL" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PMPeriod" ColumnName="PMPeriod" />
+                <ScalarProperty Name="PMType" ColumnName="PMType" />
+                <ScalarProperty Name="RecOn" ColumnName="RecOn" />
+                <ScalarProperty Name="RecBy" ColumnName="RecBy" />
+                <ScalarProperty Name="RecByName" ColumnName="RecByName" />
+                <ScalarProperty Name="EditOn" ColumnName="EditOn" />
+                <ScalarProperty Name="EditBy" ColumnName="EditBy" />
+                <ScalarProperty Name="EditByName" ColumnName="EditByName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tongs_entity">
+            <EntityTypeMapping TypeName="GMSToolManageModel.tongs_entity">
+              <MappingFragment StoreEntitySet="tongs_entity">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="UsedCount" ColumnName="UsedCount" />
+                <ScalarProperty Name="ErrProbability" ColumnName="ErrProbability" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tongs_scrapping">
+            <EntityTypeMapping TypeName="GMSToolManageModel.tongs_scrapping">
+              <MappingFragment StoreEntitySet="tongs_scrapping">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="Servicelife" ColumnName="Servicelife" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="AuditState" ColumnName="AuditState" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="Auditor1" ColumnName="Auditor1" />
+                <ScalarProperty Name="Auditor2" ColumnName="Auditor2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="upkeep_check">
+            <EntityTypeMapping TypeName="GMSToolManageModel.upkeep_check">
+              <MappingFragment StoreEntitySet="upkeep_check">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="LastMaintainTime" ColumnName="LastMaintainTime" />
+                <ScalarProperty Name="MaintainCount" ColumnName="MaintainCount" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="GMSToolManageModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warehousing">
+            <EntityTypeMapping TypeName="GMSToolManageModel.warehousing">
+              <MappingFragment StoreEntitySet="warehousing">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
+                <ScalarProperty Name="WarehousingDate" ColumnName="WarehousingDate" />
+                <ScalarProperty Name="BufferZone" ColumnName="BufferZone" />
+                <ScalarProperty Name="BufferZDate" ColumnName="BufferZDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="Handler1ID" ColumnName="Handler1ID" />
+                <ScalarProperty Name="Recorder1ID" ColumnName="Recorder1ID" />
+                <ScalarProperty Name="Handler2ID" ColumnName="Handler2ID" />
+                <ScalarProperty Name="Recorder2ID" ColumnName="Recorder2ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

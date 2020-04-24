@@ -1531,6 +1531,7 @@
     <None Include="Content\Uploadify\uploadify.fla" />
     <Content Include="FileUpload.ashx" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMS.Account.Contract\GMS.Account.Contract.csproj">

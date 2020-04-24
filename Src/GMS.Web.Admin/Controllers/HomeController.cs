@@ -15,5 +15,9 @@ namespace GMS.Web.Admin.Controllers
         {
             return RedirectToAction("Index", "Auth", new { Area = "Account"});
         }
+        public ActionResult Test()
+        {
+            return View();
+        }
     }
 }

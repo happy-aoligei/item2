@@ -13,9 +13,11 @@
 //新菜单根据Url决定逻辑
 (function () {
     var locationHref = window.location.href;
+    var judgestr = locationHref;
+    locationHref += judgestr;
     $(".page-sidebar>ul>li>a").each(function () {
 
-        if (locationHref.indexOf($(this).attr("href")) > 0) {
+        if (locationHref.indexOf($(this).attr("href") + judgestr) > 0) {
             $(this).parent().addClass("active");
             $(this).append("<span class='selected'></span>");
 
@@ -33,7 +35,7 @@
             var parent = $(this);
             $(this).next("ul").each(function () {
                 $("a", $(this)).each(function () {
-                    if (locationHref.indexOf($(this).attr("href")) > 0) {
+                    if (locationHref.indexOf($(this).attr("href") + judgestr) > 0) {
                         $(this).parent().addClass("active");
 
                         parent.parent().addClass("active");

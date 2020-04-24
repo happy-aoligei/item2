@@ -22,3 +22,4 @@ E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管�
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Framework.BLL\obj\Debug\GMS.Framework.BLL.pdb
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Framework.BLL\obj\Debug\GMS.Framework.BLL.csproj.CoreCompileInputs.cache
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Framework.BLL\obj\Debug\GMS.Framework.BLL.csprojAssemblyReference.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Framework.BLL\obj\Debug\GMS.Framework.BLL.csprojAssemblyReference.cache

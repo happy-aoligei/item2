@@ -37,13 +37,97 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="attachments.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="authorization.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="emails.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="employees.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GMSToolManageTables.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GMSToolManageTables.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GMSToolManageTables.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GMSToolManageTables.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GMSToolManageTables.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="InManage.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InTable.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
     <Compile Include="IToolManageService.cs" />
-    <Compile Include="Model\InManage.cs" />
-    <Compile Include="Model\InTable.cs" />
+    <Compile Include="location.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="maintenance_record.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="manager.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Requests.cs" />
     <Compile Include="Model\TongsEntity.cs" />
+    <Compile Include="operator.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="operator1.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="operator2.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="outstorage.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="production_line.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="purchase_warehousing_application.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="send_emails.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="supervisor.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="system_email_account.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tongs_definition.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tongs_entity.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tongs_scrapping.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="upkeep_check.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="warehousing.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GMS.Framework.Contract\GMS.Framework.Contract.csproj">
       <Project>{11214d97-f23c-4e16-aa12-ecd824454744}</Project>
@@ -55,11 +139,42 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\Lib\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="GMSToolManageTables.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GMSToolManageTables.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GMSToolManageTables.edmx.diagram">
+      <DependentUpon>GMSToolManageTables.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GMSToolManageTables.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GMSToolManageTables.edmx</DependentUpon>
+      <LastGenOutput>GMSToolManageTables.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GMSToolManageTables.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GMSToolManageTables.edmx</DependentUpon>
+      <LastGenOutput>GMSToolManageTables.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -224,3 +224,5 @@ E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管�
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.dll
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.pdb
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.csproj.CoreCompileInputs.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\bin\GMS.ToolManage.Contract.dll.config
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\bin\zh-Hans\EntityFramework.resources.dll
