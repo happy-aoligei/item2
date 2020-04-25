@@ -81,7 +81,6 @@
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Requests.cs" />
-    <Compile Include="Model\TongsEntity.cs" />
     <Compile Include="operator.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>

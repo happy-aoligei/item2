@@ -13,8 +13,7 @@
 
             
             <div class="control-group">
-                <span class="required">*</span>
-                <label class="control-label">名称：</label>
+                <label class="control-label"><span class="required">*</span>名称：</label>
                 <div class="controls">
                     @Html.TextBoxFor(m => m.Name, new { @class = "m-wrap small" })
                     <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>

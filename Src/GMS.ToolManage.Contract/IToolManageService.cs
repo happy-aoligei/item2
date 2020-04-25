@@ -10,8 +10,16 @@ namespace GMS.ToolManage.Contract
         void DeleteInTable(List<int> ids);
         InTable GetInTable(int id);
 
-        IEnumerable<InManage> GetInManageList(InManageRequest request = null);
-        IEnumerable<TongsEntity> GetTongsEntityList(TongsEntityRequest request = null);
+        IEnumerable<outstorage> GetoutstorageList(outstorageRequest request = null);
+        outstorage Getoutstorage(int id);
+        void Saveoutstorage(outstorage Data);
+        void Deleteoutstorage(List<int> ids);
 
+        IEnumerable<InManage> GetInManageList(InManageRequest request = null);
+
+        IEnumerable<tongs_entity> Gettongs_entityList(tongs_entityRequest request = null);
+        tongs_entity Gettongs_entity(int id);
+        void Savetongs_entity(tongs_entity Data);
+        void Deletetongs_entity(List<int> ids);
     }
 }

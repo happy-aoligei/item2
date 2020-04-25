@@ -1327,6 +1327,10 @@
     <Content Include="Areas\ToolManage\Views\Manager\Information.cshtml" />
     <Content Include="Areas\ToolManage\Views\Web.config" />
     <Content Include="Areas\ToolManage\Views\Apply\Create.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Information_Create.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Information_Edit.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Out_Edit.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Manager\Out_Create.cshtml" />
     <None Include="Assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="Assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="Assets\bootstrap-daterangepicker\README.md" />

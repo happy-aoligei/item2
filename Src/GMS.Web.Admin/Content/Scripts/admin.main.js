@@ -13,6 +13,7 @@
 //新菜单根据Url决定逻辑
 (function () {
     var locationHref = window.location.href;
+    if (locationHref.indexOf("?") > 0) locationHref = locationHref.substring(0, locationHref.indexOf("?"));
     var judgestr = locationHref;
     locationHref += judgestr;
     $(".page-sidebar>ul>li>a").each(function () {

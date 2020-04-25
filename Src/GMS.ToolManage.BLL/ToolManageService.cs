@@ -22,11 +22,11 @@ namespace GMS.ToolManage.BLL
             using (var dbContext = new ToolManageDbContext())
             {
                 IQueryable<InTable> InTables = dbContext.InTables;
-
-                if (!string.IsNullOrEmpty(request.Name))
-                    InTables = InTables.Where(u => u.Name.Contains(request.Name));
-               
-
+                if (request != null)
+                {
+                    if (!string.IsNullOrEmpty(request.Name))
+                        InTables = InTables.Where(u => u.Name.Contains(request.Name));
+                }
                 return InTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
         }
@@ -74,20 +74,94 @@ namespace GMS.ToolManage.BLL
             }
         }
 
-        public IEnumerable<TongsEntity> GetTongsEntityList(TongsEntityRequest request = null)
+        public IEnumerable<tongs_entity> Gettongs_entityList(tongs_entityRequest request = null)
         {
-            request = request ?? new TongsEntityRequest();
+            request = request ?? new tongs_entityRequest();
             using (var dbContext = new ToolManageDbContext())
             {
-                IQueryable<TongsEntity> TongsEntitys = dbContext.TongsEntitys;
+                IQueryable<tongs_entity> tongs_entitys = dbContext.tongs_entitys;
+                if (request != null)
+                {
+                    if (!string.IsNullOrEmpty(request.Code))
+                        tongs_entitys = tongs_entitys.Where(u => u.Code.Contains(request.Code));
+                    if (request.SeqID != 0)
+                        tongs_entitys = tongs_entitys.Where(u => u.SeqID == request.SeqID);
+                    if (!string.IsNullOrEmpty(request.State))
+                        tongs_entitys = tongs_entitys.Where(u => u.State.Contains(request.State));
+                }
+                return tongs_entitys.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+            }
+        }
+        public tongs_entity Gettongs_entity(int id)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                return dbContext.tongs_entitys.Where(u => u.ID == id).SingleOrDefault();
+            }
+        }
+        public void Savetongs_entity(tongs_entity Data)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                if (Data.ID > 0)
+                {
+                    dbContext.Update<tongs_entity>(Data);
+                }
+                else
+                {
+                    dbContext.Insert<tongs_entity>(Data);
+                }
+            }
+        }
+        public void Deletetongs_entity(List<int> ids)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                dbContext.tongs_entitys.Where(u => ids.Contains(u.ID)).Delete();
+            }
+        }
 
+        public IEnumerable<outstorage> GetoutstorageList(outstorageRequest request = null)
+        {
+            request = request ?? new outstorageRequest();
+            using (var dbContext = new ToolManageDbContext())
+            {
+                IQueryable<outstorage> outstorages = dbContext.outstorages;
                 if (!string.IsNullOrEmpty(request.Code))
-                    TongsEntitys = TongsEntitys.Where(u => u.Code.Contains(request.Code));
-                if (request.SeqID!=0)
-                    TongsEntitys = TongsEntitys.Where(u => u.SeqID==request.SeqID);
-                if (!string.IsNullOrEmpty(request.State))
-                    TongsEntitys = TongsEntitys.Where(u => u.State.Contains(request.State));
-                return TongsEntitys.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+                    outstorages = outstorages.Where(u => u.Code.Contains(request.Code));
+                if (request.SeqID != 0)
+                    outstorages = outstorages.Where(u => u.SeqID == request.SeqID);
+                if (request.LineID != 0)
+                    outstorages = outstorages.Where(u => u.LineID == request.LineID);
+                return outstorages.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+            }
+        }
+        public outstorage Getoutstorage(int id)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                return dbContext.outstorages.Where(u => u.ID == id).SingleOrDefault();
+            }
+        }
+        public void Saveoutstorage(outstorage Data)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                if (Data.ID > 0)
+                {
+                    dbContext.Update<outstorage>(Data);
+                }
+                else
+                {
+                    dbContext.Insert<outstorage>(Data);
+                }
+            }
+        }
+        public void Deleteoutstorage(List<int> ids)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                dbContext.outstorages.Where(u => ids.Contains(u.ID)).Delete();
             }
         }
     }

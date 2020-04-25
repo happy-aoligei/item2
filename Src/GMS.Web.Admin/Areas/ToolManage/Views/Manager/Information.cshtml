@@ -3,14 +3,14 @@
 @using GMS.Framework.Web.Controls
 @using GMS.ToolManage.Contract
 
-@model PagedList<TongsEntity>
+@model PagedList<tongs_entity>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row-fluid">
     <div class="span4">
         <div>
-            <a class="btn blue thickbox" title='申请工夹具入库' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 申请入库</a>
+            <a class="btn blue thickbox" title='增加新夹具信息' href="@Url.Action("Information_Create")?TB_iframe=true&height=600&width=500"><i class="icon-plus icon-white"></i> 增加</a>
             <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
         </div>
     </div>
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-@using (Html.BeginForm("Delete", "Apply", FormMethod.Post, new { id = "mainForm" }))
+@using (Html.BeginForm("Information_Delete", "Manager", FormMethod.Post, new { id = "mainForm" }))
 {
     <table class="table table-striped table-hover ">
         <thead>
@@ -76,7 +76,7 @@
                     @m.Code-@m.SeqID
                 </td>
                 <td>
-                    @m.RegDate
+                    @m.RegDate.ToString("yyyy-MM-dd HH:mm:ss")
                 </td>
                 <td>
                     @m.Location-@m.Bin
@@ -91,7 +91,10 @@
                     @m.ErrProbability
                 </td>
                 <td>
-                    
+                    <a class="btn mini purple thickbox" title='编辑项目内容' href="@Url.Action("Information_Edit", new { id = m.ID })?TB_iframe=true&height=600&width=500">
+                        <i class="icon-edit"></i>
+                        编辑
+                    </a>
                 </td>
             </tr>
             }

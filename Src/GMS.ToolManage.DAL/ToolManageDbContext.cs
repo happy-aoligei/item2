@@ -23,6 +23,7 @@ namespace GMS.ToolManage.DAL
 
         public DbSet<InTable> InTables { get; set; }
         public DbSet<InManage> InManages { get; set; }
-        public DbSet<TongsEntity> TongsEntitys { get; set; }
+        public DbSet<tongs_entity> tongs_entitys { get; set; }
+        public DbSet<outstorage> outstorages { get; set; }
     }
 }
