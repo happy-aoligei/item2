@@ -25,7 +25,7 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body>
-  @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm" }))
+  @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm",enctype="multipart/form-data" }))
   {
 
       @RenderSection("MainContent", required: false)

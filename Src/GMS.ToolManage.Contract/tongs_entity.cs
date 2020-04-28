@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using GMS.Framework.Utility;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace GMS.ToolManage.Contract
 {

@@ -4,13 +4,13 @@
     });
 
     var mainForm = $("#submit").parent().parent();
-    mainForm.submit(function () {
+   /* mainForm.submit(function () {
         if (mainForm.valid()) {
             $("#submitloading").show();
         } else {
             $(".validation-summary-errors").hide(8000);
         }
-    });
+    });*/
 
     //$("input[type='text']").blur(function () { $(this).removeClass("highlight"); }).focus(function () { $(this).addClass("highlight"); });
 

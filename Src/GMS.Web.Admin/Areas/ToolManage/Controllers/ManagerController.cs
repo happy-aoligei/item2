@@ -151,8 +151,21 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
             return this.RefreshParent();
         }
         [HttpPost]
-        public ActionResult Information_Edit(tongs_entity Data)
+        public ActionResult Information_Edit(tongs_entity Data, HttpPostedFileBase ImagePath)
         {
+            if (ImagePath != null)
+            {
+                string filename = DateTime.Now.Ticks + ImagePath.FileName;
+                string truepath = Server.MapPath(@"\Upload\");
+                string filepath = truepath + filename;
+                string urlfilepath = @"\Upload\" + filename;
+                ImagePath.SaveAs(filepath);
+                Data.Photo = urlfilepath;
+            }
+            else
+            {
+                Data.Photo = ToolManageService.Gettongs_entity(Data.ID).Photo;
+            }
             this.ToolManageService.Savetongs_entity(Data);
             return this.RefreshParent();
         }

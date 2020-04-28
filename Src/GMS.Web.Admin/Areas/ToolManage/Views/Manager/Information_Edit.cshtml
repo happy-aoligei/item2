@@ -12,7 +12,6 @@
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
         <div class="row-fluid">
 
-
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>代码：</label>
                 <div class="controls">
@@ -51,7 +50,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>入库日期：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.RegDate,"{0:yyyy-MM-dd hh:mm:ss}", new { @class = "m-wrap" })
+                    @Html.TextBoxFor(m => m.RegDate, "{0:yyyy-MM-dd hh:mm:ss}", new { @class = "m-wrap" })
                     <span class="help-inline">@Html.ValidationMessageFor(m => m.RegDate)</span>
                 </div>
             </div>
@@ -77,10 +76,12 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label"><span class="required">*</span>图片：</label>
+                <label class="control-label">图片：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Photo, new { @class = "m-wrap" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Photo)</span>
+                    <img id="ImageShow" src="@Model.Photo" alt="无法正常显示" height=192 /><br>
+                    <input class="m-wrap" id="ImagePath" name="ImagePath" type="file" onchange="uploadImg();"/>
+
+                    <!--<span class="help-inline">Html.ValidationMessageFor(m => m.Photo)</span>-->
                 </div>
             </div>
             <div class="control-group">
@@ -101,3 +102,19 @@
         </div>
     </div>
 }
+<script>
+    function uploadImg() {
+        var fd = new FormData();
+        fd.append("ImagePath", $('#ImagePath')[0].files[0]);
+        $.ajax({
+            url: '/Home/UploadImg',
+            type: 'post',
+            processData: false,
+            contentType: false,
+            data: fd,
+            success: function (data) {
+                $('#ImageShow').attr("src", data);
+            }
+        })
+}
+</script>
