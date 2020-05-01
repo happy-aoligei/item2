@@ -19,20 +19,22 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         {
             return View();
         }
-        
         [HttpPost]
         [AuthorizeIgnore]
-        public ActionResult Login(string username, string password, string verifycode)
+        public ActionResult Login(string username, string password, string verifycode,int Workcell)
         {
             if (!VerifyCodeHelper.CheckVerifyCode(verifycode, this.CookieContext.VerifyCodeGuid))
             {
                 ModelState.AddModelError("error", "验证码错误");
                 return View();
             }
-            
-            var loginInfo = this.AccountService.Login(username, password);
-
-            if (loginInfo != null)
+            var loginInfo = this.AccountService.Login(username, password,Workcell);
+            if (loginInfo != null && loginInfo.Workcell == 0)
+            {
+                ModelState.AddModelError("error", "部门选择错误");
+                return View();
+            }
+            else if (loginInfo != null)
             {
                 this.CookieContext.UserToken = loginInfo.LoginToken;
                 this.CookieContext.UserName = loginInfo.LoginName;
@@ -66,7 +68,6 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         {
             var model = this.AccountService.GetUser(this.LoginInfo.UserID);
             this.TryUpdateModel<User>(model);
-
             try
             {
                 this.AccountService.ModifyPwd(model);

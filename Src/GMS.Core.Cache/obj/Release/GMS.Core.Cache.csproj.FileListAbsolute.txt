@@ -1,0 +1,11 @@
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Core.Cache.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Core.Cache.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Core.Config.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Framework.Utility.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Core.Config.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\bin\Release\GMS.Framework.Utility.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\obj\Release\GMS.Core.Cache.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\obj\Release\GMS.Core.Cache.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\obj\Release\GMS.Core.Cache.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\obj\Release\GMS.Core.Cache.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Cache\obj\Release\GMS.Core.Cache.pdb

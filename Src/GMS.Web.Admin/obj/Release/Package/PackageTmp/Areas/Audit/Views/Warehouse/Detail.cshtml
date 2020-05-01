@@ -1,0 +1,65 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@using GMS.Audit.Contract;
+
+@model Warehouse
+@{
+    Layout = "~/Views/Shared/_Layout.Detail.cshtml";
+}
+
+@{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>代码：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.Code</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系列号：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.SeqID</label>
+                   
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>接收编号：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.buyoff</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>责任人：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.Owner</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>审核状态：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.AuditState</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>初审备注：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.Remark1</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>终审备注：</label>
+                <div class="controls">
+                    <label class="m-wrap">@Model.Remark2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<style>
+    label.m-wrap{
+        margin-top:5px;
+    }
+</style>

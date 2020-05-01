@@ -1,0 +1,81 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@using GMS.ToolManage.Contract;
+
+@model outstorage
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>代码：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Code, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Code)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系列号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.SeqID, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.SeqID)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>夹具去向：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.GoWhere, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.GoWhere)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>生产线编号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.LineID, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.LineID)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>生产线产品编号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.ProductID, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.ProductID)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>入库日期：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.OutstorageDate, "{0:yyyy-MM-dd hh:mm:ss}", new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.OutstorageDate)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>出库库位：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Location, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Location)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>代码：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Bin, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Bin)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>经手人：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.HandlerID, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.HandlerID)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

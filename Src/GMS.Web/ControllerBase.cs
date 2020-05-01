@@ -8,6 +8,7 @@ using GMS.Framework.Contract;
 using GMS.Core.Log;
 using GMS.Cms.Contract;
 using GMS.Crm.Contract;
+using GMS.Audit.Contract;
 using GMS.OA.Contract;
 using GMS.ToolManage.Contract;
 
@@ -54,6 +55,15 @@ namespace GMS.Web
                 return ServiceContext.Current.ToolManageService;
             }
         }
+
+        public virtual IAuditService AuditService
+        {
+            get
+            {
+                return ServiceContext.Current.AuditService;
+            }
+        }
+
         protected override void LogException(Exception exception, 
             WebExceptionContext exceptionContext = null)
         {

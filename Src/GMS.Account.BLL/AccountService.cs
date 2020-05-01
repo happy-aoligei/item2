@@ -48,7 +48,7 @@ namespace GMS.Account.BLL
             });
         }
 
-        public LoginInfo Login(string loginName, string password)
+        public LoginInfo Login(string loginName, string password, int Workcell)
         {
             LoginInfo loginInfo = null;
 
@@ -57,22 +57,35 @@ namespace GMS.Account.BLL
 
             using (var dbContext = new AccountDbContext())
             {
-                var user = dbContext.Users.Include("Roles").Where(u => u.LoginName == loginName && u.Password == password && u.IsActive).FirstOrDefault();
-                if (user != null)
+                var users = dbContext.Users.Include("Roles").Where(u => u.LoginName == loginName && u.Password == password&& u.IsActive);
+                if (users.Count() > 0)
                 {
                     var ip = Fetch.UserIp;
+                    var user = users.Where(u => u.Workcell == Workcell).FirstOrDefault();
+                    if (user == null)
+                    {
+                        LoginInfo res = new LoginInfo();
+                        res.Workcell = 0;
+                        return res;
+                    }
                     loginInfo = dbContext.FindAll<LoginInfo>(p => p.LoginName == loginName && p.ClientIP == ip).FirstOrDefault();
                     if (loginInfo != null)
                     {
                         loginInfo.LastAccessTime = DateTime.Now;
+                        loginInfo.Workcell = Workcell;
                     }
                     else
                     {
                         loginInfo = new LoginInfo(user.ID, user.LoginName);
                         loginInfo.ClientIP = ip;
                         loginInfo.BusinessPermissionList = user.BusinessPermissionList;
+                        loginInfo.Workcell = Workcell;
                         dbContext.Insert<LoginInfo>(loginInfo);
                     }
+                }
+                else
+                {
+                    return null;
                 }
             }
 
@@ -146,22 +159,20 @@ namespace GMS.Account.BLL
                 if (user.ID > 0)
                 {
                     dbContext.Update<User>(user);
-
                     var roles = dbContext.Roles.Where(r => user.RoleIds.Contains(r.ID)).ToList();
                     user.Roles = roles;
                     dbContext.SaveChanges();
                 }
                 else
                 {
-                    var existUser = dbContext.FindAll<User>(u => u.LoginName == user.LoginName);
+                    var existUser = dbContext.FindAll<User>(u => u.LoginName == user.LoginName && u.Workcell == user.Workcell);
                     if (existUser.Count > 0)
                     {
-                        throw new BusinessException("LoginName", "此登录名已存在！");
+                        throw new BusinessException("LoginName", "该部门下此登录名已存在！");
                     }
                     else
                     {
                         dbContext.Insert<User>(user);
-
                         var roles = dbContext.Roles.Where(r => user.RoleIds.Contains(r.ID)).ToList();
                         user.Roles = roles;
                         dbContext.SaveChanges();

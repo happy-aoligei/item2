@@ -1,0 +1,45 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@using GMS.Audit.Contract;
+
+@model Warehouse
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>代码：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Code, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Code)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系列号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.SeqID, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.SeqID)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>接收编号：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.buyoff, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.buyoff)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>责任人：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Owner, new { @class = "m-wrap" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Owner)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

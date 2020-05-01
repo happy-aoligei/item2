@@ -6,7 +6,7 @@ namespace GMS.Account.Contract
     public interface IAccountService
     {
         LoginInfo GetLoginInfo(Guid token);
-        LoginInfo Login(string loginName, string password);
+        LoginInfo Login(string loginName, string password,int Workcell);
         void Logout(Guid token);
         void ModifyPwd(User user);
 

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GMSToolManageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="attachments">
+    <Key>
+      <PropertyRef Name="AttachmentID" />
+    </Key>
+    <Property Name="AttachmentID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="Content" Type="nvarchar" MaxLength="650" />
+    <Property Name="ESRID" Type="int" />
+  </EntityType>
+  <EntityType Name="authorization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="emails">
+    <Key>
+      <PropertyRef Name="EmailID" />
+    </Key>
+    <Property Name="EmailID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="45" />
+    <Property Name="Content" Type="nvarchar" MaxLength="245" />
+  </EntityType>
+  <EntityType Name="employees">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="45" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="11" />
+    <Property Name="Birthday" Type="date" />
+  </EntityType>
+  <EntityType Name="InManage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Proposer" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Checker" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="0" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="Location" />
+      <PropertyRef Name="Bin" />
+    </Key>
+    <Property Name="Location" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="Bin" Type="int" Nullable="false" />
+    <Property Name="State" Type="int" />
+  </EntityType>
+  <EntityType Name="maintenance_record">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="ErrDescription" Type="nvarchar" MaxLength="45" />
+    <Property Name="ErrPhoto" Type="nvarchar" MaxLength="45" />
+    <Property Name="ApplicantID" Type="int" />
+    <Property Name="Operator2ID" Type="int" />
+    <Property Name="MaintainState" Type="nvarchar" MaxLength="45" />
+    <Property Name="MaintainDate" Type="date" />
+    <Property Name="SupervisorID" Type="int" />
+  </EntityType>
+  <EntityType Name="manager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="operator">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="operator1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="operator2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="outstorage">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="45" />
+    <Property Name="Bin" Type="int" />
+    <Property Name="GoWhere" Type="nvarchar" MaxLength="45" />
+    <Property Name="LineID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="OutstorageDate" Type="datetime2" Precision="0" />
+    <Property Name="HandlerID" Type="int" />
+    <Property Name="RecorderID" Type="int" />
+    <Property Name="ShiftTime" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="production_line">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="purchase_warehousing_application">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="buyoff" Type="nvarchar" MaxLength="45" />
+    <Property Name="jbuyoff" Type="date" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="45" />
+    <Property Name="Family" Type="nvarchar" MaxLength="45" />
+    <Property Name="Model" Type="nvarchar" MaxLength="45" />
+    <Property Name="AuditState" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark1" Type="nvarchar" MaxLength="45" />
+    <Property Name="Remark2" Type="nvarchar" MaxLength="45" />
+    <Property Name="Operator2" Type="int" />
+    <Property Name="Supervisor" Type="int" />
+    <Property Name="Manager" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="45" />
+    <Property Name="bin" Type="int" />
+  </EntityType>
+  <EntityType Name="send_emails">
+    <Key>
+      <PropertyRef Name="ESRID" />
+      <PropertyRef Name="ReceiveTime" />
+    </Key>
+    <Property Name="ESRID" Type="int" Nullable="false" />
+    <Property Name="ReceiveTime" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="IsReaded" Type="nvarchar" MaxLength="2" />
+    <Property Name="EmailID" Type="int" />
+    <Property Name="sender" Type="int" />
+    <Property Name="recipient" Type="int" />
+  </EntityType>
+  <EntityType Name="supervisor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="system_email_account">
+    <Key>
+      <PropertyRef Name="SystemID" />
+    </Key>
+    <Property Name="SystemID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tongs_definition">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="WorkcellID" Type="int" />
+    <Property Name="Workcell" Type="nvarchar" MaxLength="45" />
+    <Property Name="FamilyID" Type="int" />
+    <Property Name="Family" Type="nvarchar" MaxLength="45" />
+    <Property Name="Name" Type="nvarchar" MaxLength="45" />
+    <Property Name="Model" Type="nvarchar" MaxLength="45" />
+    <Property Name="PartNo" Type="nvarchar" MaxLength="45" />
+    <Property Name="Type" Type="nvarchar" MaxLength="45" />
+    <Property Name="UsedFor" Type="nvarchar" MaxLength="150" />
+    <Property Name="UPL" Type="int" />
+    <Property Name="Owner" Type="int" />
+    <Property Name="OwnerName" Type="nvarchar" MaxLength="45" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+    <Property Name="PMPeriod" Type="nvarchar" MaxLength="45" />
+    <Property Name="PMType" Type="nvarchar" MaxLength="45" />
+    <Property Name="RecOn" Type="datetime2" Precision="0" />
+    <Property Name="RecBy" Type="int" />
+    <Property Name="RecByName" Type="nvarchar" MaxLength="45" />
+    <Property Name="EditOn" Type="datetime2" Precision="0" />
+    <Property Name="EditBy" Type="int" />
+    <Property Name="EditByName" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tongs_entity">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="45" />
+    <Property Name="PartNo" Type="nvarchar" MaxLength="45" />
+    <Property Name="BillNo" Type="nvarchar" MaxLength="45" />
+    <Property Name="RegDate" Type="datetime2" Precision="0" />
+    <Property Name="Location" Type="nvarchar" MaxLength="45" />
+    <Property Name="Bin" Type="int" />
+    <Property Name="State" Type="nvarchar" MaxLength="45" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="45" />
+    <Property Name="UsedCount" Type="int" />
+    <Property Name="ErrProbability" Type="nvarchar" MaxLength="3" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tongs_scrapping">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="Servicelife" Type="float" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="45" />
+    <Property Name="AuditState" Type="nvarchar" MaxLength="45" />
+    <Property Name="ApplicantID" Type="int" />
+    <Property Name="Auditor1" Type="int" />
+    <Property Name="Auditor2" Type="int" />
+  </EntityType>
+  <EntityType Name="upkeep_check">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="LastMaintainTime" Type="datetime2" Precision="0" />
+    <Property Name="MaintainCount" Type="int" />
+    <Property Name="EmpID" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="EmpID" Type="int" />
+    <Property Name="Level" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="warehousing">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="LineID" Type="int" />
+    <Property Name="ShiftTime" Type="int" />
+    <Property Name="WarehousingDate" Type="datetime2" Precision="0" />
+    <Property Name="BufferZone" Type="nvarchar" MaxLength="2" />
+    <Property Name="BufferZDate" Type="datetime2" Precision="0" />
+    <Property Name="Location" Type="nvarchar" MaxLength="45" />
+    <Property Name="Bin" Type="int" />
+    <Property Name="Handler1ID" Type="int" />
+    <Property Name="Recorder1ID" Type="int" />
+    <Property Name="Handler2ID" Type="int" />
+    <Property Name="Recorder2ID" Type="int" />
+  </EntityType>
+  <EntityContainer Name="GMSToolManageModelStoreContainer">
+    <EntitySet Name="attachments" EntityType="Self.attachments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="authorization" EntityType="Self.authorization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InManage" EntityType="Self.InManage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InTable" EntityType="Self.InTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manager" EntityType="Self.manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operator" EntityType="Self.operator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operator1" EntityType="Self.operator1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operator2" EntityType="Self.operator2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="outstorage" EntityType="Self.outstorage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="production_line" EntityType="Self.production_line" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchase_warehousing_application" EntityType="Self.purchase_warehousing_application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="send_emails" EntityType="Self.send_emails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supervisor" EntityType="Self.supervisor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="system_email_account" EntityType="Self.system_email_account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tongs_entity" EntityType="Self.tongs_entity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tongs_scrapping" EntityType="Self.tongs_scrapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="warehousing" EntityType="Self.warehousing" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

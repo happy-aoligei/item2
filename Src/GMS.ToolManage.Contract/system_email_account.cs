@@ -6,13 +6,22 @@
 //    如果重新生成代码，则将覆盖对此文件的手动更改。
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Linq;
+using GMS.Framework.Contract;
+using System.Collections.Generic;
+using GMS.Framework.Utility;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace GMS.ToolManage.Contract
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class system_email_account
+    [Table("system_email_account")]
+    public partial class system_email_account : ModelBase
     {
         public int SystemID { get; set; }
         public string Password { get; set; }

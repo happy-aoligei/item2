@@ -1,0 +1,15 @@
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Module.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Module.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\DevTrends.MvcDonutCaching.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Cache.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Config.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Framework.Utility.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\Newtonsoft.Json.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Cache.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Core.Config.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\bin\Release\GMS.Framework.Utility.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\obj\Release\GMS.Core.Module.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\obj\Release\GMS.Core.Module.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\obj\Release\GMS.Core.Module.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\obj\Release\GMS.Core.Module.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Module\obj\Release\GMS.Core.Module.pdb

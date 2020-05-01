@@ -9,8 +9,6 @@
         <EntityTypeShape EntityType="GMSToolManageModel.authorization" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.emails" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.employees" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.InManage" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.InTable" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.location" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.maintenance_record" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.manager" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
@@ -19,16 +17,12 @@
         <EntityTypeShape EntityType="GMSToolManageModel.operator2" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.outstorage" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.production_line" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.purchase_warehousing_application" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.send_emails" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.supervisor" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.system_email_account" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.tongs_definition" Width="1.5" PointX="10.875" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.tongs_entity" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.tongs_scrapping" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.upkeep_check" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.users" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.warehousing" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

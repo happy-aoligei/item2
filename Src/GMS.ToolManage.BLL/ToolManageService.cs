@@ -15,65 +15,6 @@ namespace GMS.ToolManage.BLL
 {
     public class ToolManageService : IToolManageService
     {
-        
-        public IEnumerable<InTable> GetInTableList(InTableRequest request = null)
-        {
-            request = request ?? new InTableRequest();
-            using (var dbContext = new ToolManageDbContext())
-            {
-                IQueryable<InTable> InTables = dbContext.InTables;
-                if (request != null)
-                {
-                    if (!string.IsNullOrEmpty(request.Name))
-                        InTables = InTables.Where(u => u.Name.Contains(request.Name));
-                }
-                return InTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
-            }
-        }
-        public void SaveInTable(InTable intable)
-        {
-            using (var dbContext = new ToolManageDbContext())
-            {
-                if (intable.ID > 0)
-                {
-                    dbContext.Update<InTable>(intable);
-                }
-                else
-                {
-                    dbContext.Insert<InTable>(intable);
-                }
-
-            }
-        }
-        public IEnumerable<InManage> GetInManageList(InManageRequest request = null)
-        {
-            request = request ?? new InManageRequest();
-            using (var dbContext = new ToolManageDbContext())
-            {
-                IQueryable<InManage> InManages = dbContext.InManages;
-
-                if (!string.IsNullOrEmpty(request.Checker))
-                    InManages = InManages.Where(u => u.Checker.Contains(request.Checker));
-
-
-                return InManages.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
-            }
-        }
-        public void DeleteInTable(List<int> ids)
-        {
-            using (var dbContext = new ToolManageDbContext())
-            {
-                dbContext.InTables.Where(u => ids.Contains(u.ID)).Delete();
-            }
-        }
-        public InTable GetInTable(int id)
-        {
-            using (var dbContext = new ToolManageDbContext())
-            {
-                return dbContext.Find<InTable>(id);
-            }
-        }
-
         public IEnumerable<tongs_entity> Gettongs_entityList(tongs_entityRequest request = null)
         {
             request = request ?? new tongs_entityRequest();
@@ -88,6 +29,7 @@ namespace GMS.ToolManage.BLL
                         tongs_entitys = tongs_entitys.Where(u => u.SeqID == request.SeqID);
                     if (!string.IsNullOrEmpty(request.State))
                         tongs_entitys = tongs_entitys.Where(u => u.State.Contains(request.State));
+                    tongs_entitys = tongs_entitys.Where(u => u.Workcell == request.Workcell);
                 }
                 return tongs_entitys.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
@@ -120,6 +62,7 @@ namespace GMS.ToolManage.BLL
                 dbContext.tongs_entitys.Where(u => ids.Contains(u.ID)).Delete();
             }
         }
+
 
         public IEnumerable<outstorage> GetoutstorageList(outstorageRequest request = null)
         {

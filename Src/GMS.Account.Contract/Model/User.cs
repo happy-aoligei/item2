@@ -26,6 +26,12 @@ namespace GMS.Account.Contract
         public string LoginName { get; set; }
 
         /// <summary>
+        /// 部门编号
+        /// </summary>
+        [Required(ErrorMessage = "所属部门编号不能为空")]
+        public int Workcell { get; set; }
+
+        /// <summary>
         /// 密码，使用MD5加密
         /// </summary>
         [Required]

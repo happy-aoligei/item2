@@ -6,13 +6,22 @@
 //    如果重新生成代码，则将覆盖对此文件的手动更改。
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Linq;
+using GMS.Framework.Contract;
+using System.Collections.Generic;
+using GMS.Framework.Utility;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace GMS.ToolManage.Contract
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class employees
+    [Table("employees")]
+    public partial class employees : ModelBase
     {
         public int EmpID { get; set; }
         public string Name { get; set; }

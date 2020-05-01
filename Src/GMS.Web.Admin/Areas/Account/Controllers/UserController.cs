@@ -43,9 +43,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         {
             var model = new User();
             this.TryUpdateModel<User>(model);
-            //model.Password = "111111";
             model.Password = Encrypt.MD5(model.Password);
-
             try
             {
                 this.AccountService.SaveUser(model);

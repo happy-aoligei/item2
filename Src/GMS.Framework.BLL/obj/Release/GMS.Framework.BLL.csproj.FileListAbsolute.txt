@@ -1,0 +1,6 @@
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\bin\Release\GMS.Framework.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\bin\Release\GMS.Framework.BLL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\obj\Release\GMS.Framework.BLL.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\obj\Release\GMS.Framework.BLL.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\obj\Release\GMS.Framework.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.BLL\obj\Release\GMS.Framework.BLL.pdb

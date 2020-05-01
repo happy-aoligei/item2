@@ -45,6 +45,7 @@ namespace GMS.ToolManage.Contract
         public string ErrProbability { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Workcell { get; set; }
     }
 
     public class outstorageRequest : Request

@@ -226,6 +226,14 @@ public void WriteHeader(CodeStringGenerator codeStringGenerator, EntityFramework
 // <#=GetResourceString("Template_GeneratedCodeCommentLine3")#>
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Linq;
+using GMS.Framework.Contract;
+using System.Collections.Generic;
+using GMS.Framework.Utility;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Web;
 <#=codeStringGenerator.UsingDirectives(inHeader: true)#>
 <#+
     fileManager.EndBlock();
@@ -308,11 +316,12 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} {1}partial class {2}{3}",
+            "[Table(\"{0}\")]\n    {1} {2}partial class {3}{4}",
+            _code.Escape(entity),
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
             _code.Escape(entity),
-            _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)));
+            _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)+"ModelBase"));
     }
     
     public string EnumOpening(SimpleType enumType)

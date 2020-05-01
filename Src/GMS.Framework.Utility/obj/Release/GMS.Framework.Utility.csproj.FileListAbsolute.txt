@@ -1,0 +1,8 @@
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\bin\Release\GMS.Framework.Utility.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\bin\Release\GMS.Framework.Utility.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\bin\Release\Newtonsoft.Json.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\obj\Release\GMS.Framework.Utility.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\obj\Release\GMS.Framework.Utility.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\obj\Release\GMS.Framework.Utility.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\obj\Release\GMS.Framework.Utility.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Framework.Utility\obj\Release\GMS.Framework.Utility.pdb

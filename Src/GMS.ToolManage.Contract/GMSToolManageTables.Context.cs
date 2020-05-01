@@ -29,8 +29,6 @@ namespace GMS.ToolManage.Contract
         public DbSet<authorization> authorization { get; set; }
         public DbSet<emails> emails { get; set; }
         public DbSet<employees> employees { get; set; }
-        public DbSet<InManage> InManage { get; set; }
-        public DbSet<InTable> InTable { get; set; }
         public DbSet<location> location { get; set; }
         public DbSet<maintenance_record> maintenance_record { get; set; }
         public DbSet<manager> manager { get; set; }
@@ -39,15 +37,11 @@ namespace GMS.ToolManage.Contract
         public DbSet<operator2> operator2 { get; set; }
         public DbSet<outstorage> outstorage { get; set; }
         public DbSet<production_line> production_line { get; set; }
-        public DbSet<purchase_warehousing_application> purchase_warehousing_application { get; set; }
         public DbSet<send_emails> send_emails { get; set; }
         public DbSet<supervisor> supervisor { get; set; }
         public DbSet<system_email_account> system_email_account { get; set; }
         public DbSet<tongs_definition> tongs_definition { get; set; }
-        public DbSet<tongs_entity> tongs_entity { get; set; }
-        public DbSet<tongs_scrapping> tongs_scrapping { get; set; }
         public DbSet<upkeep_check> upkeep_check { get; set; }
         public DbSet<users> users { get; set; }
-        public DbSet<warehousing> warehousing { get; set; }
     }
 }

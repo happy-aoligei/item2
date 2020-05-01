@@ -62,5 +62,16 @@ namespace GMS.Account.Contract
         [EnumTitle("信息查询")]
         ToolManage_Information = 503,
 
+        [EnumTitle("采购入库审核")]
+        Audit_Warehouse = 601,
+
+        [EnumTitle("报废审核")]
+        Audit_Scrap = 602,
+
+        [EnumTitle("采购入库审核_初级")]
+        Audit_Warehouse_CheckLow = 603,
+
+        [EnumTitle("采购入库审核_终级")]
+        Audit_Warehouse_CheckHigh = 604,
     }
 }

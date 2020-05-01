@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GMSAuditModelStoreContainer" CdmEntityContainer="GMSAuditEntities2">
+    <EntitySetMapping Name="Scrap">
+      <EntityTypeMapping TypeName="GMSAuditModel.Scrap">
+        <MappingFragment StoreEntitySet="Scrap">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+          <ScalarProperty Name="Servicelife" ColumnName="Servicelife" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="AuditState" ColumnName="AuditState" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="Auditor1" ColumnName="Auditor1" />
+          <ScalarProperty Name="Auditor2" ColumnName="Auditor2" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="GMSAuditModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+          <ScalarProperty Name="buyoff" ColumnName="buyoff" />
+          <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="AuditState" ColumnName="AuditState" />
+          <ScalarProperty Name="Remark1" ColumnName="Remark1" />
+          <ScalarProperty Name="Remark2" ColumnName="Remark2" />
+          <ScalarProperty Name="Operator2" ColumnName="Operator2" />
+          <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="bin" ColumnName="bin" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

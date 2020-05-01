@@ -1,0 +1,104 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Utility
+@using GMS.Framework.Web.Controls
+@using GMS.Audit.Contract
+@using GMS.Core.Config
+@using GMS.Web.Admin.Common
+@{
+    var permissions = AdminUserContext.Current.LoginInfo.BusinessPermissionList.Select(p => p.ToString());
+}
+@model PagedList<Warehouse>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row-fluid">
+    <div class="span4">
+        <div>
+            <a class="btn blue thickbox" title='新增采购入库审核' href="@Url.Action("Create")?TB_iframe=true&height=600&width=400"><i class="icon-plus icon-white"></i> 新增采购</a>
+            <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
+        </div>
+    </div>
+    <div class="span8">
+        @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
+        {
+            <div class="dataTables_filter">
+                <label>
+                    <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
+                </label>
+                <label>
+                    <span>接受编号：</span>
+                    @Html.TextBox("buyoff", null, new { @class = "m-wrap small" })
+                </label>
+                <label>
+                    <span>职工编号：</span>
+                    @Html.TextBox("Owner", null, new { @class = "m-wrap small" })
+                </label>
+            </div>
+        }
+    </div>
+</div>
+
+@using (Html.BeginForm("Delete", "Warehouse", FormMethod.Post, new { id = "mainForm" }))
+{
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th style="width: 8px;">
+                    <input type="checkbox" id="checkall" class="group-checkable" />
+                </th>
+                <th>夹具编号</th>
+                <th>接收编号</th>
+                <th>夹具的接受日期</th>
+                <th>责任人的职工编号</th>
+                <th>审核状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                if (!(permissions.Contains("Audit_Warehouse_CheckHigh") && m.AuditState == "未审核"))
+                {
+            <tr>
+                <td>
+                    <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
+                </td>
+                <td>@m.Code-@m.SeqID</td>
+                <td>@m.buyoff</td>
+                <td>@m.jbuyoff.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@m.Owner</td>
+                <td>@m.AuditState</td>
+                <td>
+                    <a class="btn mini purple thickbox" title='查看详情' href="@Url.Action("Detail", new { id = m.ID })?TB_iframe=true&height=600&width=400">
+                        <i class="icon-edit"></i>
+                        详情
+                    </a>
+                    @if (permissions.Contains("Audit_Warehouse_CheckLow") && m.AuditState == "未审核")
+                    {
+                        <a class="btn mini green" title='允许入库' href="@Url.Action("Accept", new { id = m.ID })">
+                            允许
+                        </a>
+                        <a class="btn mini red" title='拒绝入库' href="@Url.Action("Refuse", new { id = m.ID })">
+                            拒绝
+                        </a>
+                    }
+                    @if (permissions.Contains("Audit_Warehouse_CheckHigh") && m.AuditState == "初审通过")
+                    {
+                        <a class="btn mini green" title='允许入库' href="@Url.Action("Accept", new { id = m.ID })">
+                            允许
+                        </a>
+                        <a class="btn mini red" title='拒绝入库' href="@Url.Action("Refuse", new { id = m.ID })">
+                            拒绝
+                        </a>
+                    }
+                </td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+<div class="dataTables_paginate paging_bootstrap pagination">
+    @Html.Pager(Model, new PagerOptions() { ShowTotalItemCount = true })
+</div>
+

@@ -57,6 +57,10 @@
       <Project>{08CFB8BA-AA0E-42F5-B6BF-140C64E34377}</Project>
       <Name>GMS.Account.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GMS.Audit.Contract\GMS.Audit.Contract.csproj">
+      <Project>{4f007304-8feb-4724-a34f-a7056a5450e3}</Project>
+      <Name>GMS.Audit.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMS.Cms.Contract\GMS.Cms.Contract.csproj">
       <Project>{B5C93A51-4CBF-419C-A8B1-290B3F163B5E}</Project>
       <Name>GMS.Cms.Contract</Name>

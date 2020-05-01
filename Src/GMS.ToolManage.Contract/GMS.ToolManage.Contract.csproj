@@ -64,12 +64,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GMSToolManageTables.edmx</DependentUpon>
     </Compile>
-    <Compile Include="InManage.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
-    <Compile Include="InTable.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
     <Compile Include="IToolManageService.cs" />
     <Compile Include="location.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
@@ -81,6 +75,7 @@
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Requests.cs" />
+    <Compile Include="Model\tongs_entity.cs" />
     <Compile Include="operator.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
@@ -96,9 +91,6 @@
     <Compile Include="production_line.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="purchase_warehousing_application.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
     <Compile Include="send_emails.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
@@ -111,19 +103,10 @@
     <Compile Include="tongs_definition.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="tongs_entity.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tongs_scrapping.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
     <Compile Include="upkeep_check.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="users.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
-    <Compile Include="warehousing.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
   </ItemGroup>

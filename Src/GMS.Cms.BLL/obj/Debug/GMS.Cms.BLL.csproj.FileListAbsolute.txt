@@ -3,12 +3,6 @@ C:\Users\Administrator\Desktop\4517_4038b03b-5d55-41a0-9a29-a2944c1d429a\GMS\bin
 C:\Users\Administrator\Desktop\4517_4038b03b-5d55-41a0-9a29-a2944c1d429a\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\4517_4038b03b-5d55-41a0-9a29-a2944c1d429a\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.dll
 C:\Users\Administrator\Desktop\4517_4038b03b-5d55-41a0-9a29-a2944c1d429a\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.pdb
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Cms.BLL.dll
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Cms.BLL.pdb
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csprojAssemblyReference.cache
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csproj.CopyComplete
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.dll
-D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.pdb
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\bin\GMS.Cms.BLL.dll
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\bin\GMS.Cms.BLL.pdb
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS - 副本\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csprojAssemblyReference.cache
@@ -22,3 +16,16 @@ E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管�
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.dll
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.pdb
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\ASP.NET仓库管理系统\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\bin\GMS.Cms.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\bin\GMS.Cms.BLL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Cms.BLL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Cms.BLL.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csprojAssemblyReference.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.csproj.CopyComplete
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Cms.BLL\obj\Debug\GMS.Cms.BLL.pdb

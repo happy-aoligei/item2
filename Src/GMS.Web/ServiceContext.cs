@@ -6,6 +6,7 @@ using GMS.Core.Service;
 using GMS.Cms.Contract;
 using GMS.Crm.Contract;
 using GMS.OA.Contract;
+using GMS.Audit.Contract;
 using GMS.ToolManage.Contract;
 
 namespace GMS.Web
@@ -56,6 +57,13 @@ namespace GMS.Web
             get
             {
                 return ServiceHelper.CreateService<IToolManageService>();
+            }
+        }
+        public IAuditService AuditService
+        {
+            get
+            {
+                return ServiceHelper.CreateService<IAuditService>();
             }
         }
     }

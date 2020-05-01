@@ -31,7 +31,7 @@ namespace GMS.Account.Contract
         public int UserID { get; set; }
         public string LoginName { get; set; }
         public string ClientIP { get; set; }
-
+        public int Workcell { get; set; }
         public EnumLoginAccountType EnumLoginAccountType { get; set; }
 
         public string BusinessPermissionString { get; set; }
