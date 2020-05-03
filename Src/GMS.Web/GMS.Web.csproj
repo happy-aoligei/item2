@@ -97,6 +97,10 @@
       <Project>{AA76F90E-2594-44C8-89D6-302A0C8757AD}</Project>
       <Name>GMS.Framework.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GMS.Mail.Contract\GMS.Mail.Contract.csproj">
+      <Project>{b2d28aa1-d72d-48c0-b2e9-7b3fc7f0f8f4}</Project>
+      <Name>GMS.Mail.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMS.OA.Contract\GMS.OA.Contract.csproj">
       <Project>{F6F83E95-5F65-410C-B49F-7763E2184251}</Project>
       <Name>GMS.OA.Contract</Name>

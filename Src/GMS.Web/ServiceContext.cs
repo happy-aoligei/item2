@@ -8,6 +8,7 @@ using GMS.Crm.Contract;
 using GMS.OA.Contract;
 using GMS.Audit.Contract;
 using GMS.ToolManage.Contract;
+using GMS.Mail.Contract;
 
 namespace GMS.Web
 {
@@ -64,6 +65,13 @@ namespace GMS.Web
             get
             {
                 return ServiceHelper.CreateService<IAuditService>();
+            }
+        }
+        public IMailService MailService
+        {
+            get
+            {
+                return ServiceHelper.CreateService<IMailService>();
             }
         }
     }

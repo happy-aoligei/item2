@@ -111,11 +111,13 @@
     <Compile Include="Areas\Crm\Controllers\AnalysisController.cs" />
     <Compile Include="Areas\Crm\Controllers\VisitRecordController.cs" />
     <Compile Include="Areas\Crm\CrmAreaRegistration.cs" />
+    <Compile Include="Areas\Mail\MailAreaRegistration.cs" />
     <Compile Include="Areas\OA\Controllers\BranchController.cs" />
     <Compile Include="Areas\OA\Controllers\OrgController.cs" />
     <Compile Include="Areas\OA\Controllers\StaffController.cs" />
     <Compile Include="Areas\OA\OAAreaRegistration.cs" />
     <Compile Include="Areas\ToolManage\Controllers\ApplyController.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\FullLifeController.cs" />
     <Compile Include="Areas\ToolManage\Controllers\ManagerController.cs" />
     <Compile Include="Areas\ToolManage\ToolManageAreaRegistration.cs" />
     <Compile Include="Common\AdminCookieContext.cs" />
@@ -1344,6 +1346,11 @@
     <Content Include="Areas\Audit\Views\Warehouse\Detail.cshtml" />
     <Content Include="Areas\Audit\Views\Warehouse\Edit.cshtml" />
     <Content Include="Areas\Audit\Views\Warehouse\Error.cshtml" />
+    <Content Include="Areas\Account\Views\Auth\Detail.cshtml" />
+    <Content Include="Areas\Mail\Views\Web.config" />
+    <Content Include="Areas\ToolManage\Views\FullLife\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\FullLife\InAndOut.cshtml" />
+    <Content Include="Areas\ToolManage\Views\FullLife\Repair.cshtml" />
     <None Include="Assets\bootstrap-colorpicker\less\colorpicker.less" />
     <None Include="Assets\bootstrap-datepicker\less\datepicker.less" />
     <None Include="Assets\bootstrap-daterangepicker\README.md" />

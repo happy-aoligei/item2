@@ -354,3 +354,9 @@ D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛�
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.csproj.CopyComplete
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.dll
 D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\obj\Debug\GMS.Web.Admin.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.dll.config
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Web.Admin\bin\GMS.Mail.Contract.dll.config

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GMSAuditModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Scrap">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="Servicelife" Type="float" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="45" />
+    <Property Name="AuditState" Type="nvarchar" MaxLength="45" />
+    <Property Name="ApplicantID" Type="int" />
+    <Property Name="Auditor1" Type="int" />
+    <Property Name="Auditor2" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="buyoff" Type="nvarchar" MaxLength="45" />
+    <Property Name="jbuyoff" Type="date" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="45" />
+    <Property Name="Family" Type="nvarchar" MaxLength="45" />
+    <Property Name="Model" Type="nvarchar" MaxLength="45" />
+    <Property Name="AuditState" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark1" Type="nvarchar" MaxLength="45" />
+    <Property Name="Remark2" Type="nvarchar" MaxLength="45" />
+    <Property Name="Operator2" Type="int" />
+    <Property Name="Supervisor" Type="int" />
+    <Property Name="Manager" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="45" />
+    <Property Name="bin" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="GMSAuditModelStoreContainer">
+    <EntitySet Name="Scrap" EntityType="Self.Scrap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -22,6 +22,7 @@ namespace GMS.Core.Config
         public String OA { get; set; }
         public String ToolManage { get; set; }
         public String Audit { get; set; }
+        public String Mail { get; set; }
         #endregion
     }
 }

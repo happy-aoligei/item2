@@ -1,10 +1,10 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : test
+ Source Server         : MSSQLSERVER2
  Source Server Type    : SQL Server
  Source Server Version : 10501600
- Source Host           : 127.0.0.1:1433
+ Source Host           : PC-LPY\MSSQLSERVER2:1433
  Source Catalog        : GMSToolManage
  Source Schema         : dbo
 
@@ -12,7 +12,7 @@
  Target Server Version : 10501600
  File Encoding         : 65001
 
- Date: 01/05/2020 22:51:16
+ Date: 02/05/2020 20:33:30
 */
 
 
@@ -3316,7 +3316,8 @@ CREATE TABLE [dbo].[tongs_entity] (
   [UsedCount] int  NULL,
   [ErrProbability] nvarchar(3) COLLATE Chinese_PRC_CI_AS  NULL,
   [ID] int  NOT NULL,
-  [CreateTime] datetime2(0)  NOT NULL
+  [CreateTime] datetime2(0)  NOT NULL,
+  [Workcell] int  NOT NULL
 )
 GO
 
@@ -3417,205 +3418,76 @@ GO
 -- ----------------------------
 -- Records of tongs_entity
 -- ----------------------------
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF0789', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000002', N'2019-07-05 16:42:00', N'3-A2', N'5', N'在库', N'url:?', N'0', N'0', N'1', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF0789', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000002', N'2019-07-05 16:42:00', N'3-A2', N'5', N'在库', N'url:?', N'0', N'0', N'1', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF0798', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19072900000018', N'2019-07-29 08:54:00', N'2-A2', N'3', N'在库', N'url:?', N'0', N'0', N'2', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF0798', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19072900000018', N'2019-07-29 08:54:00', N'2-A2', N'3', N'在库', N'url:?', N'0', N'0', N'2', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2184', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000004', N'2019-07-12 09:03:00', N'1-B4', N'3', N'在库', N'url:?', N'0', N'0', N'3', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2184', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000004', N'2019-07-12 09:03:00', N'1-B4', N'3', N'在库', N'url:?', N'0', N'0', N'3', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2185', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070600000006', N'2019-07-09 15:48:00', N'1-A2', N'3', N'在库', N'url:?', N'0', N'0', N'4', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2185', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070600000006', N'2019-07-09 15:48:00', N'1-A2', N'3', N'在库', N'url:?', N'0', N'0', N'4', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2186', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000002', N'2019-07-12 09:03:00', N'3-A3', N'3', N'在库', N'url:?', N'0', N'0', N'5', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2186', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000002', N'2019-07-12 09:03:00', N'3-A3', N'3', N'在库', N'url:?', N'0', N'0', N'5', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2187', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000003', N'2019-07-05 16:42:00', N'1-B1', N'8', N'在库', N'url:?', N'0', N'0', N'6', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2187', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000003', N'2019-07-05 16:42:00', N'1-B1', N'8', N'在库', N'url:?', N'0', N'0', N'6', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2188', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000005', N'2019-07-05 16:42:00', N'3-A2', N'6', N'在库', N'url:?', N'0', N'0', N'7', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2188', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000005', N'2019-07-05 16:42:00', N'3-A2', N'6', N'在库', N'url:?', N'0', N'0', N'7', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2189', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070600000007', N'2019-07-09 15:48:00', N'5-A3', N'1', N'在库', N'url:?', N'0', N'0', N'8', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2189', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070600000007', N'2019-07-09 15:48:00', N'5-A3', N'1', N'在库', N'url:?', N'0', N'0', N'8', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2190', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000006', N'2019-07-05 16:42:00', N'5-B2', N'6', N'在库', N'url:?', N'0', N'0', N'9', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2190', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000006', N'2019-07-05 16:42:00', N'5-B2', N'6', N'在库', N'url:?', N'0', N'0', N'9', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2191', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000007', N'2019-07-05 16:42:00', N'4-B2', N'2', N'在库', N'url:?', N'0', N'0', N'10', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2191', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000007', N'2019-07-05 16:42:00', N'4-B2', N'2', N'在库', N'url:?', N'0', N'0', N'10', N'2020-04-24 22:59:08', N'1')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2192', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000005', N'2019-07-12 09:03:00', N'4-B3', N'3', N'在库', N'url:?', N'0', N'0', N'11', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2192', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071200000005', N'2019-07-12 09:03:00', N'4-B3', N'3', N'在库', N'url:?', N'0', N'0', N'11', N'0001-01-01 00:00:00', N'0')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2203', N'3', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19080900000001', N'2019-08-09 16:32:00', N'4-A1', N'4', N'在库', N'url:?', N'0', N'0', N'12', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2203', N'3', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19080900000001', N'2019-08-09 04:32:00', N'4-A1', N'4', N'在库', N'url:?', N'0', N'0', N'12', N'0001-01-01 00:00:00', N'0')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2207', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000002', N'2019-07-16 16:09:00', N'4-C4', N'7', N'在库', N'url:?', N'0', N'0', N'13', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2207', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000002', N'2019-07-16 16:09:00', N'4-C4', N'7', N'在库', N'url:?', N'0', N'0', N'13', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2208', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000003', N'2019-07-16 16:09:00', N'4-A3', N'10', N'在库', N'url:?', N'0', N'0', N'14', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2208', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000003', N'2019-07-16 16:09:00', N'4-A3', N'10', N'在库', N'url:?', N'0', N'0', N'14', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2209', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000004', N'2019-07-16 16:09:00', N'1-B4', N'2', N'在库', N'url:?', N'0', N'0', N'15', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2209', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19071600000004', N'2019-07-16 16:09:00', N'1-B4', N'2', N'在库', N'url:?', N'0', N'0', N'15', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2210', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19072900000030', N'2019-07-29 08:53:00', N'4-C2', N'10', N'在库', N'url:?', N'0', N'0', N'16', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2210', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19072900000030', N'2019-07-29 08:53:00', N'4-C2', N'10', N'在库', N'url:?', N'0', N'0', N'16', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2234', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000001', N'2019-10-31 12:42:00', N'4-C2', N'5', N'在库', N'url:?', N'0', N'0', N'17', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2234', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000001', N'2019-10-31 12:42:00', N'4-C2', N'5', N'在库', N'url:?', N'0', N'0', N'17', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2235', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000002', N'2019-10-31 12:42:00', N'4-C3', N'9', N'在库', N'url:?', N'0', N'0', N'18', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2235', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000002', N'2019-10-31 12:42:00', N'4-C3', N'9', N'在库', N'url:?', N'0', N'0', N'18', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2236', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000003', N'2019-10-31 12:42:00', N'4-B3', N'8', N'在库', N'url:?', N'0', N'0', N'19', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2236', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000003', N'2019-10-31 12:42:00', N'4-B3', N'8', N'在库', N'url:?', N'0', N'0', N'19', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2237', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000004', N'2019-10-31 12:42:00', N'5-C4', N'5', N'在库', N'url:?', N'0', N'0', N'20', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2237', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000004', N'2019-10-31 12:42:00', N'5-C4', N'5', N'在库', N'url:?', N'0', N'0', N'20', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2238', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000005', N'2019-10-31 12:42:00', N'5-A4', N'10', N'在库', N'url:?', N'0', N'0', N'21', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2238', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000005', N'2019-10-31 12:42:00', N'5-A4', N'10', N'在库', N'url:?', N'0', N'0', N'21', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2239', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000006', N'2019-10-31 12:42:00', N'2-A2', N'8', N'在库', N'url:?', N'0', N'0', N'22', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2239', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000006', N'2019-10-31 12:42:00', N'2-A2', N'8', N'在库', N'url:?', N'0', N'0', N'22', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2240', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000007', N'2019-10-31 12:41:00', N'1-B2', N'2', N'在库', N'url:?', N'0', N'0', N'23', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2240', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000007', N'2019-10-31 12:41:00', N'1-B2', N'2', N'在库', N'url:?', N'0', N'0', N'23', N'2020-04-24 22:59:08', N'2')
 GO
 
-INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'EF2241', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000008', N'2019-10-31 12:41:00', N'4-A2', N'10', N'在库', N'/Upload/6372388279990087281.png', N'0', N'0', N'24', N'0001-01-01 00:00:00')
-GO
-
-
--- ----------------------------
--- Table structure for tongs_entity_1
--- ----------------------------
-IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[tongs_entity_1]') AND type IN ('U'))
-	DROP TABLE [dbo].[tongs_entity_1]
-GO
-
-CREATE TABLE [dbo].[tongs_entity_1] (
-  [Code] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NOT NULL,
-  [SeqID] int  NOT NULL,
-  [Model] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [PartNo] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [BillNo] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [RegDate] datetime2(0)  NULL,
-  [Location] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [Bin] int  NULL,
-  [State] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [Photo] nvarchar(45) COLLATE Chinese_PRC_CI_AS  NULL,
-  [UsedCount] int  NULL,
-  [ErrProbability] nvarchar(3) COLLATE Chinese_PRC_CI_AS  NULL,
-  [ID] int  NOT NULL,
-  [CreateTime] datetime2(0)  NOT NULL
-)
-GO
-
-ALTER TABLE [dbo].[tongs_entity_1] SET (LOCK_ESCALATION = TABLE)
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具代码',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'Code'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具系列号',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'SeqID'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具所属的Model',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'Model'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具所属的夹具料号',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'PartNo'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'采购单据号',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'BillNo'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'入库日期',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'RegDate'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'存放库位',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'Location'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'存放库位',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'Bin'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'状态（可选项：在库、已出库、待维修、维修中、已报废）',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'State'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具的实物图片',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'Photo'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'已使用次数',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'UsedCount'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'故障概率',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1',
-'COLUMN', N'ErrProbability'
-GO
-
-EXEC sp_addextendedproperty
-'MS_Description', N'夹具实体表',
-'SCHEMA', N'dbo',
-'TABLE', N'tongs_entity_1'
-GO
-
-
--- ----------------------------
--- Records of tongs_entity_1
--- ----------------------------
-INSERT INTO [dbo].[tongs_entity_1] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'XEF0789', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19070500000002', N'2019-07-05 16:42:00', N'3-A2', N'5', N'在库', N'url:?', N'0', N'0', N'1', N'2020-04-24 22:59:08')
-GO
-
-INSERT INTO [dbo].[tongs_entity_1] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime]) VALUES (N'XEF0798', N'1', N'FU', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19072900000018', N'2019-07-29 08:54:00', N'2-A2', N'3', N'在库', N'url:?', N'0', N'0', N'2', N'2020-04-24 22:59:08')
+INSERT INTO [dbo].[tongs_entity] ([Code], [SeqID], [Model], [PartNo], [BillNo], [RegDate], [Location], [Bin], [State], [Photo], [UsedCount], [ErrProbability], [ID], [CreateTime], [Workcell]) VALUES (N'EF2241', N'1', N'MOD 3XM2', N'PNA90320/1 PNA90320/2 PNA90322/1', N'BO19103100000008', N'2019-10-31 12:41:00', N'4-A2', N'10', N'在库', N'/Upload/6372388279990087281.png', N'0', N'0', N'24', N'0001-01-01 00:00:00', N'2')
 GO
 
 
@@ -4196,26 +4068,6 @@ GO
 -- Primary Key structure for table tongs_entity
 -- ----------------------------
 ALTER TABLE [dbo].[tongs_entity] ADD CONSTRAINT [PK__tongs_en__C5F3D1BE48CFD27E] PRIMARY KEY CLUSTERED ([Code], [SeqID])
-WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
-ON [PRIMARY]
-GO
-
-
--- ----------------------------
--- Indexes structure for table tongs_entity_1
--- ----------------------------
-CREATE NONCLUSTERED INDEX [Location_idx_copy1]
-ON [dbo].[tongs_entity_1] (
-  [Location] ASC,
-  [Bin] ASC
-)
-GO
-
-
--- ----------------------------
--- Primary Key structure for table tongs_entity_1
--- ----------------------------
-ALTER TABLE [dbo].[tongs_entity_1] ADD CONSTRAINT [PK__tongs_en__C5F3D1BE48CFD27E_copy1] PRIMARY KEY CLUSTERED ([Code], [SeqID])
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
 ON [PRIMARY]
 GO

@@ -21,7 +21,6 @@
         if (locationHref.indexOf($(this).attr("href") + judgestr) > 0) {
             $(this).parent().addClass("active");
             $(this).append("<span class='selected'></span>");
-
             $("#navigation .page-title span").html($(this).text());
             $("#navigation .page-title small").html($(this).attr("title") || "");
             $("#navigation .breadcrumb li:eq(1) span").html($(this).text());

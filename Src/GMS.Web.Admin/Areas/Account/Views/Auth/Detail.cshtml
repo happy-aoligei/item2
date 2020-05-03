@@ -1,0 +1,52 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@model User
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+    <style type="text/css">
+    </style>
+}
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+}
+@section MainContent{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+            <div class="control-group">
+                <label class="control-label">登录名：</label>
+                <div class="controls">
+                    @Model.LoginName @Html.HiddenFor(m => m.ID)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">部门编号：</label>
+                <div class="controls">
+                    @Model.Workcell
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">邮箱：</label>
+                <div class="controls">
+                    @Model.Email
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Email)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">手机：</label>
+                <div class="controls">
+                    @Model.Mobile
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Mobile)</span>
+                </div>
+            </div>
+        </div>
+}

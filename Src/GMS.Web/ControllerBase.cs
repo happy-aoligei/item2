@@ -11,6 +11,7 @@ using GMS.Crm.Contract;
 using GMS.Audit.Contract;
 using GMS.OA.Contract;
 using GMS.ToolManage.Contract;
+using GMS.Mail.Contract;
 
 namespace GMS.Web
 {
@@ -61,6 +62,13 @@ namespace GMS.Web
             get
             {
                 return ServiceContext.Current.AuditService;
+            }
+        }
+        public virtual IMailService MailService
+        {
+            get
+            {
+                return ServiceContext.Current.MailService;
             }
         }
 

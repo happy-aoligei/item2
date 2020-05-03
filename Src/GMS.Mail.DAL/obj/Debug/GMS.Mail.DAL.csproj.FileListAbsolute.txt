@@ -1,0 +1,13 @@
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Mail.DAL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\bin\GMS.Mail.DAL.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.csprojAssemblyReference.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.csproj.CopyComplete
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\bin\GMS.Mail.DAL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\bin\GMS.Mail.DAL.pdb
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.csprojAssemblyReference.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.csproj.CoreCompileInputs.cache
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.csproj.CopyComplete
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.dll
+E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Mail.DAL\obj\Debug\GMS.Mail.DAL.pdb

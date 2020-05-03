@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GMSAuditModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Scrap">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SeqID" Type="Int32" Nullable="false" />
+    <Property Name="Servicelife" Type="Double" />
+    <Property Name="Reason" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="AuditState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicantID" Type="Int32" />
+    <Property Name="Auditor1" Type="Int32" />
+    <Property Name="Auditor2" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SeqID" Type="Int32" Nullable="false" />
+    <Property Name="buyoff" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="jbuyoff" Type="DateTime" />
+    <Property Name="Owner" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="AuditState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark1" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Remark2" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Operator2" Type="Int32" />
+    <Property Name="Supervisor" Type="Int32" />
+    <Property Name="Manager" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="bin" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="GMSAuditEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Scrap" EntityType="Self.Scrap" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
+  </EntityContainer>
+</Schema>

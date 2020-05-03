@@ -43,7 +43,13 @@
                     <input type="checkbox" id="checkall" class="group-checkable" />
                 </th>
                 <th>
-                    夹具序列号
+                    夹具代码
+                </th>
+                <th>
+                    夹具系列号
+                </th>
+                <th>
+                    采购单据号
                 </th>
                 <th>
                     入库日期
@@ -73,10 +79,16 @@
                     <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
                 </td>
                 <td>
-                    @m.Code-@m.SeqID
+                    @m.Code
                 </td>
                 <td>
-                    @m.RegDate.ToString("yyyy-MM-dd HH:mm:ss")
+                    @m.SeqID
+                </td>
+                <td>
+                    @m.BillNo
+                </td>
+                <td>
+                    @m.RegDate.ToString("yyyy-MM-dd HH-mm-ss")
                 </td>
                 <td>
                     @m.Location-@m.Bin
@@ -91,9 +103,9 @@
                     @m.ErrProbability
                 </td>
                 <td>
-                    <a class="btn mini purple thickbox" title='编辑项目内容' href="@Url.Action("Information_Edit", new { id = m.ID })?TB_iframe=true&height=600&width=500">
-                        <i class="icon-edit"></i>
-                        编辑
+                    <a class="btn mini purple" title='编辑项目内容' href="@Url.Action("Index","FullLife", new { id = m.ID })">
+                        <i class="icon-th-list"></i>
+                        全寿命
                     </a>
                 </td>
             </tr>

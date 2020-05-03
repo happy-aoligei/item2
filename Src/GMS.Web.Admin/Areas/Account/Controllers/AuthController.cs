@@ -62,7 +62,11 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             var model = this.AccountService.GetUser(this.LoginInfo.UserID);
             return View(model);
         }
-
+        public ActionResult Detail()
+        {
+            var model = this.AccountService.GetUser(this.LoginInfo.UserID);
+            return View(model);
+        }
         [HttpPost]
         public ActionResult ModifyPwd(FormCollection collection)
         {
