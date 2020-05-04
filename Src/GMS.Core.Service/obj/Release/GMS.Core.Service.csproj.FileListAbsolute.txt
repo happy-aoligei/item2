@@ -22,3 +22,26 @@ E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.S
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.csproj.CopyComplete
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.dll
 E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Service.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Service.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\Castle.Core.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Cache.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Log.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.Contract.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.Utility.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Config.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\EntityFramework.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.DAL.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\log4net.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\Newtonsoft.Json.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Cache.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Log.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.Contract.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.Utility.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Core.Config.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\EntityFramework.xml
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\bin\Release\GMS.Framework.DAL.pdb
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.csprojAssemblyReference.cache
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.csproj.CopyComplete
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.dll
+D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Core.Service\obj\Release\GMS.Core.Service.pdb

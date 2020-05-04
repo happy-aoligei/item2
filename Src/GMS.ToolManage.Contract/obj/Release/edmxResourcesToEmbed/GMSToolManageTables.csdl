@@ -34,24 +34,6 @@
     <Property Name="PhoneNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
     <Property Name="Birthday" Type="DateTime" Precision="0" />
   </EntityType>
-  <EntityType Name="InManage">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Proposer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Checker" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="InTable">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CreateTime" Type="DateTime" Precision="0" />
-    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="location">
     <Key>
       <PropertyRef Name="Location1" />
@@ -129,27 +111,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="purchase_warehousing_application">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="buyoff" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="jbuyoff" Type="DateTime" Precision="0" />
-    <Property Name="Owner" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="AuditState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Remark1" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Remark2" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Operator2" Type="Int32" />
-    <Property Name="Supervisor" Type="Int32" />
-    <Property Name="Manager" Type="Int32" />
-    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="bin" Type="Int32" />
-  </EntityType>
   <EntityType Name="send_emails">
     <Key>
       <PropertyRef Name="ESRID" />
@@ -203,40 +164,6 @@
     <Property Name="EditBy" Type="Int32" />
     <Property Name="EditByName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="tongs_entity">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="PartNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="BillNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="RegDate" Type="DateTime" Precision="0" />
-    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Bin" Type="Int32" />
-    <Property Name="State" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="UsedCount" Type="Int32" />
-    <Property Name="ErrProbability" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="0" />
-  </EntityType>
-  <EntityType Name="tongs_scrapping">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="Servicelife" Type="Double" />
-    <Property Name="Reason" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="AuditState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="ApplicantID" Type="Int32" />
-    <Property Name="Auditor1" Type="Int32" />
-    <Property Name="Auditor2" Type="Int32" />
-  </EntityType>
   <EntityType Name="upkeep_check">
     <Key>
       <PropertyRef Name="Code" />
@@ -257,33 +184,11 @@
     <Property Name="EmpID" Type="Int32" />
     <Property Name="Level" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="warehousing">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="ProductID" Type="Int32" />
-    <Property Name="LineID" Type="Int32" />
-    <Property Name="ShiftTime" Type="Int32" />
-    <Property Name="WarehousingDate" Type="DateTime" Precision="0" />
-    <Property Name="BufferZone" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-    <Property Name="BufferZDate" Type="DateTime" Precision="0" />
-    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Bin" Type="Int32" />
-    <Property Name="Handler1ID" Type="Int32" />
-    <Property Name="Recorder1ID" Type="Int32" />
-    <Property Name="Handler2ID" Type="Int32" />
-    <Property Name="Recorder2ID" Type="Int32" />
-  </EntityType>
   <EntityContainer Name="GMSToolManageEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="attachments" EntityType="Self.attachments" />
     <EntitySet Name="authorization" EntityType="Self.authorization" />
     <EntitySet Name="emails" EntityType="Self.emails" />
     <EntitySet Name="employees" EntityType="Self.employees" />
-    <EntitySet Name="InManage" EntityType="Self.InManage" />
-    <EntitySet Name="InTable" EntityType="Self.InTable" />
     <EntitySet Name="location" EntityType="Self.location" />
     <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" />
     <EntitySet Name="manager" EntityType="Self.manager" />
@@ -292,15 +197,11 @@
     <EntitySet Name="operator2" EntityType="Self.operator2" />
     <EntitySet Name="outstorage" EntityType="Self.outstorage" />
     <EntitySet Name="production_line" EntityType="Self.production_line" />
-    <EntitySet Name="purchase_warehousing_application" EntityType="Self.purchase_warehousing_application" />
     <EntitySet Name="send_emails" EntityType="Self.send_emails" />
     <EntitySet Name="supervisor" EntityType="Self.supervisor" />
     <EntitySet Name="system_email_account" EntityType="Self.system_email_account" />
     <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" />
-    <EntitySet Name="tongs_entity" EntityType="Self.tongs_entity" />
-    <EntitySet Name="tongs_scrapping" EntityType="Self.tongs_scrapping" />
     <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" />
     <EntitySet Name="users" EntityType="Self.users" />
-    <EntitySet Name="warehousing" EntityType="Self.warehousing" />
   </EntityContainer>
 </Schema>

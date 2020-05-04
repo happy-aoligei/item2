@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Src"
+    "\\Src",
+    "\\Src\\GMS.Web.Admin",
+    "\\Src\\GMS.Web.Admin\\Assets",
+    "\\Src\\GMS.Web.Admin\\Views",
+    "\\Src\\GMS.Web.Admin\\Views\\Shared"
   ],
-  "SelectedNode": "\\Src\\GMS.sln",
+  "SelectedNode": "\\Src\\GMS.Web.Admin\\Temp",
   "PreviewInSolutionExplorer": false
 }

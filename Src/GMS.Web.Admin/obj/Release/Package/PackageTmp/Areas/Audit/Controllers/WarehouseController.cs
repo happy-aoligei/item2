@@ -17,6 +17,12 @@ namespace GMS.Web.Admin.Areas.Audit.Controllers
         public ActionResult Index(WarehouseRequest request)
         {
             var result = this.AuditService.GetWarehouseList(request);
+            ViewBag.AuditStateOption = "0";
+            if (request.AuditState == "未审核") ViewBag.AuditStateOption = "1";
+            else if (request.AuditState == "初审通过") ViewBag.AuditStateOption = "2";
+            else if (request.AuditState == "初审不通过") ViewBag.AuditStateOption = "3";
+            else if (request.AuditState == "终审通过") ViewBag.AuditStateOption = "4";
+            else if (request.AuditState == "终审不通过") ViewBag.AuditStateOption = "5";
             return View(result);
         }
         public ActionResult Create()

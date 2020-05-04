@@ -23,8 +23,7 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
         }
         public ActionResult In(InTableRequest request)//入库
         {
-            var result = this.ToolManageService.GetInTableList(request);
-            return View(result);
+            return View();
         }
         public ActionResult Repair()//报修
         {
@@ -32,40 +31,28 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
         }
         public ActionResult Create()//报修
         {
-            var model = new InTable();
-            return View(model);
+            return View();
         }
         [HttpPost]
         public ActionResult Create(FormCollection collection)//新增
         {
-            var model = new InTable();
-            this.TryUpdateModel<InTable>(model);
-
-            this.ToolManageService.SaveInTable(model);
 
             return this.RefreshParent();
         }
         [HttpPost]
         public ActionResult Delete(List<int> ids)
         {
-            this.ToolManageService.DeleteInTable(ids);
             return RedirectToAction("In");
         }
 
         public ActionResult Edit(int id)
         {
-            var model = this.ToolManageService.GetInTable(id);
-            return View("Create", model);
+            return View("Create");
         }
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var model = this.ToolManageService.GetInTable(id);
-            this.TryUpdateModel<InTable>(model);
-
-            this.ToolManageService.SaveInTable(model);
-
             return this.RefreshParent();
         }
     }

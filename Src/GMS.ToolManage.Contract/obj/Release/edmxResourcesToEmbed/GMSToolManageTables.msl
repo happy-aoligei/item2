@@ -39,26 +39,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InManage">
-      <EntityTypeMapping TypeName="GMSToolManageModel.InManage">
-        <MappingFragment StoreEntitySet="InManage">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Proposer" ColumnName="Proposer" />
-          <ScalarProperty Name="Checker" ColumnName="Checker" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="InTable">
-      <EntityTypeMapping TypeName="GMSToolManageModel.InTable">
-        <MappingFragment StoreEntitySet="InTable">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="location">
       <EntityTypeMapping TypeName="GMSToolManageModel.location">
         <MappingFragment StoreEntitySet="location">
@@ -141,27 +121,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="purchase_warehousing_application">
-      <EntityTypeMapping TypeName="GMSToolManageModel.purchase_warehousing_application">
-        <MappingFragment StoreEntitySet="purchase_warehousing_application">
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-          <ScalarProperty Name="buyoff" ColumnName="buyoff" />
-          <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="Family" ColumnName="Family" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="AuditState" ColumnName="AuditState" />
-          <ScalarProperty Name="Remark1" ColumnName="Remark1" />
-          <ScalarProperty Name="Remark2" ColumnName="Remark2" />
-          <ScalarProperty Name="Operator2" ColumnName="Operator2" />
-          <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
-          <ScalarProperty Name="Manager" ColumnName="Manager" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="bin" ColumnName="bin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="send_emails">
       <EntityTypeMapping TypeName="GMSToolManageModel.send_emails">
         <MappingFragment StoreEntitySet="send_emails">
@@ -218,40 +177,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tongs_entity">
-      <EntityTypeMapping TypeName="GMSToolManageModel.tongs_entity">
-        <MappingFragment StoreEntitySet="tongs_entity">
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="PartNo" ColumnName="PartNo" />
-          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
-          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Bin" ColumnName="Bin" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="UsedCount" ColumnName="UsedCount" />
-          <ScalarProperty Name="ErrProbability" ColumnName="ErrProbability" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tongs_scrapping">
-      <EntityTypeMapping TypeName="GMSToolManageModel.tongs_scrapping">
-        <MappingFragment StoreEntitySet="tongs_scrapping">
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-          <ScalarProperty Name="Servicelife" ColumnName="Servicelife" />
-          <ScalarProperty Name="Reason" ColumnName="Reason" />
-          <ScalarProperty Name="AuditState" ColumnName="AuditState" />
-          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
-          <ScalarProperty Name="Auditor1" ColumnName="Auditor1" />
-          <ScalarProperty Name="Auditor2" ColumnName="Auditor2" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="upkeep_check">
       <EntityTypeMapping TypeName="GMSToolManageModel.upkeep_check">
         <MappingFragment StoreEntitySet="upkeep_check">
@@ -270,26 +195,6 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="EmpID" ColumnName="EmpID" />
           <ScalarProperty Name="Level" ColumnName="Level" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="warehousing">
-      <EntityTypeMapping TypeName="GMSToolManageModel.warehousing">
-        <MappingFragment StoreEntitySet="warehousing">
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="LineID" ColumnName="LineID" />
-          <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
-          <ScalarProperty Name="WarehousingDate" ColumnName="WarehousingDate" />
-          <ScalarProperty Name="BufferZone" ColumnName="BufferZone" />
-          <ScalarProperty Name="BufferZDate" ColumnName="BufferZDate" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Bin" ColumnName="Bin" />
-          <ScalarProperty Name="Handler1ID" ColumnName="Handler1ID" />
-          <ScalarProperty Name="Recorder1ID" ColumnName="Recorder1ID" />
-          <ScalarProperty Name="Handler2ID" ColumnName="Handler2ID" />
-          <ScalarProperty Name="Recorder2ID" ColumnName="Recorder2ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
