@@ -91,7 +91,7 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="45" />
         </EntityType>
-        <EntityType Name="outstorage">
+        <EntityType Name="OutTable">
           <Key>
             <PropertyRef Name="Code" />
             <PropertyRef Name="SeqID" />
@@ -108,6 +108,8 @@
           <Property Name="RecorderID" Type="int" />
           <Property Name="ShiftTime" Type="int" />
           <Property Name="Remark" Type="nvarchar" MaxLength="45" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime2" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="production_line">
           <Key>
@@ -200,7 +202,7 @@
           <EntitySet Name="operator" EntityType="Self.operator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="operator1" EntityType="Self.operator1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="operator2" EntityType="Self.operator2" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="outstorage" EntityType="Self.outstorage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutTable" EntityType="Self.OutTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="production_line" EntityType="Self.production_line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="send_emails" EntityType="Self.send_emails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supervisor" EntityType="Self.supervisor" Schema="dbo" store:Type="Tables" />
@@ -299,24 +301,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="outstorage">
-          <Key>
-            <PropertyRef Name="Code" />
-            <PropertyRef Name="SeqID" />
-          </Key>
-          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SeqID" Type="Int32" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-          <Property Name="Bin" Type="Int32" />
-          <Property Name="GoWhere" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-          <Property Name="LineID" Type="Int32" />
-          <Property Name="ProductID" Type="Int32" />
-          <Property Name="OutstorageDate" Type="DateTime" Precision="0" />
-          <Property Name="HandlerID" Type="Int32" />
-          <Property Name="RecorderID" Type="Int32" />
-          <Property Name="ShiftTime" Type="Int32" />
-          <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="production_line">
           <Key>
             <PropertyRef Name="ID" />
@@ -408,7 +392,6 @@
           <EntitySet Name="operator" EntityType="Self.operator" />
           <EntitySet Name="operator1" EntityType="Self.operator1" />
           <EntitySet Name="operator2" EntityType="Self.operator2" />
-          <EntitySet Name="outstorage" EntityType="Self.outstorage" />
           <EntitySet Name="production_line" EntityType="Self.production_line" />
           <EntitySet Name="send_emails" EntityType="Self.send_emails" />
           <EntitySet Name="supervisor" EntityType="Self.supervisor" />
@@ -416,7 +399,28 @@
           <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" />
           <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" />
           <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="OutTable" EntityType="GMSToolManageModel.OutTable" />
         </EntityContainer>
+        <EntityType Name="OutTable">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="SeqID" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Bin" Type="Int32" />
+          <Property Name="GoWhere" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="LineID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="OutstorageDate" Type="DateTime" Precision="0" />
+          <Property Name="HandlerID" Type="Int32" />
+          <Property Name="RecorderID" Type="Int32" />
+          <Property Name="ShiftTime" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="DateTime" Precision="0" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -517,24 +521,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="outstorage">
-            <EntityTypeMapping TypeName="GMSToolManageModel.outstorage">
-              <MappingFragment StoreEntitySet="outstorage">
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Bin" ColumnName="Bin" />
-                <ScalarProperty Name="GoWhere" ColumnName="GoWhere" />
-                <ScalarProperty Name="LineID" ColumnName="LineID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="OutstorageDate" ColumnName="OutstorageDate" />
-                <ScalarProperty Name="HandlerID" ColumnName="HandlerID" />
-                <ScalarProperty Name="RecorderID" ColumnName="RecorderID" />
-                <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="production_line">
             <EntityTypeMapping TypeName="GMSToolManageModel.production_line">
               <MappingFragment StoreEntitySet="production_line">
@@ -617,6 +603,26 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="EmpID" ColumnName="EmpID" />
                 <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutTable">
+            <EntityTypeMapping TypeName="GMSToolManageModel.OutTable">
+              <MappingFragment StoreEntitySet="OutTable">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
+                <ScalarProperty Name="RecorderID" ColumnName="RecorderID" />
+                <ScalarProperty Name="HandlerID" ColumnName="HandlerID" />
+                <ScalarProperty Name="OutstorageDate" ColumnName="OutstorageDate" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="GoWhere" ColumnName="GoWhere" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

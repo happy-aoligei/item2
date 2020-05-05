@@ -21,6 +21,7 @@ namespace GMS.ToolManage.DAL
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<tongs_entity> tongs_entitys { get; set; }
-        public DbSet<outstorage> outstorages { get; set; }
+        public DbSet<InTable> InTables { get; set; }
+        public DbSet<OutTable> OutTables { get; set; }
     }
 }

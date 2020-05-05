@@ -15,51 +15,51 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
         //
         // GET: /ToolManage/Manage/
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
-        public ActionResult Out(outstorageRequest request)//出库管理
+        public ActionResult Out(OutTableRequest request)//出库管理
         {
-            var result = this.ToolManageService.GetoutstorageList(request);
+            var result = this.ToolManageService.GetOutTableList(request);
             return View(result);
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
         public ActionResult Out_Create()
         {
-            var model = new outstorage();
+            var model = new OutTable();
             return View(model);
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
         public ActionResult Out_Edit(int id)
         {
-            var model = this.ToolManageService.Getoutstorage(id);
+            var model = this.ToolManageService.GetOutTable(id);
             return View(model);
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
         [HttpPost]
         public ActionResult Out_Create(object message)
         {
-            var model = new outstorage();
-            this.TryUpdateModel<outstorage>(model);
-            model.OutstorageDate = DateTime.Now;
-            this.ToolManageService.Saveoutstorage(model);
+            var model = new OutTable();
+            this.TryUpdateModel<OutTable>(model);
+            //model.OutTableDate = DateTime.Now;
+            this.ToolManageService.SaveOutTable(model);
             return this.RefreshParent();
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
         [HttpPost]
-        public ActionResult Out_Edit(outstorage Data)
+        public ActionResult Out_Edit(OutTable Data)
         {
-            this.ToolManageService.Saveoutstorage(Data);
+            this.ToolManageService.SaveOutTable(Data);
             return this.RefreshParent();
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
         [HttpPost]
         public ActionResult Out_Delete(List<int> ids)
         {
-            this.ToolManageService.Deleteoutstorage(ids);
+            this.ToolManageService.DeleteOutTable(ids);
             return this.RedirectToAction("Out");
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]
-        public ActionResult In(tongs_entityRequest request)//入库管理
+        public ActionResult In(InTableRequest request)//入库管理
         {
-            var result = this.ToolManageService.Gettongs_entityList(request);
+            var result = this.ToolManageService.GetInTableList(request);
             return View(result);
         }
         [Permission(EnumBusinessPermission.ToolManage_Manager)]

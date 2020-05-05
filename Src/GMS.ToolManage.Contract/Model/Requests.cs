@@ -6,9 +6,22 @@ namespace GMS.ToolManage.Contract
 {
     public class InTableRequest : Request
     {
-        public new int ID { get; set; }
-        public new DateTime CreateTime { get; set; }
-        public string Name { get; set; }
+        public string Code { get; set; }
+        public int SeqID { get; set; }
+        public int ProductID { get; set; }
+        public int LineID { get; set; }
+        public int ShiftTime { get; set; }
+        public DateTime WarehousingDate { get; set; }
+        public string BufferZone { get; set; }
+        public DateTime BufferZDate { get; set; }
+        public string Location { get; set; }
+        public int Bin { get; set; }
+        public int Handler1ID { get; set; }
+        public int Recorder1ID { get; set; }
+        public int Handler2ID { get; set; }
+        public int Recorder2ID { get; set; }
+        public int ID { get; set; }
+        public DateTime CreateTime { get; set; }
     }
 
     public class InManageRequest : Request
@@ -49,6 +62,24 @@ namespace GMS.ToolManage.Contract
     }
 
     public class outstorageRequest : Request
+    {
+        public string Code { get; set; }
+        public int SeqID { get; set; }
+        public string Location { get; set; }
+        public int Bin { get; set; }
+        public string GoWhere { get; set; }
+        public int LineID { get; set; }
+        public int ProductID { get; set; }
+        public DateTime OutstorageDate { get; set; }
+        public int HandlerID { get; set; }
+        public int RecorderID { get; set; }
+        public int ShiftTime { get; set; }
+        public string Remark { get; set; }
+        public int ID { get; set; }
+        public DateTime CreateTime { get; set; }
+    }
+
+    public class OutTableRequest : Request
     {
         public string Code { get; set; }
         public int SeqID { get; set; }

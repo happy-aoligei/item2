@@ -74,6 +74,7 @@
     <Compile Include="manager.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\InTable.cs" />
     <Compile Include="Model\Requests.cs" />
     <Compile Include="Model\tongs_entity.cs" />
     <Compile Include="operator.cs">
@@ -85,7 +86,7 @@
     <Compile Include="operator2.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="outstorage.cs">
+    <Compile Include="OutTable.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="production_line.cs">

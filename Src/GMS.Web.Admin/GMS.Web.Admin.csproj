@@ -5769,13 +5769,11 @@
     <Content Include="Areas\OA\Views\Org\Index.cshtml" />
     <Content Include="Areas\ToolManage\Views\Apply\Out.cshtml" />
     <Content Include="Areas\ToolManage\Views\Apply\In.cshtml" />
-    <Content Include="Areas\ToolManage\Views\Apply\Repair.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Out.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\In.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Repair.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Information.cshtml" />
     <Content Include="Areas\ToolManage\Views\Web.config" />
-    <Content Include="Areas\ToolManage\Views\Apply\Create.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Information_Create.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Information_Edit.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Out_Edit.cshtml" />
@@ -6293,6 +6291,7 @@
     <Content Include="Assets\jqvmap\.gitignore" />
     <Content Include="Assets\jqvmap\README.md" />
     <Content Include="Assets\uniform\README.textile" />
+    <Content Include="Areas\ToolManage\Views\Apply\Repair.cshtml" />
     <None Include="Content\Uploadify\uploadify.fla" />
     <Content Include="FileUpload.ashx" />
     <None Include="packages.config" />

@@ -40,12 +40,7 @@ namespace GMS.Framework.Contract
 
     public static class PageLinqExtensions
     {
-        public static PagedList<T> ToPagedList<T>
-            (
-                this IQueryable<T> allItems,
-                int pageIndex,
-                int pageSize
-            )
+        public static PagedList<T> ToPagedList<T>(this IQueryable<T> allItems,int pageIndex,int pageSize)
         {
             if (pageIndex < 1)
                 pageIndex = 1;

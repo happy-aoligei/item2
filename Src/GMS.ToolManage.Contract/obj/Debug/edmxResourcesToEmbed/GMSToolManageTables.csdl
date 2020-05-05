@@ -86,24 +86,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="outstorage">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="Bin" Type="Int32" />
-    <Property Name="GoWhere" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="LineID" Type="Int32" />
-    <Property Name="ProductID" Type="Int32" />
-    <Property Name="OutstorageDate" Type="DateTime" Precision="0" />
-    <Property Name="HandlerID" Type="Int32" />
-    <Property Name="RecorderID" Type="Int32" />
-    <Property Name="ShiftTime" Type="Int32" />
-    <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="production_line">
     <Key>
       <PropertyRef Name="ID" />
@@ -195,7 +177,6 @@
     <EntitySet Name="operator" EntityType="Self.operator" />
     <EntitySet Name="operator1" EntityType="Self.operator1" />
     <EntitySet Name="operator2" EntityType="Self.operator2" />
-    <EntitySet Name="outstorage" EntityType="Self.outstorage" />
     <EntitySet Name="production_line" EntityType="Self.production_line" />
     <EntitySet Name="send_emails" EntityType="Self.send_emails" />
     <EntitySet Name="supervisor" EntityType="Self.supervisor" />
@@ -203,5 +184,26 @@
     <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" />
     <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" />
     <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="OutTable" EntityType="GMSToolManageModel.OutTable" />
   </EntityContainer>
+  <EntityType Name="OutTable">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="SeqID" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="Bin" Type="Int32" />
+    <Property Name="GoWhere" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="LineID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="OutstorageDate" Type="DateTime" Precision="0" />
+    <Property Name="HandlerID" Type="Int32" />
+    <Property Name="RecorderID" Type="Int32" />
+    <Property Name="ShiftTime" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Precision="0" Nullable="false" />
+  </EntityType>
 </Schema>

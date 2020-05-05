@@ -35,7 +35,6 @@ namespace GMS.ToolManage.Contract
         public DbSet<@operator> @operator { get; set; }
         public DbSet<operator1> operator1 { get; set; }
         public DbSet<operator2> operator2 { get; set; }
-        public DbSet<outstorage> outstorage { get; set; }
         public DbSet<production_line> production_line { get; set; }
         public DbSet<send_emails> send_emails { get; set; }
         public DbSet<supervisor> supervisor { get; set; }
@@ -43,5 +42,6 @@ namespace GMS.ToolManage.Contract
         public DbSet<tongs_definition> tongs_definition { get; set; }
         public DbSet<upkeep_check> upkeep_check { get; set; }
         public DbSet<users> users { get; set; }
+        public DbSet<OutTable> OutTable { get; set; }
     }
 }

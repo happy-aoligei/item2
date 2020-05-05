@@ -8,7 +8,7 @@ namespace GMS.Web.Admin.Areas.ToolManage
         {
             get
             {
-                return "ToolManage";
+                return "Mail";
             }
         }
 

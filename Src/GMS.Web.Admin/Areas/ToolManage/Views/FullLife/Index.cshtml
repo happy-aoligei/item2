@@ -34,6 +34,12 @@
                         夹具系列号
                     </th>
                     <th>
+                        模块
+                    </th>
+                    <th>
+                        夹具料号
+                    </th>
+                    <th>
                         采购单据号
                     </th>
                     <th>
@@ -51,9 +57,6 @@
                     <th>
                         故障概率
                     </th>
-                    <th>
-                        图片
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -63,6 +66,12 @@
                     </td>
                     <td>
                         @Model.SeqID
+                    </td>
+                    <td>
+                        @Model.Model
+                    </td>
+                    <td>
+                        @Model.PartNo
                     </td>
                     <td>
                         @Model.BillNo
@@ -82,15 +91,13 @@
                     <td>
                         @Model.ErrProbability
                     </td>
-                    <td>
-                        <a class="btn btn-xs purple thickbox" title='编辑项目内容' href="@Url.Action("Information_Edit", new { id = Model.ID })?TB_iframe=true&height=600&width=500">
-                            <i class="icon-picture"></i>
-                            点击查看
-                        </a>
-                    </td>
                 </tr>
             </tbody>
         </table>
+        <div style="text-align:center">
+            <a href="@Model.Photo" title="查看大图" target="_blank"><img src="@Model.Photo" alt="无法正常显示" style="width:400px"/></a>
+        </div>
+        
     </div>
 </div>
 @{

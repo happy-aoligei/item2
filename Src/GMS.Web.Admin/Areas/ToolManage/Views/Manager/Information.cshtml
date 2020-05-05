@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
     <!-- END PAGE LEVEL STYLES -->
 }
-<div class="row-fluid">
+<div class="col-md-4 row-fluid">
     <div class="span4">
         <div>
             <a class="btn blue thickbox" title='增加新夹具信息' href="@Url.Action("Information_Create")?TB_iframe=true&height=600&width=500"><i class="icon-plus icon-white"></i> 增加</a>
@@ -123,25 +123,27 @@
         </table>
     }
     <div class="row">
-        <div class="col-md-5 col-sm-12">
-            <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
-                Showing @(Model.CurrentPageIndex * 12 - 11) to @(Model.CurrentPageIndex * 12>Model.TotalItemCount?Model.TotalItemCount:Model.CurrentPageIndex * 12) of @Model.TotalItemCount entries
-            </div>
+    <div class="col-md-5 col-sm-12">
+        <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
+            Showing @(Model.CurrentPageIndex * 12 - 11) to @(Model.CurrentPageIndex * 12 > Model.TotalItemCount ? Model.TotalItemCount : Model.CurrentPageIndex * 12) of @Model.TotalItemCount entries
         </div>
-        @if (Model.TotalPageCount > 1)
-        {
-            <div class="col-md-7 col-sm-12">
-                <div class="dataTables_paginate paging_simple_numbers" id="sample_1_paginate">
-                    <ul class="pagination">
-                        @if (Model.CurrentPageIndex == 1)
-                        {
-                            <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                        }
-                        else
-                        {
-                            <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="?@(Model.CurrentPageIndex-1)"><i class="fa fa-angle-left"></i></a></li>
-                        }
-                        @for (int i = 1; i <= Model.TotalPageCount; ++i)
+    </div>
+    @if (Model.TotalPageCount > 1)
+    {
+        <div class="col-md-7 col-sm-12">
+            <div class="dataTables_paginate paging_simple_numbers" id="sample_1_paginate">
+                <ul class="pagination">
+                    @if (Model.CurrentPageIndex == 1)
+                    {
+                        <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                    }
+                    else
+                    {
+                        <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="?@(Model.CurrentPageIndex-1)"><i class="fa fa-angle-left"></i></a></li>
+                    }
+                    @if (Model.TotalPageCount <= 5)
+                    {
+                        for (int i = 1; i <= Model.TotalPageCount; ++i)
                         {
                             if (i == Model.CurrentPageIndex)
                             {
@@ -152,19 +154,51 @@
                                 <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
                             }
                         }
-                        @if (Model.CurrentPageIndex == Model.TotalPageCount)
+                    }
+                    else
+                    {
+                        if (Model.TotalPageCount - 5 <= Model.CurrentPageIndex)
                         {
-                            <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            for (int i = Model.CurrentPageIndex; i <= Model.CurrentPageIndex + 4; ++i)
+                            {
+                                if (i == Model.CurrentPageIndex)
+                                {
+                                    <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                }
+                            }
                         }
                         else
                         {
-                            <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="?pageIndex=@(Model.CurrentPageIndex+1)"><i class="fa fa-angle-right"></i></a></li>
+                            for (int i = Model.TotalPageCount - 4; i <= Model.TotalPageCount; ++i)
+                            {
+                                if (i == Model.CurrentPageIndex)
+                                {
+                                    <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                }
+                            }
                         }
-                    </ul>
-                </div>
+                    }
+                    @if (Model.CurrentPageIndex == Model.TotalPageCount)
+                    {
+                        <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                    }
+                    else
+                    {
+                        <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="?pageIndex=@(Model.CurrentPageIndex+1)"><i class="fa fa-angle-right"></i></a></li>
+                    }
+                </ul>
             </div>
-        }
-    </div>
+        </div>
+    }
+</div>
 </div>
 
 

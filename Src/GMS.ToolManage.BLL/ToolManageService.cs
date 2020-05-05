@@ -63,48 +63,83 @@ namespace GMS.ToolManage.BLL
             }
         }
 
+        public IEnumerable<InTable> GetInTableList(InTableRequest request = null)
+        {
+            request = request ?? new InTableRequest();
+            using (var dbContext = new ToolManageDbContext())
+            {
+                IQueryable<InTable> InTables = dbContext.InTables;
+                if (request != null)
+                {
 
-        public IEnumerable<outstorage> GetoutstorageList(outstorageRequest request = null)
-        {
-            request = request ?? new outstorageRequest();
-            using (var dbContext = new ToolManageDbContext())
-            {
-                IQueryable<outstorage> outstorages = dbContext.outstorages;
-                if (!string.IsNullOrEmpty(request.Code))
-                    outstorages = outstorages.Where(u => u.Code.Contains(request.Code));
-                if (request.SeqID != 0)
-                    outstorages = outstorages.Where(u => u.SeqID == request.SeqID);
-                if (request.LineID != 0)
-                    outstorages = outstorages.Where(u => u.LineID == request.LineID);
-                return outstorages.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+                }
+                return InTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
         }
-        public outstorage Getoutstorage(int id)
+        public InTable GetInTable(int id)
         {
             using (var dbContext = new ToolManageDbContext())
             {
-                return dbContext.outstorages.Where(u => u.ID == id).SingleOrDefault();
+                return dbContext.InTables.Where(u => u.ID == id).SingleOrDefault();
             }
         }
-        public void Saveoutstorage(outstorage Data)
+        public void SaveInTable(InTable Data)
         {
             using (var dbContext = new ToolManageDbContext())
             {
                 if (Data.ID > 0)
                 {
-                    dbContext.Update<outstorage>(Data);
+                    dbContext.Update<InTable>(Data);
                 }
                 else
                 {
-                    dbContext.Insert<outstorage>(Data);
+                    dbContext.Insert<InTable>(Data);
                 }
             }
         }
-        public void Deleteoutstorage(List<int> ids)
+        public void DeleteInTable(List<int> ids)
         {
             using (var dbContext = new ToolManageDbContext())
             {
-                dbContext.outstorages.Where(u => ids.Contains(u.ID)).Delete();
+                dbContext.InTables.Where(u => ids.Contains(u.ID)).Delete();
+            }
+        }
+
+        public IEnumerable<OutTable> GetOutTableList(OutTableRequest request = null)
+        {
+            request = request ?? new OutTableRequest();
+            using (var dbContext = new ToolManageDbContext())
+            {
+                IQueryable<OutTable> OutTables = dbContext.OutTables;
+                return OutTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+            }
+        }
+        public OutTable GetOutTable(int id)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                return dbContext.OutTables.Where(u => u.ID == id).SingleOrDefault();
+            }
+        }
+        public void SaveOutTable(OutTable Data)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                if (Data.ID > 0)
+                {
+                    dbContext.Update<OutTable>(Data);
+                }
+                else
+                {
+                    dbContext.Insert<OutTable>(Data);
+                }
+            }
+        }
+        public void DeleteOutTable(List<int> ids)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                dbContext.OutTables.Where(u => ids.Contains(u.ID)).Delete();
             }
         }
     }

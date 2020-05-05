@@ -86,7 +86,7 @@
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="45" />
   </EntityType>
-  <EntityType Name="outstorage">
+  <EntityType Name="OutTable">
     <Key>
       <PropertyRef Name="Code" />
       <PropertyRef Name="SeqID" />
@@ -103,6 +103,8 @@
     <Property Name="RecorderID" Type="int" />
     <Property Name="ShiftTime" Type="int" />
     <Property Name="Remark" Type="nvarchar" MaxLength="45" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="production_line">
     <Key>
@@ -195,7 +197,7 @@
     <EntitySet Name="operator" EntityType="Self.operator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="operator1" EntityType="Self.operator1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="operator2" EntityType="Self.operator2" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="outstorage" EntityType="Self.outstorage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OutTable" EntityType="Self.OutTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="production_line" EntityType="Self.production_line" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="send_emails" EntityType="Self.send_emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="supervisor" EntityType="Self.supervisor" Schema="dbo" store:Type="Tables" />
