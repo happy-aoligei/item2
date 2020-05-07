@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="GMSAuditModelStoreContainer" CdmEntityContainer="GMSAuditEntities2">
+  <EntityContainerMapping StorageEntityContainer="GMSAuditModelStoreContainer" CdmEntityContainer="GMSAuditEntities3">
     <EntitySetMapping Name="Scrap">
       <EntityTypeMapping TypeName="GMSAuditModel.Scrap">
         <MappingFragment StoreEntitySet="Scrap">
@@ -14,6 +14,7 @@
           <ScalarProperty Name="Auditor2" ColumnName="Auditor2" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ScrapDate" ColumnName="ScrapDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -23,7 +24,6 @@
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="SeqID" ColumnName="SeqID" />
           <ScalarProperty Name="buyoff" ColumnName="buyoff" />
-          <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
           <ScalarProperty Name="Owner" ColumnName="Owner" />
           <ScalarProperty Name="Family" ColumnName="Family" />
           <ScalarProperty Name="Model" ColumnName="Model" />
@@ -37,6 +37,7 @@
           <ScalarProperty Name="bin" ColumnName="bin" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -14,7 +14,8 @@
     <Property Name="Auditor1" Type="Int32" />
     <Property Name="Auditor2" Type="Int32" />
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ScrapDate" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Warehouse">
     <Key>
@@ -24,7 +25,6 @@
     <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SeqID" Type="Int32" Nullable="false" />
     <Property Name="buyoff" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="jbuyoff" Type="DateTime" />
     <Property Name="Owner" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
     <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
     <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
@@ -37,9 +37,10 @@
     <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
     <Property Name="bin" Type="Int32" />
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="jbuyoff" Type="DateTime" Precision="7" />
   </EntityType>
-  <EntityContainer Name="GMSAuditEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="GMSAuditEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Scrap" EntityType="Self.Scrap" />
     <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
   </EntityContainer>

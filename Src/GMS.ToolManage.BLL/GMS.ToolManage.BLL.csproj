@@ -56,6 +56,14 @@
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GMS.Audit.Contract\GMS.Audit.Contract.csproj">
+      <Project>{4f007304-8feb-4724-a34f-a7056a5450e3}</Project>
+      <Name>GMS.Audit.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMS.Audit.DAL\GMS.Audit.DAL.csproj">
+      <Project>{a7c61537-ab8a-4ea6-926b-6c95fe858f6c}</Project>
+      <Name>GMS.Audit.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMS.Core.Cache\GMS.Core.Cache.csproj">
       <Project>{a155c5d8-fee0-415c-940a-26c94d61be9b}</Project>
       <Name>GMS.Core.Cache</Name>

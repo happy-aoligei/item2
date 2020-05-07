@@ -8,12 +8,12 @@ namespace GMS.Audit.Contract
     {
         public string Code { get; set; }
         public int SeqID { get; set; }
-        public Nullable<double> Servicelife { get; set; }
+        public double Servicelife { get; set; }
         public string Reason { get; set; }
         public string AuditState { get; set; }
-        public Nullable<int> ApplicantID { get; set; }
-        public Nullable<int> Auditor1 { get; set; }
-        public Nullable<int> Auditor2 { get; set; }
+        public int ApplicantID { get; set; }
+        public int Auditor1 { get; set; }
+        public int Auditor2 { get; set; }
         public int ID { get; set; }
         public System.DateTime CreateTime { get; set; }
     }

@@ -14,7 +14,8 @@
     <Property Name="Auditor1" Type="int" />
     <Property Name="Auditor2" Type="int" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ScrapDate" Type="datetime2" Precision="0" />
   </EntityType>
   <EntityType Name="Warehouse">
     <Key>
@@ -24,7 +25,6 @@
     <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
     <Property Name="SeqID" Type="int" Nullable="false" />
     <Property Name="buyoff" Type="nvarchar" MaxLength="45" />
-    <Property Name="jbuyoff" Type="date" />
     <Property Name="Owner" Type="nvarchar" MaxLength="45" />
     <Property Name="Family" Type="nvarchar" MaxLength="45" />
     <Property Name="Model" Type="nvarchar" MaxLength="45" />
@@ -37,7 +37,8 @@
     <Property Name="Location" Type="nvarchar" MaxLength="45" />
     <Property Name="bin" Type="int" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="jbuyoff" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityContainer Name="GMSAuditModelStoreContainer">
     <EntitySet Name="Scrap" EntityType="Self.Scrap" Schema="dbo" store:Type="Tables" />

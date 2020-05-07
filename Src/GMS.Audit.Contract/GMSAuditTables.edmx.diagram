@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f0e7d7ffb41f452c992f301ad3eacd45" Name="Diagram1">
+      <Diagram DiagramId="68662e9160224a3f956c10a45fb72eaf" Name="Diagram1">
         <EntityTypeShape EntityType="GMSAuditModel.Scrap" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSAuditModel.Warehouse" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>

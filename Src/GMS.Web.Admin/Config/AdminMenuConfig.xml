@@ -35,22 +35,36 @@
       </AdminMenuArray>
     </AdminMenuGroup>
 
-    <AdminMenuGroup name="工夹具管理" icon="icon-phone-sign">
+    <AdminMenuGroup name="出入库模块" icon="icon-phone-sign">
       <AdminMenuArray>
         <AdminMenu name="出库申请" url="/ToolManage/Apply/Out" info="申请工夹具出库" permission="ToolManage_Apply" />
         <AdminMenu name="入库申请" url="/ToolManage/Apply/In" info="申请工夹具入库" permission="ToolManage_Apply" />
-        <AdminMenu name="报修申请" url="/ToolManage/Apply/Repair" info="申请报修工夹具" permission="ToolManage_Apply" />
         <AdminMenu name="出库管理" url="/ToolManage/Manager/Out" info="管理工夹具出库记录" permission="ToolManage_Manager" />
         <AdminMenu name="入库管理" url="/ToolManage/Manager/In" info="管理工夹具入库记录" permission="ToolManage_Manager" />
-        <AdminMenu name="报修管理" url="/ToolManage/Manager/Repair" info="管理工夹具报修记录" permission="ToolManage_Manager" />
-        <AdminMenu name="信息查询" url="/ToolManage/Manager/Information" info="查询工夹具具体信息" permission="ToolManage_Information" />
       </AdminMenuArray>
     </AdminMenuGroup>
 
-    <AdminMenuGroup name="审核管理" icon="icon-phone-sign">
+    <AdminMenuGroup name="报修模块" icon="icon-phone-sign">
+      <AdminMenuArray>
+        <AdminMenu name="报修申请" url="/ToolManage/Apply/Repair" info="申请报修工夹具" permission="ToolManage_Apply" />
+        <AdminMenu name="报修管理" url="/ToolManage/Manager/Repair" info="管理工夹具报修记录" permission="ToolManage_Manager" />
+      </AdminMenuArray>
+    </AdminMenuGroup>
+    
+    <AdminMenuGroup name="采购入库模块" icon="icon-phone-sign">
       <AdminMenuArray>
         <AdminMenu name="采购入库审核" url="/Audit/Warehouse/Index" info="查看和编辑入库审核的信息" permission="Audit_Warehouse" />
+      </AdminMenuArray>
+    </AdminMenuGroup>
+    <AdminMenuGroup name="报废模块" icon="icon-phone-sign">
+      <AdminMenuArray>
         <AdminMenu name="报废审核" url="/Audit/Scrap/Index" info="查看和编辑报废审核的信息" permission="Audit_Scrap" />
+      </AdminMenuArray>
+    </AdminMenuGroup>
+
+    <AdminMenuGroup name="信息查询模块" icon="icon-phone-sign">
+      <AdminMenuArray>
+        <AdminMenu name="信息查询" url="/ToolManage/Manager/Information" info="查询工夹具详细信息" permission="ToolManage_Manager" />
       </AdminMenuArray>
     </AdminMenuGroup>
 

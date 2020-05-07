@@ -345,7 +345,7 @@ var FormImageCrop = function () {
           $(this).addClass('active').closest('.btn-group')
             .find('button.active').not(this).removeClass('active');
 
-          jcrop_api.setImage('../../assets/global/plugins/jcrop/demos/demo_files/sago.jpg');
+          jcrop_api.setImage('/assets/global/plugins/jcrop/demos/demo_files/sago.jpg');
           jcrop_api.setOptions({ bgOpacity: .6 });
           return false;
         });
@@ -353,7 +353,7 @@ var FormImageCrop = function () {
           $(this).addClass('active').closest('.btn-group')
             .find('button.active').not(this).removeClass('active');
 
-          jcrop_api.setImage('../../assets/global/plugins/jcrop/demos/demo_files/pool.jpg');
+          jcrop_api.setImage('/assets/global/plugins/jcrop/demos/demo_files/pool.jpg');
           jcrop_api.setOptions({ bgOpacity: .6 });
           return false;
         });
@@ -361,10 +361,10 @@ var FormImageCrop = function () {
           $(this).addClass('active').closest('.btn-group')
             .find('button.active').not(this).removeClass('active');
 
-          jcrop_api.setImage('../../assets/global/plugins/jcrop/demos/demo_files/sago.jpg',function(){
+          jcrop_api.setImage('/assets/global/plugins/jcrop/demos/demo_files/sago.jpg',function(){
             this.setOptions({
               bgOpacity: 1,
-              outerImage: '../../assets/global/plugins/jcrop/demos/demo_files/sagomod.jpg'
+              outerImage: '/assets/global/plugins/jcrop/demos/demo_files/sagomod.jpg'
             });
             this.animateTo(getRandom());
           });

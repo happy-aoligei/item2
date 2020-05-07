@@ -2,22 +2,24 @@
 @using GMS.Framework.Utility
 @using GMS.Framework.Web.Controls
 @using GMS.ToolManage.Contract
-@using GMS.Web.Admin.Common;
-@using GMS.Web.Admin.Areas.ToolManage.Controllers
-
-@model tongs_entity
+@using GMS.Web.Admin.Common
+@model FullLifeModel
 @{
+    var permissions = AdminUserContext.Current.LoginInfo.BusinessPermissionList.Select(p => p.ToString());
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    table {
-        color: black;
-    }
-</style>
+
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+}
+
 <div class="portlet box blue">
     <div class="portlet-title">
         <div class="caption">
-            详细信息
+            <i class="fa fa-list"></i> 详细信息
         </div>
         <div class="tools">
             <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
@@ -62,50 +64,752 @@
             <tbody>
                 <tr>
                     <td>
-                        @Model.Code
+                        @Model.Details.Code
                     </td>
                     <td>
-                        @Model.SeqID
+                        @Model.Details.SeqID
                     </td>
                     <td>
-                        @Model.Model
+                        @Model.Details.Model
                     </td>
                     <td>
-                        @Model.PartNo
+                        @Model.Details.PartNo
                     </td>
                     <td>
-                        @Model.BillNo
+                        @Model.Details.BillNo
                     </td>
                     <td>
-                        @Model.RegDate.ToString("yyyy-MM-dd HH-mm-ss")
+                        @Model.Details.RegDate.ToString("yyyy-MM-dd HH-mm-ss")
                     </td>
                     <td>
-                        @Model.Location-@Model.Bin
+                        @Model.Details.Location-@Model.Details.Bin
                     </td>
                     <td>
-                        @Model.State
+                        @Model.Details.State
                     </td>
                     <td>
-                        @Model.UsedCount
+                        @Model.Details.UsedCount
                     </td>
                     <td>
-                        @Model.ErrProbability
+                        @Model.Details.ErrProbability
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div style="text-align:center">
-            <a href="@Model.Photo" title="查看大图" target="_blank"><img src="@Model.Photo" alt="无法正常显示" style="width:400px"/></a>
+        <div class="row" style="text-align:center">
+            <a href="@Model.Details.Photo" title="查看大图" target="_blank"><img src="@Model.Details.Photo" alt="无法正常显示" style="width:400px" /></a>
         </div>
-        
     </div>
 </div>
-@{
-    var request = new tongs_entityRequest();
-    request.Workcell = new FullLifeController().LoginInfo.Workcell;
-}
-@Html.Partial("InAndOut", new FullLifeController().ToolManageService.Gettongs_entityList(request))
-@Html.Partial("Repair")
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 采购入库记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th>夹具编号</th>
+                    <th>夹具序列号</th>
+                    <th>接收编号</th>
+                    <th>责任人的职工编号</th>
+                    <th>种类</th>
+                    <th>模块</th>
+                    <th>夹具的接受日期</th>
+                    <th>申请人</th>
+                    <th>入库初审人</th>
+                    <th>入库终审人</th>
+                    <th>库位</th>
+                    <th>审核状态</th>
+                    <th>初审备注</th>
+                    <th>终审备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.WarehouseDetails)
+                {
+                    <tr>
+                        <td>
+                            @m.Code
+                            @if (m.CreateTime.Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.buyoff
+                        </td>
+                        <td>
+                            @m.Owner
+                        </td>
+                        <td>
+                            @m.Family
+                        </td>
+                        <td>
+                            @m.Model
+                        </td>
+                        <td>
+                            @m.jbuyoff
+                        </td>
+                        <td>
+                            @m.Operator2
+                        </td>
+                        <td>
+                            @m.Supervisor
+                        </td>
+                        <td>
+                            @m.Manager
+                        </td>
+                        <td>
+                            @m.Location-@m.bin
+                        </td>
+                        <td>
+                            @if (m.AuditState == "未审核")
+                            {
+                                <label class="label label-sm label-warning">未审核</label>
+                            }
+                            else
+                            {
+                                if (m.AuditState.Contains("初审"))
+                                {
+                                    <span>初审</span>
+                                }
+                                else
+                                {
+                                    <span>终审</span>
+                                }
+                                if (m.AuditState.Contains("不通过"))
+                                {
+                                    <label class="label label-sm label-danger">未通过</label>
+                                }
+                                else
+                                {
+                                    <label class="label label-sm label-success">已通过</label>
+                                }
+                            }
+                        </td>
+                        <td>
+                            @m.Remark1
+                        </td>
+                        <td>
+                            @m.Remark2
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.WarehouseDetails.TotalItemCount entries
+                </div>
+            </div>
+            @if (Model.WarehouseDetails.TotalPageCount > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (Model.WarehouseDetails.CurrentPageIndex == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex-1, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (Model.WarehouseDetails.TotalPageCount <= 5)
+                            {
+                                for (int i = 1; i <= Model.WarehouseDetails.TotalPageCount; ++i)
+                                {
+                                    if (i == Model.WarehouseDetails.CurrentPageIndex)
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (Model.WarehouseDetails.TotalPageCount - 5 >= Model.WarehouseDetails.CurrentPageIndex)
+                                {
+                                    for (int i = Model.WarehouseDetails.CurrentPageIndex; i < Model.WarehouseDetails.CurrentPageIndex + 4; ++i)
+                                    {
+                                        if (i == Model.WarehouseDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = Model.WarehouseDetails.TotalPageCount - 4; i <= Model.WarehouseDetails.TotalPageCount; ++i)
+                                    {
+                                        if (i == Model.WarehouseDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = i, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (Model.WarehouseDetails.CurrentPageIndex == Model.WarehouseDetails.TotalPageCount)
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex+1, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 入库记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th>
+                        夹具代码
+                    </th>
+                    <th>
+                        夹具系列号
+                    </th>
+                    <th>
+                        生产线编号
+                    </th>
+                    <th>
+                        班次
+                    </th>
+                    <th>
+                        入库日期
+                    </th>
+                    <th>
+                        是否进入缓冲区
+                    </th>
+                    <th>
+                        入库库位
+                    </th>
+                    <th>
+                        经手人1
+                    </th>
+                    <th>
+                        记录人1
+                    </th>
+                    <th>
+                        经手人2
+                    </th>
+                    <th>
+                        记录人2
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.InDetails)
+                {
+                    <tr>
+                        <td>
+                            @m.Code
+                            @if (m.WarehousingDate.Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.ProductID-@m.LineID
+                        </td>
+                        <td>
+                            @m.ShiftTime
+                        </td>
+                        <td>
+                            @m.WarehousingDate.ToString("yyyy-MM-dd HH:mm:ss")
+                        </td>
+                        <td>
+                            @m.BufferZone
+                            @if (m.BufferZone == "是")
+                            {
+                                <span>&nbsp;</span>@(m.BufferZDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm:ss"))
+                            }
+                        </td>
+                        <td>
+                            @m.Location-@m.Bin
+                        </td>
+                        <td>
+                            @m.Handler1ID
+                        </td>
+                        <td>
+                            @m.Recorder1ID
+                        </td>
+                        <td>
+                            @m.Handler2ID
+                        </td>
+                        <td>
+                            @m.Recorder2ID
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.InDetails.TotalItemCount entries
+                </div>
+            </div>
+            @if (Model.InDetails.TotalPageCount > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (Model.InDetails.CurrentPageIndex == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href=""><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex-1, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (Model.InDetails.TotalPageCount <= 5)
+                            {
+                                for (int i = 1; i <= Model.InDetails.TotalPageCount; ++i)
+                                {
+                                    if (i == Model.InDetails.CurrentPageIndex)
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (Model.InDetails.TotalPageCount - 5 >= Model.InDetails.CurrentPageIndex)
+                                {
+                                    for (int i = Model.InDetails.CurrentPageIndex; i < Model.InDetails.CurrentPageIndex + 4; ++i)
+                                    {
+                                        if (i == Model.InDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = Model.InDetails.TotalPageCount - 4; i <= Model.InDetails.TotalPageCount; ++i)
+                                    {
+                                        if (i == Model.InDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = i, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (Model.InDetails.CurrentPageIndex == Model.InDetails.TotalPageCount)
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex+1, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 出库记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th>
+                        夹具代码
+                    </th>
+                    <th>
+                        夹具系列号
+                    </th>
+                    <th>
+                        出库库位
+                    </th>
+                    <th>
+                        去向
+                    </th>
+                    <th>
+                        生产线编号
+                    </th>
+                    <th>
+                        出库时间
+                    </th>
+                    <th>
+                        班次
+                    </th>
+                    <th>
+                        经手人
+                    </th>
+                    <th>
+                        记录人
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.OutDetails)
+                {
+                    <tr>
+                        <td>
+                            @m.Code
+                            @if (m.OutstorageDate.GetValueOrDefault().Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.Location-@m.Bin
+
+                        </td>
+                        <td>
+                            @m.GoWhere
+
+                        </td>
+                        <td>
+                            @m.ProductID-@m.LineID
+                        </td>
+                        <td>
+                            @m.OutstorageDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm:ss")
+                        </td>
+                        <td>
+                            @m.ShiftTime
+                        </td>
+                        <td>
+                            @m.HandlerID
+                        </td>
+                        <td>
+                            @m.RecorderID
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.OutDetails.TotalItemCount entries
+                </div>
+            </div>
+            @if (Model.OutDetails.TotalPageCount > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (Model.OutDetails.CurrentPageIndex == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex-1, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (Model.OutDetails.TotalPageCount <= 5)
+                            {
+                                for (int i = 1; i <= Model.OutDetails.TotalPageCount; ++i)
+                                {
+                                    if (i == Model.OutDetails.CurrentPageIndex)
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (Model.OutDetails.TotalPageCount - 5 >= Model.OutDetails.CurrentPageIndex)
+                                {
+                                    for (int i = Model.OutDetails.CurrentPageIndex; i < Model.OutDetails.CurrentPageIndex + 4; ++i)
+                                    {
+                                        if (i == Model.OutDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = Model.OutDetails.TotalPageCount - 4; i <= Model.OutDetails.TotalPageCount; ++i)
+                                    {
+                                        if (i == Model.OutDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = i, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (Model.OutDetails.CurrentPageIndex == Model.OutDetails.TotalPageCount)
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex+1, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex })"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="portlet box red">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 报废记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th>
+                        夹具代码
+                    </th>
+                    <th>
+                        夹具系列号
+                    </th>
+                    <th>
+                        申请日期
+                    </th>
+                    <th>
+                        使用寿命
+                    </th>
+                    <th>
+                        报废原因
+                    </th>
+                    <th>
+                        审核状态
+                    </th>
+                    <th>
+                        申请人
+                    </th>
+                    <th>
+                        初审人
+                    </th>
+                    <th>
+                        终审人
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.ScrapDetails)
+                {
+                    <tr>
+                        <td>
+                            @m.Code
+                            @if (m.ScrapDate.GetValueOrDefault().Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.ScrapDate
+                        </td>
+                        <td>
+                            @m.Servicelife
+                        </td>
+                        <td>
+                            @m.Reason
+                        </td>
+                        <td>
+                            @if (m.AuditState == "未审核")
+                            {
+                                <label class="label label-sm label-warning">未审核</label>
+                            }
+                            else
+                            {
+                                if (m.AuditState.Contains("初审"))
+                                {
+                                    <span>初审</span>
+                                }
+                                else
+                                {
+                                    <span>终审</span>
+                                }
+                                if (m.AuditState.Contains("不通过"))
+                                {
+                                    <label class="label label-sm label-danger">未通过</label>
+                                }
+                                else
+                                {
+                                    <label class="label label-sm label-success">已通过</label>
+                                }
+                            }
+                        </td>
+                        <td>
+                            @m.ApplicantID
+                        </td>
+                        <td>
+                            @m.Auditor1
+                        </td>
+                        <td>
+                            @m.Auditor2
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.ScrapDetails.TotalItemCount entries
+                </div>
+            </div>
+            @if (Model.ScrapDetails.TotalPageCount > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (Model.ScrapDetails.CurrentPageIndex == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex-1 })"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (Model.ScrapDetails.TotalPageCount <= 5)
+                            {
+                                for (int i = 1; i <= Model.ScrapDetails.TotalPageCount; ++i)
+                                {
+                                    if (i == Model.ScrapDetails.CurrentPageIndex)
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (Model.ScrapDetails.TotalPageCount - 5 >= Model.ScrapDetails.CurrentPageIndex)
+                                {
+                                    for (int i = Model.ScrapDetails.CurrentPageIndex; i < Model.ScrapDetails.CurrentPageIndex + 4; ++i)
+                                    {
+                                        if (i == Model.ScrapDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = Model.ScrapDetails.TotalPageCount - 4; i <= Model.ScrapDetails.TotalPageCount; ++i)
+                                    {
+                                        if (i == Model.ScrapDetails.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 =  Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = i})">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (Model.ScrapDetails.CurrentPageIndex == Model.ScrapDetails.TotalPageCount)
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="@Url.Action("Index", new { pageIndex1 = Model.InDetails.CurrentPageIndex, pageIndex2 = Model.OutDetails.CurrentPageIndex, pageIndex3 = Model.WarehouseDetails.CurrentPageIndex, pageIndex4 = Model.ScrapDetails.CurrentPageIndex+1 })"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript">

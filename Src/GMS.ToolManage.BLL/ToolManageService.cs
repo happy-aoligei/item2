@@ -10,6 +10,8 @@ using GMS.Framework.Contract;
 using EntityFramework.Extensions;
 using GMS.Core.Cache;
 using GMS.Core.Config;
+using GMS.Audit.Contract;
+using GMS.Audit.DAL;
 
 namespace GMS.ToolManage.BLL
 {
@@ -71,7 +73,10 @@ namespace GMS.ToolManage.BLL
                 IQueryable<InTable> InTables = dbContext.InTables;
                 if (request != null)
                 {
-
+                    if (!string.IsNullOrEmpty(request.Code))
+                        InTables = InTables.Where(u => u.Code.Contains(request.Code));
+                    if (request.SeqID != 0)
+                        InTables = InTables.Where(u => u.SeqID == request.SeqID);
                 }
                 return InTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
@@ -111,6 +116,13 @@ namespace GMS.ToolManage.BLL
             using (var dbContext = new ToolManageDbContext())
             {
                 IQueryable<OutTable> OutTables = dbContext.OutTables;
+                if (request != null)
+                {
+                    if (!string.IsNullOrEmpty(request.Code))
+                        OutTables = OutTables.Where(u => u.Code.Contains(request.Code));
+                    if (request.SeqID != 0)
+                        OutTables = OutTables.Where(u => u.SeqID == request.SeqID);
+                }
                 return OutTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
         }
@@ -141,6 +153,38 @@ namespace GMS.ToolManage.BLL
             {
                 dbContext.OutTables.Where(u => ids.Contains(u.ID)).Delete();
             }
+        }
+
+        public FullLifeModel GetFullLife(int id,FullLifeIndex pageIndex)
+        {
+            var res = new FullLifeModel
+            {
+                Details = Gettongs_entity(id)
+            };
+
+            var ToolManagedbContext = new ToolManageDbContext();
+            var AuditdbContext = new AuditDbContext();
+
+            IQueryable<InTable> InTables = ToolManagedbContext.InTables;
+            IQueryable<OutTable> OutTables = ToolManagedbContext.OutTables;
+            IQueryable<Warehouse> WarehouseTables = AuditdbContext.Warehouses;
+            IQueryable<Scrap> ScrapTables = AuditdbContext.Scraps;
+
+            InTables = InTables.Where(u => u.Code.Contains(res.Details.Code));
+            InTables = InTables.Where(u => u.SeqID == res.Details.SeqID);
+            OutTables = OutTables.Where(u => u.Code.Contains(res.Details.Code));
+            OutTables = OutTables.Where(u => u.SeqID == res.Details.SeqID);
+            WarehouseTables = WarehouseTables.Where(u => u.Code.Contains(res.Details.Code));
+            WarehouseTables = WarehouseTables.Where(u => u.SeqID == res.Details.SeqID);
+            ScrapTables = ScrapTables.Where(u => u.Code.Contains(res.Details.Code));
+            ScrapTables = ScrapTables.Where(u => u.SeqID == res.Details.SeqID);
+
+            res.InDetails = InTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex1, 12);
+            res.OutDetails = OutTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex2, 12);
+            res.WarehouseDetails = WarehouseTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex3, 12);
+            res.ScrapDetails = ScrapTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex4, 12);
+
+            return res;
         }
     }
 }

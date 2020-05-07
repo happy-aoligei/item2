@@ -183,8 +183,8 @@ var Layout = function () {
     
         // handle theme colors
         var setColor = function (color) {
-            $('#style-color').attr("href", "../../assets/frontend/onepage/css/themes/" + color + ".css");
-            $('.site-logo img').attr("src", "../../assets/frontend/onepage/img/logo/" + color + ".png");
+            $('#style-color').attr("href", "/assets/frontend/onepage/css/themes/" + color + ".css");
+            $('.site-logo img').attr("src", "/assets/frontend/onepage/img/logo/" + color + ".png");
         }
 
         $('.icon-color', panel).click(function () {

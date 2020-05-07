@@ -1,4 +1,4 @@
-﻿// 为模型“E:\Andrew Yu\科创&论文\项目管理\工夹具管理系统\GMS\Src\GMS.Audit.Contract\GMSAuditTables.edmx”启用了 T4 代码生成。
+﻿// 为模型“D:\Desktop\文档\ACM\第十一届中国大学生服务外包创新创业大赛通知系列文件\MvcBootstrap框架\GMS\Src\GMS.Audit.Contract\GMSAuditTables.edmx”启用了 T4 代码生成。
 // 要启用旧代码生成功能，请将“代码生成策略”设计器属性的值
 // 更改为“旧的 ObjectContext”。当在设计器中打开该模型时，此属性会出现在
 // “属性”窗口中。

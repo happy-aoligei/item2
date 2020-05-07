@@ -232,7 +232,7 @@ var Index = function () {
 		var map = AmCharts.makeChart( "mapChart", {
 		  type: "map",
 		  "theme": "light",
-		  pathToImages: "../../assets/global/plugins/amcharts/ammap/images/",
+		  pathToImages: "/assets/global/plugins/amcharts/ammap/images/",
 
 		  dataProvider: {
 		    map: "worldLow",

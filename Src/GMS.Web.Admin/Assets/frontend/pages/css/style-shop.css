@@ -280,16 +280,16 @@ Header and header elements
 	text-decoration: none;
 }
 .del-goods {
-	background: #d7dde3 url(../../layout/img/icons/del-goods.png) no-repeat 50% 50%;
+	background: #d7dde3 url(/layout/img/icons/del-goods.png) no-repeat 50% 50%;
 }
 .del-goods:hover {
-	background: #E94D1C url(../../layout/img/icons/del-goods.png) no-repeat 50% 50%;
+	background: #E94D1C url(/layout/img/icons/del-goods.png) no-repeat 50% 50%;
 }
 .add-goods {
-	background: #7bdd00 url(../../layout/img/icons/add-goods.png) no-repeat 50% 50%;
+	background: #7bdd00 url(/layout/img/icons/add-goods.png) no-repeat 50% 50%;
 }
 .add-goods:hover {
-	background: #E94D1C url(../../layout/img/icons/add-goods.png) no-repeat 50% 50%;
+	background: #E94D1C url(/layout/img/icons/add-goods.png) no-repeat 50% 50%;
 }
 
 .top-cart-content .text-right {
@@ -357,10 +357,10 @@ Header and header elements
 	height: 63px;
 }
 .sticker-sale {
-	background: url(../../layout/img/sale.png) no-repeat;
+	background: url(/layout/img/sale.png) no-repeat;
 }
 .sticker-new {
-	background: url(../../layout/img/new.png) no-repeat;
+	background: url(/layout/img/new.png) no-repeat;
 	left: auto;
 	right: 0;
 }

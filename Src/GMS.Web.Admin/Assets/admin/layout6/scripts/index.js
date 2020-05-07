@@ -5,7 +5,7 @@ var Index = function () {
 		  "type": "serial",
 		  "addClassNames": true,
 		  "theme": "light",
-		  "path": "../../assets/global/plugins/amcharts/ammap/images/",
+		  "path": "/assets/global/plugins/amcharts/ammap/images/",
 		  "autoMargins": false,
 		  "marginLeft": 30,
 		  "marginRight": 8,
@@ -90,7 +90,7 @@ var Index = function () {
 		var chart = AmCharts.makeChart( "animated-pie-chart", {
 		  "type": "pie",
 		  "theme": "light",
-		  "path": "../../assets/global/plugins/amcharts/ammap/images/",
+		  "path": "/assets/global/plugins/amcharts/ammap/images/",
 		  "dataProvider": [ {
 		    "country": "Lithuania",
 		    "value": 260

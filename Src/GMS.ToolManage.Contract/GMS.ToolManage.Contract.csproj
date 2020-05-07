@@ -74,6 +74,7 @@
     <Compile Include="manager.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\FullLife.cs" />
     <Compile Include="Model\InTable.cs" />
     <Compile Include="Model\Requests.cs" />
     <Compile Include="Model\tongs_entity.cs" />
@@ -112,6 +113,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GMS.Audit.Contract\GMS.Audit.Contract.csproj">
+      <Project>{4f007304-8feb-4724-a34f-a7056a5450e3}</Project>
+      <Name>GMS.Audit.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GMS.Framework.Contract\GMS.Framework.Contract.csproj">
       <Project>{11214d97-f23c-4e16-aa12-ecd824454744}</Project>
       <Name>GMS.Framework.Contract</Name>

@@ -15,19 +15,9 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
         //
         // GET: /ToolManage/FullLife/
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int id, FullLifeIndex pageIndex)
         {
-            var model = this.ToolManageService.Gettongs_entity(id);
-            return View(model);
-        }
-        public ActionResult InAndOut(int id)
-        {
-            var model = this.ToolManageService.Gettongs_entity(id);
-            return View(model);
-        }
-        public ActionResult Repair(int id)
-        {
-            var model = this.ToolManageService.Gettongs_entity(id);
+            var model = this.ToolManageService.GetFullLife(id, pageIndex);
             return View(model);
         }
     }

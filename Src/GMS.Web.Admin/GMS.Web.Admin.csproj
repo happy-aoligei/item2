@@ -5788,8 +5788,6 @@
     <Content Include="Areas\Account\Views\Auth\Detail.cshtml" />
     <Content Include="Areas\Mail\Views\Web.config" />
     <Content Include="Areas\ToolManage\Views\FullLife\Index.cshtml" />
-    <Content Include="Areas\ToolManage\Views\FullLife\InAndOut.cshtml" />
-    <Content Include="Areas\ToolManage\Views\FullLife\Repair.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />

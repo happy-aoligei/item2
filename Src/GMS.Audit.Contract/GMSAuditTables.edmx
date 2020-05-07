@@ -19,7 +19,8 @@
           <Property Name="Auditor1" Type="int" />
           <Property Name="Auditor2" Type="int" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ScrapDate" Type="datetime2" Precision="0" />
         </EntityType>
         <EntityType Name="Warehouse">
           <Key>
@@ -29,7 +30,6 @@
           <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="SeqID" Type="int" Nullable="false" />
           <Property Name="buyoff" Type="nvarchar" MaxLength="45" />
-          <Property Name="jbuyoff" Type="date" />
           <Property Name="Owner" Type="nvarchar" MaxLength="45" />
           <Property Name="Family" Type="nvarchar" MaxLength="45" />
           <Property Name="Model" Type="nvarchar" MaxLength="45" />
@@ -42,7 +42,8 @@
           <Property Name="Location" Type="nvarchar" MaxLength="45" />
           <Property Name="bin" Type="int" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="jbuyoff" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityContainer Name="GMSAuditModelStoreContainer">
           <EntitySet Name="Scrap" EntityType="Self.Scrap" Schema="dbo" store:Type="Tables" />
@@ -67,7 +68,8 @@
           <Property Name="Auditor1" Type="Int32" />
           <Property Name="Auditor2" Type="Int32" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ScrapDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Warehouse">
           <Key>
@@ -77,7 +79,6 @@
           <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SeqID" Type="Int32" Nullable="false" />
           <Property Name="buyoff" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-          <Property Name="jbuyoff" Type="DateTime" />
           <Property Name="Owner" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Family" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
@@ -90,9 +91,10 @@
           <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="bin" Type="Int32" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="jbuyoff" Type="DateTime" Precision="7" />
         </EntityType>
-        <EntityContainer Name="GMSAuditEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GMSAuditEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Scrap" EntityType="Self.Scrap" />
           <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
         </EntityContainer>
@@ -101,7 +103,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GMSAuditModelStoreContainer" CdmEntityContainer="GMSAuditEntities2">
+        <EntityContainerMapping StorageEntityContainer="GMSAuditModelStoreContainer" CdmEntityContainer="GMSAuditEntities3">
           <EntitySetMapping Name="Scrap">
             <EntityTypeMapping TypeName="GMSAuditModel.Scrap">
               <MappingFragment StoreEntitySet="Scrap">
@@ -115,6 +117,7 @@
                 <ScalarProperty Name="Auditor2" ColumnName="Auditor2" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ScrapDate" ColumnName="ScrapDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -124,7 +127,6 @@
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="SeqID" ColumnName="SeqID" />
                 <ScalarProperty Name="buyoff" ColumnName="buyoff" />
-                <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="Family" ColumnName="Family" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -138,6 +140,7 @@
                 <ScalarProperty Name="bin" ColumnName="bin" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="jbuyoff" ColumnName="jbuyoff" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

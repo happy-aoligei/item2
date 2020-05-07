@@ -181,7 +181,7 @@ Page Header
   color: #ced6de;
 }
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar-toggle-light.png);
+  background-image: url(/img/sidebar-toggle-light.png);
 }
 .page-header.navbar .page-actions .btn-group .btn-sm.btn-transparent {
   background: none;

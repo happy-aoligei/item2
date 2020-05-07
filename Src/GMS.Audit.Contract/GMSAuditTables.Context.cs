@@ -13,10 +13,10 @@ namespace GMS.Audit.Contract
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GMSAuditEntities2 : DbContext
+    public partial class GMSAuditEntities3 : DbContext
     {
-        public GMSAuditEntities2()
-            : base("name=GMSAuditEntities2")
+        public GMSAuditEntities3()
+            : base("name=GMSAuditEntities3")
         {
         }
     

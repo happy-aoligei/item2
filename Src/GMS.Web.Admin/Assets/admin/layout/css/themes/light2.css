@@ -160,7 +160,7 @@ Page Header
   background: #eeeeee;
 }
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar_toggler_icon_light2.png);
+  background-image: url(/img/sidebar_toggler_icon_light2.png);
 }
 
 /* Default Horizontal Menu */
@@ -517,7 +517,7 @@ Page Header
 }
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler,
 .page-sidebar .sidebar-toggler {
-  background: url(../../img/sidebar_inline_toggler_icon_light2.jpg);
+  background: url(/img/sidebar_inline_toggler_icon_light2.jpg);
 }
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search .input-group,
 .page-sidebar .sidebar-search .input-group {

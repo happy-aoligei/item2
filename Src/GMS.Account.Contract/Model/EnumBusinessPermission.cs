@@ -73,5 +73,11 @@ namespace GMS.Account.Contract
 
         [EnumTitle("采购入库审核_终级")]
         Audit_Warehouse_CheckHigh = 604,
+
+        [EnumTitle("报废审核_初级")]
+        Audit_Scrap_CheckLow = 605,
+
+        [EnumTitle("报废审核_终级")]
+        Audit_Scrap_CheckHigh = 606,
     }
 }

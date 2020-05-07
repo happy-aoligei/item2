@@ -164,7 +164,7 @@ Page Header
   background: #9099a3;
 }
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar_toggler_icon_light.png);
+  background-image: url(/img/sidebar_toggler_icon_light.png);
 }
 
 /* Default Horizontal Menu */
@@ -521,7 +521,7 @@ Page Header
 }
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler,
 .page-sidebar .sidebar-toggler {
-  background: url(../../img/sidebar_inline_toggler_icon_light.jpg);
+  background: url(/img/sidebar_inline_toggler_icon_light.jpg);
 }
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search .input-group,
 .page-sidebar .sidebar-search .input-group {

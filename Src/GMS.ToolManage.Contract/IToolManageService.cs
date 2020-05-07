@@ -19,5 +19,7 @@ namespace GMS.ToolManage.Contract
         OutTable GetOutTable(int id);
         void SaveOutTable(OutTable Data);
         void DeleteOutTable(List<int> ids);
+
+        FullLifeModel GetFullLife(int id,FullLifeIndex pageIndex);
     }
 }

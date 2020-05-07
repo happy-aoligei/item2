@@ -9,10 +9,10 @@
 }
 @section PageSpecificStyleSheetIncludes{
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css" />
-    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
     <!-- END PAGE LEVEL STYLES -->
 }
 <div class="portlet box blue">
@@ -122,7 +122,7 @@
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="dataTables_info" role="status" aria-live="polite">
-                        Showing @(Model.CurrentPageIndex * 12 - 11) to @(Model.CurrentPageIndex * 12 > Model.TotalItemCount ? Model.TotalItemCount : Model.CurrentPageIndex * 12) of @Model.TotalItemCount entries
+                        Total : @Model.TotalItemCount entries
                     </div>
                 </div>
                 @if (Model.TotalPageCount > 1)
@@ -154,9 +154,9 @@
                                 }
                                 else
                                 {
-                                    if (Model.TotalPageCount - 5 <= Model.CurrentPageIndex)
+                                    if (Model.TotalPageCount - 5 >= Model.CurrentPageIndex)
                                     {
-                                        for (int i = Model.CurrentPageIndex; i <= Model.CurrentPageIndex + 4; ++i)
+                                        for (int i = Model.CurrentPageIndex; i < Model.CurrentPageIndex + 4; ++i)
                                         {
                                             if (i == Model.CurrentPageIndex)
                                             {
@@ -166,8 +166,8 @@
                                             {
                                                 <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
                                             }
-                                            <li class="paginate_button disable" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">...</a></li>
                                         }
+                                        <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
                                     }
                                     else
                                     {
@@ -244,4 +244,3 @@
         </form>
     </div>
 </div>
-
