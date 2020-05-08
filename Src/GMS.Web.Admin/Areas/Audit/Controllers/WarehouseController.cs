@@ -38,7 +38,7 @@ namespace GMS.Web.Admin.Areas.Audit.Controllers
             model.jbuyoff = DateTime.Now;
             model.AuditState = "未审核";
             this.AuditService.SaveWarehouse(model);
-            return this.RefreshParent();
+            return RedirectToAction("Index");
         }
         public ActionResult Edit(int id)
         {

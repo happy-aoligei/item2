@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="GMSToolManageModel.emails" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.employees" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.location" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GMSToolManageModel.maintenance_record" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.manager" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.operator" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.operator1" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
@@ -23,6 +22,7 @@
         <EntityTypeShape EntityType="GMSToolManageModel.upkeep_check" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.users" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GMSToolManageModel.OutTable" Width="1.5" PointX="7.375" PointY="9.75" />
+        <EntityTypeShape EntityType="GMSToolManageModel.RepairTable" Width="1.5" PointX="9.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

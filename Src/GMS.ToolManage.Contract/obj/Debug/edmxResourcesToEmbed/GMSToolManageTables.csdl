@@ -43,21 +43,6 @@
     <Property Name="Bin" Type="Int32" Nullable="false" />
     <Property Name="State" Type="Int32" />
   </EntityType>
-  <EntityType Name="maintenance_record">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SeqID" Type="Int32" Nullable="false" />
-    <Property Name="ErrDescription" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="ErrPhoto" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="ApplicantID" Type="Int32" />
-    <Property Name="Operator2ID" Type="Int32" />
-    <Property Name="MaintainState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-    <Property Name="MaintainDate" Type="DateTime" Precision="0" />
-    <Property Name="SupervisorID" Type="Int32" />
-  </EntityType>
   <EntityType Name="manager">
     <Key>
       <PropertyRef Name="ID" />
@@ -172,7 +157,6 @@
     <EntitySet Name="emails" EntityType="Self.emails" />
     <EntitySet Name="employees" EntityType="Self.employees" />
     <EntitySet Name="location" EntityType="Self.location" />
-    <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" />
     <EntitySet Name="manager" EntityType="Self.manager" />
     <EntitySet Name="operator" EntityType="Self.operator" />
     <EntitySet Name="operator1" EntityType="Self.operator1" />
@@ -185,6 +169,7 @@
     <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" />
     <EntitySet Name="users" EntityType="Self.users" />
     <EntitySet Name="OutTable" EntityType="GMSToolManageModel.OutTable" />
+    <EntitySet Name="RepairTable" EntityType="GMSToolManageModel.RepairTable" />
   </EntityContainer>
   <EntityType Name="OutTable">
     <Key>
@@ -203,6 +188,23 @@
     <Property Name="RecorderID" Type="Int32" />
     <Property Name="ShiftTime" Type="Int32" />
     <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RepairTable">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="SeqID" Type="Int32" Nullable="false" />
+    <Property Name="ErrDescription" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ErrPhoto" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicantID" Type="Int32" />
+    <Property Name="Operator2ID" Type="Int32" />
+    <Property Name="MaintainState" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+    <Property Name="MaintainDate" Type="DateTime" Precision="7" />
+    <Property Name="SupervisorID" Type="Int32" />
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CreateTime" Type="DateTime" Precision="0" Nullable="false" />
   </EntityType>

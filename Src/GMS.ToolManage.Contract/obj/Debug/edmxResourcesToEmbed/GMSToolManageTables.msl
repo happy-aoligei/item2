@@ -48,21 +48,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="maintenance_record">
-      <EntityTypeMapping TypeName="GMSToolManageModel.maintenance_record">
-        <MappingFragment StoreEntitySet="maintenance_record">
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
-          <ScalarProperty Name="ErrDescription" ColumnName="ErrDescription" />
-          <ScalarProperty Name="ErrPhoto" ColumnName="ErrPhoto" />
-          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
-          <ScalarProperty Name="Operator2ID" ColumnName="Operator2ID" />
-          <ScalarProperty Name="MaintainState" ColumnName="MaintainState" />
-          <ScalarProperty Name="MaintainDate" ColumnName="MaintainDate" />
-          <ScalarProperty Name="SupervisorID" ColumnName="SupervisorID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="manager">
       <EntityTypeMapping TypeName="GMSToolManageModel.manager">
         <MappingFragment StoreEntitySet="manager">
@@ -195,6 +180,23 @@
           <ScalarProperty Name="GoWhere" ColumnName="GoWhere" />
           <ScalarProperty Name="Bin" ColumnName="Bin" />
           <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RepairTable">
+      <EntityTypeMapping TypeName="GMSToolManageModel.RepairTable">
+        <MappingFragment StoreEntitySet="RepairTable">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SupervisorID" ColumnName="SupervisorID" />
+          <ScalarProperty Name="MaintainDate" ColumnName="MaintainDate" />
+          <ScalarProperty Name="MaintainState" ColumnName="MaintainState" />
+          <ScalarProperty Name="Operator2ID" ColumnName="Operator2ID" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="ErrPhoto" ColumnName="ErrPhoto" />
+          <ScalarProperty Name="ErrDescription" ColumnName="ErrDescription" />
           <ScalarProperty Name="SeqID" ColumnName="SeqID" />
           <ScalarProperty Name="Code" ColumnName="Code" />
         </MappingFragment>

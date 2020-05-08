@@ -20,8 +20,8 @@ namespace GMS.ToolManage.Contract
     using System;
     using System.Collections.Generic;
     
-    [Table("maintenance_record")]
-    public partial class maintenance_record : ModelBase
+    [Table("RepairTable")]
+    public partial class RepairTable : ModelBase
     {
         public string Code { get; set; }
         public int SeqID { get; set; }
@@ -32,5 +32,7 @@ namespace GMS.ToolManage.Contract
         public string MaintainState { get; set; }
         public Nullable<System.DateTime> MaintainDate { get; set; }
         public Nullable<int> SupervisorID { get; set; }
+        public int ID { get; set; }
+        public System.DateTime CreateTime { get; set; }
     }
 }

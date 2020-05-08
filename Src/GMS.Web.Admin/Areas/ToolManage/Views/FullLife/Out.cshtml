@@ -1,0 +1,217 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Utility
+@using GMS.Framework.Web.Controls
+@using GMS.ToolManage.Contract
+@using GMS.Web.Admin.Common
+@model FullLifeModel
+@{
+    var permissions = AdminUserContext.Current.LoginInfo.BusinessPermissionList.Select(q => q.ToString());
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int[] p = new int[5];
+    p[0] = Model.InDetails.CurrentPageIndex;
+    p[1] = Model.OutDetails.CurrentPageIndex;
+    p[2] = Model.WarehouseDetails.CurrentPageIndex;
+    p[3] = Model.ScrapDetails.CurrentPageIndex;
+    p[4] = Model.RepairDetails.CurrentPageIndex;
+    int[] TotalPageCount = new int[5];
+    TotalPageCount[0] = Model.InDetails.TotalPageCount;
+    TotalPageCount[1] = Model.OutDetails.TotalPageCount;
+    TotalPageCount[2] = Model.WarehouseDetails.TotalPageCount;
+    TotalPageCount[3] = Model.ScrapDetails.TotalPageCount;
+    TotalPageCount[4] = Model.RepairDetails.TotalPageCount;
+    int index = -1;
+}
+
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+}
+<div class="row" style="margin-bottom:25px;">
+    <div class="col-md-12 span4">
+        <div>
+            <a class="btn blue" title='详细信息' href="@("/ToolManage/FullLife/Index/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 详细信息</a>
+            <a class="btn green" title='采购入库记录' href="@("/ToolManage/FullLife/Warehouse/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 采购入库记录</a>
+            <a class="btn yellow" title='入库记录' href="@("/ToolManage/FullLife/In/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 入库记录</a>
+            <a class="btn yellow" title='出库记录' href="@("/ToolManage/FullLife/Out/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 出库记录</a>
+            <a class="btn purple" title='报修记录' href="@("/ToolManage/FullLife/Repair/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 报修记录</a>
+            <a class="btn red" title='报废记录' href="@("/ToolManage/FullLife/Scrap/"+Model.Details.ID.ToString())"><i class="fa fa-list"></i> 报废记录</a>
+        </div>
+    </div>
+</div>
+<div class="portlet box yellow">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 出库记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th>
+                        夹具代码
+                    </th>
+                    <th>
+                        夹具系列号
+                    </th>
+                    <th>
+                        出库库位
+                    </th>
+                    <th>
+                        去向
+                    </th>
+                    <th>
+                        生产线编号
+                    </th>
+                    <th>
+                        出库时间
+                    </th>
+                    <th>
+                        班次
+                    </th>
+                    <th>
+                        经手人
+                    </th>
+                    <th>
+                        记录人
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.OutDetails)
+                {
+                    <tr>
+                        <td>
+                            @m.Code
+                            @if (m.OutstorageDate.GetValueOrDefault().Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.Location-@m.Bin
+
+                        </td>
+                        <td>
+                            @m.GoWhere
+
+                        </td>
+                        <td>
+                            @m.ProductID-@m.LineID
+                        </td>
+                        <td>
+                            @m.OutstorageDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm:ss")
+                        </td>
+                        <td>
+                            @m.ShiftTime
+                        </td>
+                        <td>
+                            @m.HandlerID
+                        </td>
+                        <td>
+                            @m.RecorderID
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.OutDetails.TotalItemCount entries
+                </div>
+            </div>
+            @{
+                index = 1;
+            }
+            @if (TotalPageCount[index] > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (p[index] == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="@Model.GetPageUrl(index,p[index]-1)"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (TotalPageCount[index] <= 5)
+                            {
+                                for (int i = 1; i <= TotalPageCount[index]; ++i)
+                                {
+                                    if (i == p[index])
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (TotalPageCount[index] - 5 >= p[index])
+                                {
+                                    for (int i = p[index]; i < p[index] + 4; ++i)
+                                    {
+                                        if (i == p[index])
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = TotalPageCount[index] - 4; i <= TotalPageCount[index]; ++i)
+                                    {
+                                        if (i == p[index])
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="@Model.GetPageUrl(index,i)">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (p[index] == TotalPageCount[index])
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="@Model.GetPageUrl(index,p[index]+1)"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $("#top_title").text("工夹具全寿命信息查看");
+        $("#top_title_small").text("查看工夹具全寿命信息");
+        $("#menu_group").text("工夹具管理");
+        $("#menu").text("工夹具全寿命信息查看");
+    </script>
+}

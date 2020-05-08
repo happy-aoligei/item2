@@ -21,5 +21,10 @@ namespace GMS.ToolManage.Contract
         void DeleteOutTable(List<int> ids);
 
         FullLifeModel GetFullLife(int id,FullLifeIndex pageIndex);
+
+        IEnumerable<RepairTable> GetRepairTableList(RepairTableRequest request = null);
+        RepairTable GetRepairTable(int id);
+        void SaveRepairTable(RepairTable Data);
+        void DeleteRepairTable(List<int> ids);
     }
 }

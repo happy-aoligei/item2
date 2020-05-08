@@ -43,21 +43,6 @@
     <Property Name="Bin" Type="int" Nullable="false" />
     <Property Name="State" Type="int" />
   </EntityType>
-  <EntityType Name="maintenance_record">
-    <Key>
-      <PropertyRef Name="Code" />
-      <PropertyRef Name="SeqID" />
-    </Key>
-    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
-    <Property Name="SeqID" Type="int" Nullable="false" />
-    <Property Name="ErrDescription" Type="nvarchar" MaxLength="45" />
-    <Property Name="ErrPhoto" Type="nvarchar" MaxLength="45" />
-    <Property Name="ApplicantID" Type="int" />
-    <Property Name="Operator2ID" Type="int" />
-    <Property Name="MaintainState" Type="nvarchar" MaxLength="45" />
-    <Property Name="MaintainDate" Type="date" />
-    <Property Name="SupervisorID" Type="int" />
-  </EntityType>
   <EntityType Name="manager">
     <Key>
       <PropertyRef Name="ID" />
@@ -86,6 +71,8 @@
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="45" />
   </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“GMSToolManage.dbo.OutTable”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
   <EntityType Name="OutTable">
     <Key>
       <PropertyRef Name="Code" />
@@ -112,6 +99,23 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="RepairTable">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="SeqID" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="45" Nullable="false" />
+    <Property Name="SeqID" Type="int" Nullable="false" />
+    <Property Name="ErrDescription" Type="nvarchar" MaxLength="45" />
+    <Property Name="ErrPhoto" Type="nvarchar" MaxLength="45" />
+    <Property Name="ApplicantID" Type="int" />
+    <Property Name="Operator2ID" Type="int" />
+    <Property Name="MaintainState" Type="nvarchar" MaxLength="45" />
+    <Property Name="MaintainDate" Type="datetime2" Precision="7" />
+    <Property Name="SupervisorID" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime2" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="send_emails">
     <Key>
@@ -192,18 +196,35 @@
     <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="maintenance_record" EntityType="Self.maintenance_record" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="manager" EntityType="Self.manager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="operator" EntityType="Self.operator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="operator1" EntityType="Self.operator1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="operator2" EntityType="Self.operator2" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="OutTable" EntityType="Self.OutTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="production_line" EntityType="Self.production_line" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepairTable" EntityType="Self.RepairTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="send_emails" EntityType="Self.send_emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="supervisor" EntityType="Self.supervisor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="system_email_account" EntityType="Self.system_email_account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tongs_definition" EntityType="Self.tongs_definition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="upkeep_check" EntityType="Self.upkeep_check" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OutTable" EntityType="Self.OutTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[OutTable].[Code] AS [Code], 
+[OutTable].[SeqID] AS [SeqID], 
+[OutTable].[Location] AS [Location], 
+[OutTable].[Bin] AS [Bin], 
+[OutTable].[GoWhere] AS [GoWhere], 
+[OutTable].[LineID] AS [LineID], 
+[OutTable].[ProductID] AS [ProductID], 
+[OutTable].[OutstorageDate] AS [OutstorageDate], 
+[OutTable].[HandlerID] AS [HandlerID], 
+[OutTable].[RecorderID] AS [RecorderID], 
+[OutTable].[ShiftTime] AS [ShiftTime], 
+[OutTable].[Remark] AS [Remark], 
+[OutTable].[ID] AS [ID], 
+[OutTable].[CreateTime] AS [CreateTime]
+FROM [dbo].[OutTable] AS [OutTable]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

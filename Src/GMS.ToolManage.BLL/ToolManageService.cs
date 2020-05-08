@@ -155,6 +155,51 @@ namespace GMS.ToolManage.BLL
             }
         }
 
+        public IEnumerable<RepairTable> GetRepairTableList(RepairTableRequest request = null)
+        {
+            request = request ?? new RepairTableRequest();
+            using (var dbContext = new ToolManageDbContext())
+            {
+                IQueryable<RepairTable> RepairTables = dbContext.RepairTables;
+                if (request != null)
+                {
+                    if (!string.IsNullOrEmpty(request.Code))
+                        RepairTables = RepairTables.Where(u => u.Code.Contains(request.Code));
+                    if (request.SeqID != 0)
+                        RepairTables = RepairTables.Where(u => u.SeqID == request.SeqID);
+                }
+                return RepairTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
+            }
+        }
+        public RepairTable GetRepairTable(int id)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                return dbContext.RepairTables.Where(u => u.ID == id).SingleOrDefault();
+            }
+        }
+        public void SaveRepairTable(RepairTable Data)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                if (Data.ID > 0)
+                {
+                    dbContext.Update<RepairTable>(Data);
+                }
+                else
+                {
+                    dbContext.Insert<RepairTable>(Data);
+                }
+            }
+        }
+        public void DeleteRepairTable(List<int> ids)
+        {
+            using (var dbContext = new ToolManageDbContext())
+            {
+                dbContext.RepairTables.Where(u => ids.Contains(u.ID)).Delete();
+            }
+        }
+
         public FullLifeModel GetFullLife(int id,FullLifeIndex pageIndex)
         {
             var res = new FullLifeModel
@@ -169,6 +214,7 @@ namespace GMS.ToolManage.BLL
             IQueryable<OutTable> OutTables = ToolManagedbContext.OutTables;
             IQueryable<Warehouse> WarehouseTables = AuditdbContext.Warehouses;
             IQueryable<Scrap> ScrapTables = AuditdbContext.Scraps;
+            IQueryable<RepairTable> RepairTables = ToolManagedbContext.RepairTables;
 
             InTables = InTables.Where(u => u.Code.Contains(res.Details.Code));
             InTables = InTables.Where(u => u.SeqID == res.Details.SeqID);
@@ -178,11 +224,14 @@ namespace GMS.ToolManage.BLL
             WarehouseTables = WarehouseTables.Where(u => u.SeqID == res.Details.SeqID);
             ScrapTables = ScrapTables.Where(u => u.Code.Contains(res.Details.Code));
             ScrapTables = ScrapTables.Where(u => u.SeqID == res.Details.SeqID);
+            RepairTables = RepairTables.Where(u => u.Code.Contains(res.Details.Code));
+            RepairTables = RepairTables.Where(u => u.SeqID == res.Details.SeqID);
 
             res.InDetails = InTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex1, 12);
             res.OutDetails = OutTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex2, 12);
             res.WarehouseDetails = WarehouseTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex3, 12);
             res.ScrapDetails = ScrapTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex4, 12);
+            res.RepairDetails = RepairTables.OrderByDescending(u => u.ID).ToPagedList(pageIndex.pageIndex5, 12);
 
             return res;
         }

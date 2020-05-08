@@ -23,5 +23,6 @@ namespace GMS.ToolManage.DAL
         public DbSet<tongs_entity> tongs_entitys { get; set; }
         public DbSet<InTable> InTables { get; set; }
         public DbSet<OutTable> OutTables { get; set; }
+        public DbSet<RepairTable> RepairTables { get; set; }
     }
 }

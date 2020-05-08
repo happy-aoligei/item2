@@ -17,8 +17,12 @@ namespace GMS.ToolManage.Contract
         public PagedList<OutTable> OutDetails { get; set; }
         public PagedList<Warehouse> WarehouseDetails { get; set; }
         public PagedList<Scrap> ScrapDetails { get; set; }
-        //public PagedList<InTable> InDetails { get; set; }
-
+        public PagedList<RepairTable> RepairDetails { get; set; }
+        public string GetPageUrl(int index,int pageIndex)
+        {
+            var res = "?pageIndex=" + pageIndex.ToString();
+            return res;
+        }
     }
     public class FullLifeIndex : ModelBase
     {

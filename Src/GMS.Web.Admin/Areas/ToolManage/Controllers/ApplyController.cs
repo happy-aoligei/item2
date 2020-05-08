@@ -22,10 +22,6 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
             var result = this.ToolManageService.GetOutTableList(request);
             return View(result);
         }
-        public ActionResult Out_Create()
-        {
-            return View();
-        }
         [HttpPost]
         public ActionResult Out_Create(OutTable Data)
         {
@@ -38,10 +34,6 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
             var result = this.ToolManageService.GetInTableList(request);
             return View(result);
         }
-        public ActionResult In_Create()
-        {
-            return View();
-        }
         [HttpPost]
         public ActionResult In_Create(InTable Data)
         {
@@ -50,35 +42,18 @@ namespace GMS.Web.Admin.Areas.ToolManage.Controllers
             return RedirectToAction("In");
         }
 
-        public ActionResult Repair()//报修
+        public ActionResult Repair(RepairTableRequest request)//报修
         {
-            return View();
-        }
-        public ActionResult Create()//报修
-        {
-            return View();
+            var model = this.ToolManageService.GetRepairTableList(request);
+            return View(model);
         }
         [HttpPost]
-        public ActionResult Create(FormCollection collection)//新增
+        public ActionResult Repair_Create(RepairTable Data)
         {
-
-            return this.RefreshParent();
-        }
-        [HttpPost]
-        public ActionResult Delete(List<int> ids)
-        {
-            return RedirectToAction("In");
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return View("Create");
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            return this.RefreshParent();
+            Data.CreateTime = DateTime.Now;
+            Data.MaintainDate = DateTime.Now;
+            ToolManageService.SaveRepairTable(Data);
+            return RedirectToAction("Repair");
         }
     }
 }

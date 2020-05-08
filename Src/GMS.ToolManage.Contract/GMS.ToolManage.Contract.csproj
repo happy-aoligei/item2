@@ -68,9 +68,6 @@
     <Compile Include="location.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="maintenance_record.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
     <Compile Include="manager.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
@@ -91,6 +88,9 @@
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="production_line.cs">
+      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepairTable.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="send_emails.cs">

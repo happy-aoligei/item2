@@ -30,7 +30,6 @@ namespace GMS.ToolManage.Contract
         public DbSet<emails> emails { get; set; }
         public DbSet<employees> employees { get; set; }
         public DbSet<location> location { get; set; }
-        public DbSet<maintenance_record> maintenance_record { get; set; }
         public DbSet<manager> manager { get; set; }
         public DbSet<@operator> @operator { get; set; }
         public DbSet<operator1> operator1 { get; set; }
@@ -43,5 +42,6 @@ namespace GMS.ToolManage.Contract
         public DbSet<upkeep_check> upkeep_check { get; set; }
         public DbSet<users> users { get; set; }
         public DbSet<OutTable> OutTable { get; set; }
+        public DbSet<RepairTable> RepairTable { get; set; }
     }
 }

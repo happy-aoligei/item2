@@ -61,7 +61,7 @@ namespace GMS.ToolManage.Contract
         public int Workcell { get; set; }
     }
 
-    public class outstorageRequest : Request
+    public class OutTableRequest : Request
     {
         public string Code { get; set; }
         public int SeqID { get; set; }
@@ -79,20 +79,17 @@ namespace GMS.ToolManage.Contract
         public DateTime CreateTime { get; set; }
     }
 
-    public class OutTableRequest : Request
+    public class RepairTableRequest : Request
     {
         public string Code { get; set; }
         public int SeqID { get; set; }
-        public string Location { get; set; }
-        public int Bin { get; set; }
-        public string GoWhere { get; set; }
-        public int LineID { get; set; }
-        public int ProductID { get; set; }
-        public DateTime OutstorageDate { get; set; }
-        public int HandlerID { get; set; }
-        public int RecorderID { get; set; }
-        public int ShiftTime { get; set; }
-        public string Remark { get; set; }
+        public string ErrDescription { get; set; }
+        public string ErrPhoto { get; set; }
+        public Nullable<int> ApplicantID { get; set; }
+        public Nullable<int> Operator2ID { get; set; }
+        public string MaintainState { get; set; }
+        public Nullable<System.DateTime> MaintainDate { get; set; }
+        public Nullable<int> SupervisorID { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
     }
