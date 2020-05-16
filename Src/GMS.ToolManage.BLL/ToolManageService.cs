@@ -31,7 +31,8 @@ namespace GMS.ToolManage.BLL
                         tongs_entitys = tongs_entitys.Where(u => u.SeqID == request.SeqID);
                     if (!string.IsNullOrEmpty(request.State))
                         tongs_entitys = tongs_entitys.Where(u => u.State.Contains(request.State));
-                    tongs_entitys = tongs_entitys.Where(u => u.Workcell == request.Workcell);
+                    if (request.Workcell != 0)
+                        tongs_entitys = tongs_entitys.Where(u => u.Workcell == request.Workcell);
                 }
                 return tongs_entitys.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
@@ -77,6 +78,8 @@ namespace GMS.ToolManage.BLL
                         InTables = InTables.Where(u => u.Code.Contains(request.Code));
                     if (request.SeqID != 0)
                         InTables = InTables.Where(u => u.SeqID == request.SeqID);
+                    if (request.Workcell != 0)
+                        InTables = InTables.Where(u => u.Workcell == request.Workcell);
                 }
                 return InTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
@@ -122,6 +125,8 @@ namespace GMS.ToolManage.BLL
                         OutTables = OutTables.Where(u => u.Code.Contains(request.Code));
                     if (request.SeqID != 0)
                         OutTables = OutTables.Where(u => u.SeqID == request.SeqID);
+                    if (request.Workcell != 0)
+                        OutTables = OutTables.Where(u => u.Workcell == request.Workcell);
                 }
                 return OutTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
@@ -167,6 +172,8 @@ namespace GMS.ToolManage.BLL
                         RepairTables = RepairTables.Where(u => u.Code.Contains(request.Code));
                     if (request.SeqID != 0)
                         RepairTables = RepairTables.Where(u => u.SeqID == request.SeqID);
+                    if (request.Workcell != 0)
+                        RepairTables = RepairTables.Where(u => u.Workcell == request.Workcell);
                 }
                 return RepairTables.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }

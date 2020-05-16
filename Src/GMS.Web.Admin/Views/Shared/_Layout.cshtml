@@ -398,8 +398,8 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
 							<li>
-								<a href="extra_profile.html">
-									<i class="icon-user"></i> My Profile
+								<a href="\Account\Profile\Index">
+									<i class="icon-user"></i> 个人信息
 								</a>
 							</li>
 							<li>
@@ -626,7 +626,7 @@
 				<!-- END STYLE CUSTOMIZER -->
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-					<span  id="top_title">Blank Page</span>
+					<span id="top_title">Blank Page</span>
 					<small id="top_title_small">blank page</small>
 				</h3>
 				<div class="page-bar">
@@ -644,29 +644,6 @@
 							<span id="menu">Blank Page</span>
 						</li>
 					</ul>
-					<div class="page-toolbar">
-						<div class="btn-group pull-right">
-							<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-								Actions <i class="fa fa-angle-down"></i>
-							</button>
-							<ul class="dropdown-menu pull-right" role="menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
-						</div>
-					</div>
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
@@ -1377,14 +1354,17 @@
 	<script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 	<script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 	<script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-	<script type="text/javascript" src="@Url.StaticFile("/content/scripts/admin.main.js")"></script>
+
+	<script type="text/javascript" src="/content/scripts/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/content/scripts/jquery.validate.unobtrusive.min.js"></script>
+	<script type="text/javascript" src="/content/scripts/admin.main.js"></script>
 	<script>
 		jQuery(document).ready(function () {
 			Metronic.init(); // init metronic core components
 			Layout.init(); // init current layout
 			QuickSidebar.init(); // init quick sidebar
-            Demo.init(); // init demo features
-            $("#style_color").attr("href", "/assets/admin/layout/css/themes/default.css");
+			Demo.init(); // init demo features
+			$("#style_color").attr("href", "/assets/admin/layout/css/themes/default.css");
 		});
 	</script>
 	@RenderSection("PageSpecificJavascriptIncludes", required: false)

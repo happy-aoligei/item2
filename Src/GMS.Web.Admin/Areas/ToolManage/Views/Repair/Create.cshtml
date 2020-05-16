@@ -1,0 +1,74 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Utility
+@using GMS.Framework.Web.Controls
+@using GMS.ToolManage.Contract
+
+@model RepairTable
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <style>
+        span.help-block {
+            margin-left: 14px;
+            color: red;
+        }
+    </style>
+}
+
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>报修申请
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="Create" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">夹具代码</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Code, new { Value = "", @class = "form-control input-circle", placeholder = "Enter CodeID" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.Code)</span>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-circle blue"><i class="fa fa-search"></i>扫描</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">夹具系列号</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.SeqID, new { Value = "", @class = "form-control input-circle", placeholder = "Enter SeqID" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.SeqID)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-circle blue">申请</button>
+                        <a href="Index" type="button" class="btn btn-circle default">取消</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $("#top_title").text("申请报修");
+        $("#top_title_small").text("申请报修工夹具");
+        $("#menu_group").text("报修模块");
+        $("#menu").text("申请报修");
+    </script>
+}

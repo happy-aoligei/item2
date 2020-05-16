@@ -134,6 +134,14 @@ namespace GMS.Account.BLL
             }
         }
 
+        public User GetUser(string LoginName, int Workcell)
+        {
+            using (var dbContext = new AccountDbContext())
+            {
+                return dbContext.Users.Where(u => u.LoginName == LoginName && u.Workcell == Workcell).SingleOrDefault();
+            }
+        }
+
         public IEnumerable<User> GetUserList(UserRequest request = null)
         {
             request = request ?? new UserRequest();
@@ -148,6 +156,11 @@ namespace GMS.Account.BLL
                 if (!string.IsNullOrEmpty(request.Mobile))
                     users = users.Where(u => u.Mobile.Contains(request.Mobile));
 
+                if (request.Workcell != 0)
+                    users = users.Where(u => u.Workcell == request.Workcell);
+
+                if (!string.IsNullOrEmpty(request.Email))
+                    users = users.Where(u => u.Email.Contains(request.Email));
                 return users.OrderByDescending(u => u.ID).ToPagedList(request.PageIndex, request.PageSize);
             }
         }
@@ -158,17 +171,25 @@ namespace GMS.Account.BLL
             {
                 if (user.ID > 0)
                 {
-                    dbContext.Update<User>(user);
-                    var roles = dbContext.Roles.Where(r => user.RoleIds.Contains(r.ID)).ToList();
-                    user.Roles = roles;
-                    dbContext.SaveChanges();
+                    var existUser = dbContext.FindAll<User>(u => u.LoginName == user.LoginName && u.Workcell == user.Workcell && u.ID != user.ID);
+                    if (existUser.Count > 0)
+                    {
+                        throw new BusinessException("LoginName", "此登录名已存在于该部门，请重新输入");
+                    }
+                    else
+                    {
+                        dbContext.Update<User>(user);
+                        var roles = dbContext.Roles.Where(r => user.RoleIds.Contains(r.ID)).ToList();
+                        user.Roles = roles;
+                        dbContext.SaveChanges();
+                    }
                 }
                 else
                 {
                     var existUser = dbContext.FindAll<User>(u => u.LoginName == user.LoginName && u.Workcell == user.Workcell);
                     if (existUser.Count > 0)
                     {
-                        throw new BusinessException("LoginName", "该部门下此登录名已存在！");
+                        throw new BusinessException("LoginName", "此登录名已存在于该部门，请重新输入");
                     }
                     else
                     {

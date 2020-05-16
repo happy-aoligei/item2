@@ -22,6 +22,7 @@ namespace GMS.ToolManage.Contract
         public int Recorder2ID { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Workcell { get; set; }
     }
 
     public class InManageRequest : Request
@@ -31,7 +32,7 @@ namespace GMS.ToolManage.Contract
         public string Name { get; set; }
         public string Proposer { get; set; }
         public string Checker { get; set; }
-
+        public int Workcell { get; set; }
         public InManageRequest(string RequestChecker)
         {
             Checker = RequestChecker;
@@ -77,6 +78,7 @@ namespace GMS.ToolManage.Contract
         public string Remark { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Workcell { get; set; }
     }
 
     public class RepairTableRequest : Request
@@ -92,5 +94,6 @@ namespace GMS.ToolManage.Contract
         public Nullable<int> SupervisorID { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Workcell { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using GMS.Framework.Contract;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace GMS.Account.Contract
 {
@@ -28,19 +29,20 @@ namespace GMS.Account.Contract
         /// <summary>
         /// 部门编号
         /// </summary>
-        [Required(ErrorMessage = "所属部门编号不能为空")]
-        public int Workcell { get; set; }
+        [Required(ErrorMessage = "部门编号不能为空")]
+        [RegularExpression(@"[1-9]{1}[0-9]{0,}", ErrorMessage = "部门编号无效")]
+        public int? Workcell { get; set; }
 
         /// <summary>
         /// 密码，使用MD5加密
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "密码不能为空")]
         public string Password { get; set; }
 
         /// <summary>
         /// 手机号
         /// </summary>
-        [RegularExpression(@"^[1-9]{1}\d{10}$", ErrorMessage = "不是有效的手机号码")]
+        [RegularExpression(@"^[1-9]{1}\d{10}$", ErrorMessage = "手机号码无效")]
         public string Mobile { get; set; }
 
         /// <summary>
@@ -60,8 +62,13 @@ namespace GMS.Account.Contract
         public List<int> RoleIds { get; set; }
 
         [NotMapped]
-        public string NewPassword { get; set; }
+        [StringLength(18, MinimumLength = 6, ErrorMessage = "密码长度应在6-18个字符之间")]
+        public string NewPassword_NoRequired { get; set; }
 
+        [NotMapped]
+        [Required(ErrorMessage = "密码不能为空")]
+        [StringLength(18, MinimumLength = 6, ErrorMessage = "密码长度应在6-18个字符之间")]    
+        public string NewPassword { get; set; }
         [NotMapped]
         public List<EnumBusinessPermission> BusinessPermissionList
         {

@@ -23,8 +23,10 @@ namespace GMS.ToolManage.Contract
     [Table("InTable")]
     public partial class InTable : ModelBase
     {
+        [Required(ErrorMessage ="夹具代码不能为空")]
         public string Code { get; set; }
-        public int SeqID { get; set; }
+        [Required(ErrorMessage = "夹具系列号不能为空")]
+        public Nullable<int> SeqID { get; set; }
         public int ProductID { get; set; }
         public int LineID { get; set; }
         public int ShiftTime { get; set; }
@@ -39,5 +41,6 @@ namespace GMS.ToolManage.Contract
         public Nullable<int> Recorder2ID { get; set; }
         public int ID { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Workcell { get; set; }
     }
 }

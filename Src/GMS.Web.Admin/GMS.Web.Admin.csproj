@@ -102,6 +102,7 @@
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AuthController.cs" />
     <Compile Include="Areas\Account\Controllers\CommonController.cs" />
+    <Compile Include="Areas\Account\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Account\Controllers\RoleController.cs" />
     <Compile Include="Areas\Account\Controllers\UserController.cs" />
     <Compile Include="Areas\Audit\Controllers\ScrapController.cs" />
@@ -122,7 +123,10 @@
     <Compile Include="Areas\OA\OAAreaRegistration.cs" />
     <Compile Include="Areas\ToolManage\Controllers\ApplyController.cs" />
     <Compile Include="Areas\ToolManage\Controllers\FullLifeController.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\InController.cs" />
     <Compile Include="Areas\ToolManage\Controllers\ManagerController.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\OutController.cs" />
+    <Compile Include="Areas\ToolManage\Controllers\RepairController.cs" />
     <Compile Include="Areas\ToolManage\ToolManageAreaRegistration.cs" />
     <Compile Include="Common\AdminCookieContext.cs" />
     <Compile Include="Common\AdminUserContext.cs" />
@@ -5743,12 +5747,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Account\Views\Web.config" />
-    <Content Include="Areas\Account\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\Account\Views\Auth\Login_old.cshtml" />
     <Content Include="Areas\Account\Views\Auth\Index.cshtml" />
     <Content Include="Areas\Account\Views\Auth\ModifyPwd.cshtml" />
     <Content Include="Areas\Account\Views\User\Index.cshtml" />
     <Content Include="Areas\Account\Views\User\Edit.cshtml" />
-    <Content Include="Areas\Account\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Account\Views\Role\Edit_old.cshtml" />
     <Content Include="Areas\Account\Views\Role\Index.cshtml" />
     <Content Include="Areas\Cms\Views\Web.config" />
     <Content Include="Areas\Cms\Views\Article\Edit.cshtml" />
@@ -5781,7 +5785,6 @@
     <Content Include="Areas\ToolManage\Views\Manager\Information_Create.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Information_Edit.cshtml" />
     <Content Include="Areas\ToolManage\Views\Manager\Out_Edit.cshtml" />
-    <Content Include="Areas\ToolManage\Views\Manager\Out_Create.cshtml" />
     <Content Include="Areas\Audit\Views\Warehouse\Index.cshtml" />
     <Content Include="Areas\Audit\Views\Web.config" />
     <Content Include="Areas\Audit\Views\Scrap\Index.cshtml" />
@@ -6300,6 +6303,17 @@
     <Content Include="Areas\ToolManage\Views\FullLife\Repair.cshtml" />
     <Content Include="Areas\ToolManage\Views\FullLife\Warehouse.cshtml" />
     <Content Include="Areas\ToolManage\Views\FullLife\Scrap.cshtml" />
+    <Content Include="Areas\Account\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\Account\Views\User\Create.cshtml" />
+    <Content Include="Areas\Account\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Account\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Account\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\In\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\In\Create.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Out\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Out\Create.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Repair\Index.cshtml" />
+    <Content Include="Areas\ToolManage\Views\Repair\Create.cshtml" />
     <None Include="Content\Uploadify\uploadify.fla" />
     <Content Include="FileUpload.ashx" />
     <None Include="packages.config" />

@@ -30,12 +30,8 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value");
             
             var model = new Role();
-            return View("Edit", model);
+            return View(model);
         }
-
-        //
-        // POST: /Account/Role/Create
-
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -44,7 +40,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
 
             this.AccountService.SaveRole(model);
 
-            return this.RefreshParent();
+            return this.RedirectToAction("Index");
         }
 
         //
@@ -71,7 +67,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             model.BusinessPermissionString = collection["BusinessPermissionList"];
             this.AccountService.SaveRole(model);
 
-            return this.RefreshParent();
+            return this.RedirectToAction("Index");
         }
 
         // POST: /Account/Role/Delete/5
@@ -79,7 +75,8 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         [HttpPost]
         public ActionResult Delete(List<int> ids)
         {
-            this.AccountService.DeleteRole(ids);
+            if (ids != null)
+                this.AccountService.DeleteUser(ids);
             return RedirectToAction("Index");
         }
     }

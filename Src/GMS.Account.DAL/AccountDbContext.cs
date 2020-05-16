@@ -19,10 +19,7 @@ namespace GMS.Account.DAL
         {
             Database.SetInitializer<AccountDbContext>(null);
 
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Roles)
-                .WithMany(e => e.Users)
-                .Map(m =>
+            modelBuilder.Entity<User>().HasMany(e => e.Roles).WithMany(e => e.Users).Map(m =>
                 {
                     m.ToTable("UserRole");
                     m.MapLeftKey("UserID");

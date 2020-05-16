@@ -11,6 +11,7 @@ namespace GMS.Account.Contract
         void ModifyPwd(User user);
 
         User GetUser(int id);
+        User GetUser(string LoginName,int Workcell);
         IEnumerable<User> GetUserList(UserRequest request = null);
         void SaveUser(User user);
         void DeleteUser(List<int> ids);

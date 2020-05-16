@@ -21,14 +21,12 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         }
         [HttpPost]
         [AuthorizeIgnore]
-        public ActionResult Login(string username, string password, string verifycode,int Workcell)
+        public ActionResult Login(string username, string password,int Workcell)
         {
-            if (!VerifyCodeHelper.CheckVerifyCode(verifycode, this.CookieContext.VerifyCodeGuid))
-            {
-                ModelState.AddModelError("error", "验证码错误");
-                return View();
-            }
             var loginInfo = this.AccountService.Login(username, password,Workcell);
+            ViewBag.Workcell = Workcell.ToString();
+            ViewBag.username = username;
+            ViewBag.password = password;
             if (loginInfo != null && loginInfo.Workcell == 0)
             {
                 ModelState.AddModelError("error", "部门选择错误");

@@ -3,105 +3,222 @@
 @using GMS.Framework.Web.Controls
 @using GMS.ToolManage.Contract
 
-@model PagedList<outstorage>
+@model PagedList<OutTable>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row-fluid">
-    <div class="span4">
-        <div>
-            <a class="btn blue thickbox" title='申请工夹具出库' href="@Url.Action("Out_Create")?TB_iframe=true&height=600&width=500"><i class="icon-plus icon-white"></i> 申请出库</a>
-            <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
+@section PageSpecificStyleSheetIncludes{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+}
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list"></i> 出库记录
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
         </div>
     </div>
-    <div class="span8">
-        @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
-        {
-            <div class="dataTables_filter">
-                <label>
-                    <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
-                </label>
-                <label>
-                    <span>夹具代码：</span>
-                    @Html.TextBox("Code", null, new { @class = "m-wrap small" })
-                    <span>夹具系列号:</span>
-                    @Html.TextBox("SeqID", null, new { @class = "m-wrap small" })
-                    <span>生产线编号：</span>
-                    @Html.TextBox("LineID", null, new { @class = "m-wrap small" })
-                </label>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid">
+            <thead>
+                <tr>
+                    <th style="width: 8px;">
+                        <input type="checkbox" id="checkall" class="group-checkable" />
+                    </th>
+                    <th>
+                        夹具代码
+                    </th>
+                    <th>
+                        夹具系列号
+                    </th>
+                    <th>
+                        出库库位
+                    </th>
+                    <th>
+                        去向
+                    </th>
+                    <th>
+                        生产线编号
+                    </th>
+                    <th>
+                        出库时间
+                    </th>
+                    <th>
+                        班次
+                    </th>
+                    <th>
+                        经手人
+                    </th>
+                    <th>
+                        记录人
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
+                        </td>
+                        <td>
+                            @m.Code
+                            @if (m.OutstorageDate.GetValueOrDefault().Date == DateTime.Now.Date)
+                            {
+                                <span class="badge badge-success badge-roundless">New</span>
+                            }
+                        </td>
+                        <td>
+                            @m.SeqID
+                        </td>
+                        <td>
+                            @m.Location-@m.Bin
+
+                        </td>
+                        <td>
+                            @m.GoWhere
+
+                        </td>
+                        <td>
+                            @m.ProductID-@m.LineID
+                        </td>
+                        <td>
+                            @m.OutstorageDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm:ss")
+                        </td>
+                        <td>
+                            @m.ShiftTime
+                        </td>
+                        <td>
+                            @m.HandlerID
+                        </td>
+                        <td>
+                            @m.RecorderID
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div class="dataTables_info" role="status" aria-live="polite">
+                    Total : @Model.TotalItemCount entries
+                </div>
             </div>
-        }
+            @if (Model.TotalPageCount > 1)
+            {
+                <div class="col-md-7 col-sm-12">
+                    <div class="dataTables_paginate paging_simple_numbers">
+                        <ul class="pagination">
+                            @if (Model.CurrentPageIndex == 1)
+                            {
+                                <li class="paginate_button previous disabled" aria-controls="sample_1" tabindex="0"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button previous" aria-controls="sample_1" tabindex="0" id="sample_1_previous"><a href="?pageIndex=@(Model.CurrentPageIndex-1)"><i class="fa fa-angle-left"></i></a></li>
+                            }
+                            @if (Model.TotalPageCount <= 5)
+                            {
+                                for (int i = 1; i <= Model.TotalPageCount; ++i)
+                                {
+                                    if (i == Model.CurrentPageIndex)
+                                    {
+                                        <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (Model.TotalPageCount - 5 >= Model.CurrentPageIndex)
+                                {
+                                    for (int i = Model.CurrentPageIndex; i < Model.CurrentPageIndex + 4; ++i)
+                                    {
+                                        if (i == Model.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                        }
+                                    }
+                                    <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0"><a href="">...</a></li>
+                                }
+                                else
+                                {
+                                    for (int i = Model.TotalPageCount - 4; i <= Model.TotalPageCount; ++i)
+                                    {
+                                        if (i == Model.CurrentPageIndex)
+                                        {
+                                            <li class="paginate_button active" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="paginate_button" aria-controls="sample_1" tabindex="0"><a href="?pageIndex=@i">@i</a></li>
+                                        }
+                                    }
+                                }
+                            }
+                            @if (Model.CurrentPageIndex == Model.TotalPageCount)
+                            {
+                                <li class="paginate_button disabled" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button" aria-controls="sample_1" tabindex="0" id="sample_1_next"><a href="?pageIndex=@(Model.CurrentPageIndex+1)"><i class="fa fa-angle-right"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 </div>
-
-@using (Html.BeginForm("Out_Delete", "Manager", FormMethod.Post, new { id = "mainForm" }))
-{
-    <table class="table table-striped table-hover ">
-        <thead>
-            <tr>
-                <th style="width: 8px;">
-                    <input type="checkbox" id="checkall" class="group-checkable" />
-                </th>
-                <th>
-                    夹具序列号
-                </th>
-                <th>
-                    出库时间
-                </th>
-                <th>
-                    出库库位
-                </th>
-                <th>
-                    夹具去向
-                </th>
-                <th>
-                    生产线编号
-                </th>
-                <th>
-                    经手人
-                </th>
-                <th>
-                    操作
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var m in Model)
-            {
-                <tr>
-                    <td>
-                        <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
-                    </td>
-                    <td>
-                        @m.Code-@m.SeqID
-                    </td>
-                    <td>
-                        @m.OutstorageDate.ToString("yyyy-MM-dd HH:mm:ss")
-                    </td>
-                    <td>
-                        @m.Location-@m.Bin
-                    </td>
-                    <td>
-                        @m.GoWhere
-                    </td>
-                    <td>
-                        @m.LineID
-                    </td>
-                    <td>
-                        @m.HandlerID
-                    </td>
-                    <td>
-                        <a class="btn mini purple thickbox" title='编辑项目内容' href="@Url.Action("Out_Edit", new { id = m.ID })?TB_iframe=true&height=600&width=500">
-                            <i class="icon-edit"></i>
-                            编辑
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-<div class="dataTables_paginate paging_bootstrap pagination">
-    @Html.Pager(Model, new PagerOptions() { ShowTotalItemCount = true })
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>出库申请
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="Out_Create" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">夹具代码</label>
+                    <div class="col-md-4">
+                        <input type="text" name="Code" class="form-control input-circle" placeholder="Enter CodeID">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">夹具系列号</label>
+                    <div class="col-md-4">
+                        <input type="text" name="SeqID" class="form-control input-circle" placeholder="Enter SeqID">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-circle blue">申请</button>
+                        <a href="Out" type="button" class="btn btn-circle default">取消</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-

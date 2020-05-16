@@ -88,6 +88,10 @@
       <Project>{c4f809f9-bd47-465a-b2e3-c9e30b24c220}</Project>
       <Name>GMS.ToolManage.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GMS.Web\GMS.Web.csproj">
+      <Project>{e905ffe6-a1d5-48b2-81b7-8e8d4bc5f895}</Project>
+      <Name>GMS.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

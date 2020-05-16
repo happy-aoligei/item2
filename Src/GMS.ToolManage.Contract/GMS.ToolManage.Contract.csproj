@@ -73,6 +73,8 @@
     </Compile>
     <Compile Include="Model\FullLife.cs" />
     <Compile Include="Model\InTable.cs" />
+    <Compile Include="Model\OutTable.cs" />
+    <Compile Include="Model\RepairTable.cs" />
     <Compile Include="Model\Requests.cs" />
     <Compile Include="Model\tongs_entity.cs" />
     <Compile Include="operator.cs">
@@ -84,13 +86,7 @@
     <Compile Include="operator2.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="OutTable.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
     <Compile Include="production_line.cs">
-      <DependentUpon>GMSToolManageTables.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RepairTable.cs">
       <DependentUpon>GMSToolManageTables.tt</DependentUpon>
     </Compile>
     <Compile Include="send_emails.cs">

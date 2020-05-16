@@ -81,13 +81,7 @@ $("#checkall").click(function () {
     $.uniform.update(':checkbox');
 });
 
-$("#delete").click(function () {
-    var message = "你确定要删除勾选的记录吗?";
-    if ($(this).attr("message"))
-        message = $(this).attr("message") + "，" + message;
-    if (confirm(message))
-        $("#mainForm").submit();
+$("#deletebutton").click(function () {
+    $("#DeleteForm").submit();
 });
-
-
 

@@ -8,6 +8,8 @@ namespace GMS.Account.Contract
     {
         public string LoginName { get; set; }
         public string Mobile { get; set; }
+        public int Workcell { get; set; }
+        public string Email { get; set; }
     }
 
     public class RoleRequest : Request

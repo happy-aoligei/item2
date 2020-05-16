@@ -1,0 +1,107 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Utility
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+
+@model User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+}
+<style>
+    span.help-block{
+        margin-left:14px;
+        color:red;
+    }
+</style>
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i> 添加用户
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="Create" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">登录名</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.LoginName, new { @class = "form-control input-circle", placeholder = "Enter LoginName" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.LoginName)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">密码</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.NewPassword, new { @class = "form-control input-circle", placeholder = "Enter Password" ,onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"})
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.NewPassword)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">部门编号</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Workcell, new { @class = "form-control input-circle", placeholder = "Enter Workcell" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.Workcell)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">邮箱</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-circle", placeholder = "Enter Email" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.Email)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">手机</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control input-circle", placeholder = "Enter Mobile Number" })
+                        <span class="help-block">@Html.ValidationMessageFor(m => m.Mobile)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">激活</label>
+                    <div class="col-md-4" style="padding-top:8px;">
+                        @Html.CheckBoxFor(m => m.IsActive)
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">角色</label>
+                    <div class="col-md-4" style="padding-top:8px;">
+                        @Html.CheckBoxList("RoleIds")
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-circle blue">添加</button>
+                        <a href="Index" type="button" class="btn btn-circle default">取消</a>
+                        <span class="col-md-offset-1 font-red">@Html.ValidationMessage("error")</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $("#top_title").text("添加用户");
+        $("#top_title_small").text("添加新的用户");
+        $("#menu_group").text("用户管理");
+        $("#menu").text("添加用户");
+    </script>
+}
